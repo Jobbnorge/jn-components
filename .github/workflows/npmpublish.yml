@@ -7,17 +7,17 @@ jobs:
         runs-on: ubuntu-18.04
         steps:
             - name: Checkout
-                uses: actions/checkout@v1
+              uses: actions/checkout@v1
             - name: Setup Node.js
-                uses: actions/setup-node@v1
-                with:
-                node-version: 12
+              uses: actions/setup-node@v1
+              with:
+              node-version: 12
             - name: Install dependencies
-                run: npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}" && npm ci
+              run: npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}" && npm ci
             - name: Run tests
-                run: npm test
+              run: npm test
             - name: Release
-                env:
+              env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-                run: npm run semantic-release        
+                NPM_TOKEN: ${{ secrets.GPR_PAT }}
+              run: npm run semantic-release        
