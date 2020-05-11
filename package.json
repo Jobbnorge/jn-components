@@ -2,6 +2,7 @@
   "name": "@jobbnorge/jn-components",
   "version": "0.1.8",
   "private": false,
+  "homepage": "/jn-components/",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
