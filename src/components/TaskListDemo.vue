@@ -12,7 +12,7 @@ export default {
   },
   methods: {
       toggle() {
-          alert("toggle")
+          alert("Halloi")
       }
   },
 
