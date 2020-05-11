@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import JnDropDownBtn from "./../ui_components/JnDropDownBtn"
+import JnDropDownBtn from "./../ui_components/buttons/JnDropDownBtn"
 import { dropdownOptions } from "./../mock_data/dropdown-options.js"
 
 export default {

@@ -1,24 +1,14 @@
 <template>
-<div class="wrapper">
-  <JnCard
-      title="Oppgaver"
-    >
-    <template #content>
-        <JnTaskList :tasks="tasks" :toggle="toggle" />
-    </template>
-  </JnCard>
-</div>
+  <JnTaskList :tasks="tasks" :toggle="toggle" />
 </template>
 
 <script>
-import JnTaskList from "./../ui_components/JnTaskList";
-import JnCard from "./../ui_components/JnCard";
+import JnTaskList from "./../ui_components/lists/JnTaskList";
 
 export default {
   name: "TaskListDemo",
   components: {
-    JnTaskList,
-    JnCard
+    JnTaskList
   },
   methods: {
       toggle() {
@@ -59,9 +49,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
- .wrapper {
-     grid-template-columns: 1fr;
- }
-</style>

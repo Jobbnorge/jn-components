@@ -13,7 +13,7 @@
 </template>
 
 <script>
-    import JnCardHorizontal from "./../ui_components/JnCardHorizontal"
+    import JnCardHorizontal from "./../ui_components/cards/JnCardHorizontal"
 
 export default {
     name: "HorizontalCards",

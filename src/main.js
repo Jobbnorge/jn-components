@@ -29,6 +29,7 @@ import LocaleDemo from './components/LocaleDemo.vue'
 import JnCardCtn from './components/JnCardCtn.vue'
 import DemoList from './components/DemoList.vue'
 import ButtonDemo from './components/ButtonDemo.vue'
+import JnCardMiniCtn from './components/JnCardMiniCtn'
 import TaskListDemo from './components/TaskListDemo.vue'
 
 window.$ = $;
@@ -46,6 +47,7 @@ const router = new VueRouter({
     { path: '/card-container', component: JnCardCtn },
     { path: '/lists', component: DemoList },
     { path: '/buttons', component: ButtonDemo },
+    { path: '/mini-card', component: JnCardMiniCtn },
     { path: '/tasklist', component: TaskListDemo }
   ]
 });

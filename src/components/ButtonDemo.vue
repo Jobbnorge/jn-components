@@ -3,7 +3,7 @@
 </template>
 
 <script>
-    import JnTextButton from "./../ui_components/JnTextButton" 
+    import JnTextButton from "./../ui_components/buttons/JnTextButton" 
 
 export default {
     name: "ButtonDemo",

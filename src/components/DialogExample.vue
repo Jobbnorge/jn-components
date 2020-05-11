@@ -6,7 +6,7 @@
 </template>
 
 <script>
-    import { jnDialog } from "./../../jn_modules/jn-dialog/jn-dialog"
+    import { jnDialog } from './../ui_components/jn-dialog/jn-dialog'
 
     export default {
         name: "DialogExample", 

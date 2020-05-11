@@ -10,6 +10,7 @@
           <router-link to="/locale" tag="li">Locale</router-link>
           <router-link to="/lists" tag="li">Lists</router-link>
           <router-link to="/buttons" tag="li">Buttons</router-link>
+          <router-link to="/mini-card" tag="li">Mini card</router-link>
           <router-link to="/tasklist" tag="li">TaskList</router-link>
         </ul>
       </nav>
@@ -19,13 +20,14 @@
       <h1 class="mb20">Jobbnorge Vue-bibliotek</h1>
       <router-view></router-view>
     </div>
+    <hr />
   </div>
 </template>
 
 <script>
 
 export default {
-  name: "App", 
+  name: "App"
 }
 </script>
 

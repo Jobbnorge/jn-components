@@ -7,6 +7,9 @@
         subtitle="Kortet viser ikke tittel fordi den ikke tilfredstiller kriteriene"
         :contentPlaceholder="cardOpt.contentPlaceholder"
       >
+        <template #description>
+          <p>I'm a description text coming from a different context. Ain't that cool or what?</p>
+        </template>
         <template #button>
           <button class="btn btn-primary" type="button" @click="anotherHandler">I'm from bootstrap</button>
         </template>
@@ -28,19 +31,24 @@
             <div style="height:100px; border:1px solid grey"></div>
           </div>
         </template>
+        <template #button>
+          <JnTextButton>Handling</JnTextButton>
+        </template>
       </JnCard>
     </div>
   </div>
 </template>
 
 <script>
-import JnCard from "./../ui_components/JnCard"
+import JnCard from "./../ui_components/cards/JnCard"
 import ContentPlaceholder from "./../ui_components/models/ContentPlaceholder"
+import JnTextButton from "./../ui_components/buttons/JnTextButton"
 
 export default {
   name: "JnCardCtn",
   components: {
-    JnCard
+    JnCard,
+    JnTextButton
   },
   data: function() {
     return {

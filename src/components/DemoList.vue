@@ -32,7 +32,9 @@
       >
       </JnList>
     </template>
-
+    <template #button>
+      <JnTextButton>Alle annonser</JnTextButton>
+    </template>
     </JnCard>
     <JnCard
       title="Dokumenter"
@@ -60,19 +62,24 @@
       >
       </JnList>
     </template>
+    <template #button>
+      <JnTextButton>Gå til dokumenter</JnTextButton>
+    </template>
     </JnCard>
   </div>
 </template>
 
 <script>
-import JnList from "./../ui_components/JnList";
-import JnCard from "./../ui_components/JnCard"; 
+import JnList from "./../ui_components/lists/JnList";
+import JnCard from "./../ui_components/cards/JnCard"; 
+import JnTextButton from './../ui_components/buttons/JnTextButton';
 
 export default {
     name: "demoList",
     components:{
         JnList,
-        JnCard
+        JnCard,
+        JnTextButton
     }
 }
 </script>
