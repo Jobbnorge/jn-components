@@ -19,8 +19,7 @@ jobs:
       - run: npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}" && npm ci  
       - run: npm test
         
-      - name: Release
-        env:
+      - env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.GPR_PAT }}
           run: npm run semantic-release          
