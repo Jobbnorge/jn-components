@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-      - run: npm ci
+      - run: npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}" && npm ci
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.PACKAGE_TOKEN}}
