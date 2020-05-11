@@ -19,16 +19,8 @@ jobs:
       - run: npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}" && npm ci  
       - run: npm test
         
-  publish-gpr:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/
-      - run: npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}" && npm ci
-      - run: npm config set '//npm.pkg.github.com/:_authToken' "${{ secrets.GPR_PAT }}" && npm publish
+      - name: Release
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GPR_PAT}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GPR_PAT }}
+          run: npm run semantic-release          
