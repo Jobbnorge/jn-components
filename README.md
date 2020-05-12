@@ -22,3 +22,10 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Git commit codewords for building npm-package
+```
+fix: (patch)
+feat: (minor)
+perf: (major)
+```
