@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="jn-card-mini-ctn-wrapper">
-      <JnCardMini figure="5" info="Lorem ipsum dolor" />
-      <JnCardMini figure="5" info="Lorem ipsum dolor" />
+      <JnCardMini figure.number="5" info="Lorem ipsum dolor" />
+      <JnCardMini figure.number="5" info="Lorem ipsum dolor" />
       <JnCardMini info="Lorem ipsum dolor">
         <template #chart>
           <JnPieChart :figures="pieData" height="80%" />

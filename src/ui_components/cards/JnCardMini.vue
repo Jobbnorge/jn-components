@@ -10,7 +10,7 @@
 export default {
     name: 'JnCardMini',
     props: {
-        figure: String,
+        figure: Number,
         info: String
     }
 }
