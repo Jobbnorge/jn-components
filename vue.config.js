@@ -1,4 +1,5 @@
 module.exports = {
+    publicPath: '/jn-components/',
     chainWebpack: config => {
         config.module
             .rule("i18n")

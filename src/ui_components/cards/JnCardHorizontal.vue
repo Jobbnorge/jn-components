@@ -60,8 +60,7 @@ export default {
 .jn-card-hor {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  width: 314px;
-  height: 103px;
+  height: 100%;
 }
 
 .frame {
