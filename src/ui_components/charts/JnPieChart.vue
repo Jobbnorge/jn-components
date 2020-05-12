@@ -32,6 +32,9 @@ export default {
       if (Object.keys(this.figures).length <= 0)
         return;
 
+      var svgEl = this.$el;
+      svgEl.childNodes.forEach(c => svgEl.removeChild(c));
+
       var width = $(this.$el).width();
       var height = $(this.$el).height();
 
