@@ -12,6 +12,7 @@
           <router-link to="/buttons" tag="li">Buttons</router-link>
           <router-link to="/mini-card" tag="li">Mini card</router-link>
           <router-link to="/tasklist" tag="li">TaskList</router-link>
+          <router-link to="/board" tag="li">Board</router-link>
         </ul>
       </nav>
 

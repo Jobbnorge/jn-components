@@ -10,14 +10,19 @@ import VueI18n from 'vue-i18n'
 
 //Font-awesome stuff 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
 import { 
   faUserSecret, 
   faUserPlus, 
   faComments, 
   faExternalLink, 
   faChevronRight, 
-  faFileAlt 
+  faFileAlt
 } from '@fortawesome/pro-light-svg-icons';
+
+import { 
+  faBullseye
+} from '@fortawesome/pro-solid-svg-icons';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 
@@ -31,6 +36,7 @@ import DemoList from './components/DemoList.vue'
 import ButtonDemo from './components/ButtonDemo.vue'
 import JnCardMiniCtn from './components/JnCardMiniCtn'
 import TaskListDemo from './components/TaskListDemo.vue'
+import BoardExample from './components/BoardExample.vue'
 
 window.$ = $;
 window.Vue = Vue;
@@ -48,7 +54,8 @@ const router = new VueRouter({
     { path: '/lists', component: DemoList },
     { path: '/buttons', component: ButtonDemo },
     { path: '/mini-card', component: JnCardMiniCtn },
-    { path: '/tasklist', component: TaskListDemo }
+    { path: '/tasklist', component: TaskListDemo },
+    { path: '/board', component: BoardExample }
   ]
 });
 
@@ -56,7 +63,7 @@ const router = new VueRouter({
 Vue.use(VueI18n)
 
 library.add(
-  
+  faBullseye,
   faUserSecret, 
   faUserPlus, 
   faComments, 
