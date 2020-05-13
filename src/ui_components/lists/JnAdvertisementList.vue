@@ -40,6 +40,9 @@ ul {
   list-style: none;
   padding: 0;
 }
+ul li a {
+  cursor: pointer; 
+}
 
 .ad {
   display: flex;
