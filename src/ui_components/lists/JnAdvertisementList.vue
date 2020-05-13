@@ -7,7 +7,7 @@
           <div class="ad-status">{{advertisement.status}}</div>
           <div class="ad-name">{{advertisement.name}}</div>
         </div>
-        <a @click="navigate(advertisement.url)">
+        <a @click="navigate(advertisement.url)" style="cursor:pointer">
           <fa-icon :icon="['fal', 'external-link' ]" />
         </a>
       </div>
@@ -32,6 +32,7 @@ export default {
   border-bottom: 1px solid black;
   padding: 0.5em;
   height: 100%;
+  gap: 0 0.8em;
 }
 .advertisement-grid > * {
   align-self: center;
