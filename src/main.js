@@ -16,7 +16,7 @@ import {
   faComments, 
   faExternalLink, 
   faChevronRight, 
-  faFileAlt 
+  faFileAlt  
 } from '@fortawesome/pro-light-svg-icons';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -31,6 +31,7 @@ import DemoList from './components/DemoList.vue'
 import ButtonDemo from './components/ButtonDemo.vue'
 import JnCardMiniCtn from './components/JnCardMiniCtn'
 import TaskListDemo from './components/TaskListDemo.vue'
+import AdvertisementListDemo from './components/AdvertisementListDemo.vue'
 
 window.$ = $;
 window.Vue = Vue;
@@ -48,7 +49,8 @@ const router = new VueRouter({
     { path: '/lists', component: DemoList },
     { path: '/buttons', component: ButtonDemo },
     { path: '/mini-card', component: JnCardMiniCtn },
-    { path: '/tasklist', component: TaskListDemo }
+    { path: '/tasklist', component: TaskListDemo },
+    { path: '/advertisementlist', component: AdvertisementListDemo }
   ]
 });
 
@@ -56,7 +58,6 @@ const router = new VueRouter({
 Vue.use(VueI18n)
 
 library.add(
-  
   faUserSecret, 
   faUserPlus, 
   faComments, 
