@@ -21,8 +21,9 @@
       <JnPieChart :figures="pieData2" />
       <JnPieChart :figures="pieData2" :donutHoleSize="0.45" />
     </div>
-    <div style="height:50px">
-      <JnPieChart :figures="pieData2" :donutHoleSize="0" />
+    <div style="height:300px">
+      <JnPieChart :figures="fluff" />
+      <button type="button" @click="shuffle" class="btn btn-secondary">suffle</button>
     </div>
   </div>
 </template>
@@ -50,8 +51,24 @@ export default {
       pieData2: {
         Aktuell: 1,
         Ansatt: 5
-      }
+      },
+      fluff: {}
     };
+  },
+  mounted() {
+    var vm = this;
+    setTimeout(() => {
+      vm.fluff = { hei: 1, hoo: 0, boo: 0 };
+    }, 3000);
+  },
+  methods: {
+    shuffle() {
+      this.fluff = {
+        hei: 3,
+        hoo: 2,
+        boo: 1
+      };
+    }
   }
 };
 </script>

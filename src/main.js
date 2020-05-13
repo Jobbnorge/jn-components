@@ -17,7 +17,11 @@ import {
   faComments, 
   faExternalLink, 
   faChevronRight, 
+<<<<<<< HEAD
   faFileAlt
+=======
+  faFileAlt  
+>>>>>>> 89c291fcaaa6254b35a7ebaeb5ff440749efc82a
 } from '@fortawesome/pro-light-svg-icons';
 
 import { 
@@ -36,7 +40,11 @@ import DemoList from './components/DemoList.vue'
 import ButtonDemo from './components/ButtonDemo.vue'
 import JnCardMiniCtn from './components/JnCardMiniCtn'
 import TaskListDemo from './components/TaskListDemo.vue'
+<<<<<<< HEAD
 import BoardExample from './components/BoardExample.vue'
+=======
+import AdvertisementListDemo from './components/AdvertisementListDemo.vue'
+>>>>>>> 89c291fcaaa6254b35a7ebaeb5ff440749efc82a
 
 window.$ = $;
 window.Vue = Vue;
@@ -55,7 +63,11 @@ const router = new VueRouter({
     { path: '/buttons', component: ButtonDemo },
     { path: '/mini-card', component: JnCardMiniCtn },
     { path: '/tasklist', component: TaskListDemo },
+<<<<<<< HEAD
     { path: '/board', component: BoardExample }
+=======
+    { path: '/advertisementlist', component: AdvertisementListDemo }
+>>>>>>> 89c291fcaaa6254b35a7ebaeb5ff440749efc82a
   ]
 });
 
@@ -63,7 +75,10 @@ const router = new VueRouter({
 Vue.use(VueI18n)
 
 library.add(
+<<<<<<< HEAD
   faBullseye,
+=======
+>>>>>>> 89c291fcaaa6254b35a7ebaeb5ff440749efc82a
   faUserSecret, 
   faUserPlus, 
   faComments, 
