@@ -17,11 +17,7 @@ import {
   faComments, 
   faExternalLink, 
   faChevronRight, 
-<<<<<<< HEAD
-  faFileAlt
-=======
   faFileAlt  
->>>>>>> 89c291fcaaa6254b35a7ebaeb5ff440749efc82a
 } from '@fortawesome/pro-light-svg-icons';
 
 import { 

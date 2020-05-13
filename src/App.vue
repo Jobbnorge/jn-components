@@ -12,11 +12,8 @@
           <router-link to="/buttons" tag="li">Buttons</router-link>
           <router-link to="/mini-card" tag="li">Mini card</router-link>
           <router-link to="/tasklist" tag="li">TaskList</router-link>
-<<<<<<< HEAD
           <router-link to="/board" tag="li">Board</router-link>
-=======
           <router-link to="/advertisementlist" tag="li">AdvertisementList</router-link>
->>>>>>> 89c291fcaaa6254b35a7ebaeb5ff440749efc82a
         </ul>
       </nav>
 
