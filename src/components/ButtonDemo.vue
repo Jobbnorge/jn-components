@@ -1,5 +1,5 @@
 <template>
-    <JnTextButton>My text</JnTextButton>
+    <JnTextButton url="http://nrk.no" id="someIdToDoStuff">My text</JnTextButton>
 </template>
 
 <script>
