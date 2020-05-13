@@ -15,6 +15,17 @@ export default {
       validator: function(val) {
         return val >= 0 && val <= 1;
       }
+    },
+    strokeWidth: {
+      type: Number,
+      default: 2
+    },
+    strokeColor: {
+      type: String,
+      default: "#FFFFFF",
+      validator: function(val) {
+        return val.match(/^#[0-9A-F]{6}$/).length > 0;
+      }
     }
   },
   methods: {
@@ -29,8 +40,7 @@ export default {
       groupElements[1].textContent = "";
     },
     renderChart() {
-      if (Object.keys(this.figures).length <= 0)
-        return;
+      if (Object.keys(this.figures).length <= 0) return;
 
       var svgEl = this.$el;
       svgEl.childNodes.forEach(c => svgEl.removeChild(c));
@@ -75,9 +85,14 @@ export default {
         .attr("fill", function(d) {
           return color(d.data.key);
         })
-        .attr("d", arc)
-        .attr("stroke", "white")
-        .style("stroke-width", "1px");
+        .attr("d", arc);
+
+      if (this.strokeWidth > 0) {
+        svg
+          .selectAll("path")
+          .attr("stroke", this.strokeColor)
+          .style("stroke-width", `${this.strokeWidth}px`);
+      }
 
       let donutDiameter = parseInt(2 * radius * this.donutHoleSize);
 
