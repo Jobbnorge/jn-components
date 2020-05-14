@@ -37,7 +37,6 @@ import ButtonDemo from './components/ButtonDemo.vue'
 import JnCardMiniCtn from './components/JnCardMiniCtn'
 import TaskListDemo from './components/TaskListDemo.vue'
 import BoardExample from './components/BoardExample.vue'
-import AdvertisementListDemo from './components/AdvertisementListDemo.vue'
 
 window.$ = $;
 window.Vue = Vue;
@@ -56,8 +55,7 @@ const router = new VueRouter({
     { path: '/buttons', component: ButtonDemo },
     { path: '/mini-card', component: JnCardMiniCtn },
     { path: '/tasklist', component: TaskListDemo },
-    { path: '/board', component: BoardExample },
-    { path: '/advertisementlist', component: AdvertisementListDemo }
+    { path: '/board', component: BoardExample }
   ]
 });
 
