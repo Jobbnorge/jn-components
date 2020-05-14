@@ -16,8 +16,11 @@ import {
   faComments, 
   faExternalLink, 
   faChevronRight, 
-  faFileAlt 
+  faFileAlt
 } from '@fortawesome/pro-light-svg-icons';
+import {
+  faSquare
+} from '@fortawesome/free-regular-svg-icons';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 
@@ -56,13 +59,13 @@ const router = new VueRouter({
 Vue.use(VueI18n)
 
 library.add(
-  
   faUserSecret, 
   faUserPlus, 
   faComments, 
   faExternalLink, 
   faChevronRight, 
-  faFileAlt)
+  faFileAlt,
+  faSquare)
 
 Vue.component('fa-icon', FontAwesomeIcon)
 

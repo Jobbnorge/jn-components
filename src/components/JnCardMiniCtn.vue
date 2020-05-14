@@ -1,16 +1,24 @@
 <template>
   <div>
     <div class="jn-card-mini-ctn-wrapper">
-      <JnCardMini :figure="5" info="Lorem ipsum dolor" />
-      <JnCardMini :figure="5" info="Lorem ipsum dolor" />
-      <JnCardMini info="Lorem ipsum dolor">
+      <JnCardMini :figure="5" />
+      <JnCardMini :figure="5" info="Lorem ipsum dolorLorem ipsumLorem ipsum" />
+      <JnCardMini info="hello">
         <template #chart>
-          <JnPieChart :figures="pieData" height="80%" />
+          <div>
+            <div>
+              <JnPieChart :figures="pieData" />
+              <JnLegend :figures="pieData" align="vertical" />
+            </div>
+          </div>
         </template>
       </JnCardMini>
-      <JnCardMini info="Lorem">
+      <JnCardMini info="Lorem ipsum">
         <template #chart>
-          <JnPieChart :figures="pieData2" height="80%" :donutHoleSize="0.3" />
+          <div>
+            <JnPieChart :figures="pieData2" height="80%" :donutHoleSize="0.3" />
+            <JnLegend :figures="pieData2" />
+          </div>
         </template>
       </JnCardMini>
     </div>
@@ -22,8 +30,12 @@
       <JnPieChart :figures="pieData2" :donutHoleSize="0" strokeColor="#DDDDDD" :strokeWidth="0" />
     </div>
     <div style="height:300px">
-      <JnPieChart :figures="fluff" />
+      <JnPieChart :figures="fluff" height="80%" />
       <button type="button" @click="shuffle" class="btn btn-secondary">suffle</button>
+    </div>
+    <div>
+      <JnPieChart :figures="pieData2" />
+      <JnLegend :figures="pieData2" />
     </div>
   </div>
 </template>
@@ -31,16 +43,18 @@
 <script>
 import JnCardMini from "../ui_components/cards/JnCardMini";
 import JnPieChart from "../ui_components/charts/JnPieChart";
+import JnLegend from "../ui_components/charts/JnLegend";
 export default {
   name: "JnCardMiniCtn",
   components: {
     JnCardMini,
-    JnPieChart
+    JnPieChart,
+    JnLegend
   },
   data: function() {
     return {
       pieData: {
-        Aktuell: 1,
+        Aktuell: 5,
         Ansatt: 5,
         Intervju: 4,
         "Min status": 1,
