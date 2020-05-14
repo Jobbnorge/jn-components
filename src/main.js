@@ -35,7 +35,7 @@ import HorizontalCards from './components/HorizontalCards.vue'
 import DialogExample from './components/DialogExample.vue'
 import LocaleDemo from './components/LocaleDemo.vue'
 import JnCardCtn from './components/JnCardCtn.vue'
-import DemoList from './components/DemoList.vue'
+import ListElementDemo from './components/ListElementDemo.vue'
 import ButtonDemo from './components/ButtonDemo.vue'
 import JnCardMiniCtn from './components/JnCardMiniCtn'
 import TaskListDemo from './components/TaskListDemo.vue'
@@ -56,7 +56,7 @@ const router = new VueRouter({
     { path: '/dialog', component: DialogExample },
     { path: '/locale', component: LocaleDemo },
     { path: '/card-container', component: JnCardCtn },
-    { path: '/lists', component: DemoList },
+    { path: '/lists', component: ListElementDemo },
     { path: '/buttons', component: ButtonDemo },
     { path: '/mini-card', component: JnCardMiniCtn },
     { path: '/tasklist', component: TaskListDemo },
