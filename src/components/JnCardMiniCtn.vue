@@ -30,7 +30,10 @@
       <JnPieChart :figures="pieData2" :donutHoleSize="0" strokeColor="#DDDDDD" :strokeWidth="0" />
     </div>
     <div style="height:300px">
-      <JnPieChart :figures="fluff" height="80%" />
+      <div>
+        <JnPieChart :figures="fluff" height="80%" />
+        <JnLegend :figures="fluff" align="horizontal" />
+      </div>
       <button type="button" @click="shuffle" class="btn btn-secondary">suffle</button>
     </div>
     <div>
@@ -72,7 +75,7 @@ export default {
   mounted() {
     var vm = this;
     setTimeout(() => {
-      vm.fluff = { hei: 1, hoo: 0, boo: 0 };
+      vm.fluff = { hei: 1, hoo: 0, boo: 4 };
     }, 3000);
   },
   methods: {

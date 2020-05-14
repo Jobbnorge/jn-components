@@ -1,14 +1,14 @@
 <template>
   <ul v-if="align === 'vertical'">
-    <li v-for="item in Object.keys(figures)" :key="item">
-      <fa-icon :icon="['far', 'square']" :style="{color: color(item)}" />
-      <span class="ml-1">{{item}}</span>
+    <li v-for="(value, key) in figures" :key="key">
+      <fa-icon :icon="['far', 'square']" :style="{color: color(value)}" />
+      <span class="ml-1">{{key}}: {{value}}</span>
     </li>
   </ul>
   <div v-else class="inline-view">
-    <div class="mr-3" v-for="item in Object.keys(figures)" :key="item">
-      <fa-icon :icon="['far', 'square']" :style="{color: color(item)}" />
-      <span class="ml-2">{{item}}</span>
+    <div class="mr-3" v-for="(value, key) in figures" :key="key">
+      <fa-icon :icon="['far', 'square']" :style="{color: color(value)}" />
+      <span class="ml-2">{{key}}: {{value}}</span>
     </div>
   </div>
 </template>
@@ -29,19 +29,32 @@ export default {
   },
   data: function() {
     return {
-      color: function(){}
+      color: function() {},
+      hexColors: []
     };
   },
-  mounted() {
-    var hexColors =
-      Object.keys(this.figures).length > 2
-        ? ["#127DAC", "#1D764F", "#D41472", "#44303C", "#7AD296"]
-        : ["#1D754F", "#D3F5DF"];
+  methods: {
+    renderLegend: function() {
+      if (Object.keys(this.figures).length <= 0) return;
 
-    this.color = d3
-      .scaleOrdinal()
-      .domain(this.figures)
-      .range(hexColors);
+      this.hexColors =
+        Object.keys(this.figures).length > 2
+          ? ["#127DAC", "#1D764F", "#D41472", "#44303C", "#7AD296"]
+          : ["#1D754F", "#D3F5DF"];
+
+      this.color = d3
+        .scaleOrdinal()
+        .domain(this.figures)
+        .range(this.hexColors);
+    }
+  },
+  mounted() {
+    this.renderLegend();
+  },
+  watch: {
+    figures: function() {
+      this.renderLegend();
+    }
   }
 };
 </script>
@@ -54,7 +67,7 @@ ul {
   text-align: center;
 }
 div.inline-view {
-    text-align: center;
+  text-align: center;
 }
 div.inline-view > div {
   display: inline;
