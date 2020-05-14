@@ -19,6 +19,9 @@ import {
   faChevronRight, 
   faFileAlt  
 } from '@fortawesome/pro-light-svg-icons';
+import {
+  faSquare
+} from '@fortawesome/free-regular-svg-icons';
 
 import { 
   faBullseye
@@ -44,6 +47,7 @@ window.Vue = Vue;
 Vue.use(VueRouter);
 
 const router = new VueRouter({
+  base: '/jn-components',
   mode: 'history',
   routes: [
     { path: '/dropdown', component: DashboardTopMenu },
@@ -69,7 +73,8 @@ library.add(
   faComments, 
   faExternalLink, 
   faChevronRight, 
-  faFileAlt)
+  faFileAlt,
+  faSquare)
 
 Vue.component('fa-icon', FontAwesomeIcon)
 

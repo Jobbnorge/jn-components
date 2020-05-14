@@ -36,7 +36,7 @@ export default {
 .wrapper {
   display: grid;
 }
-.wrapper > button {
+.wrapper > a {
   justify-self: end;
   align-self: end;
 }

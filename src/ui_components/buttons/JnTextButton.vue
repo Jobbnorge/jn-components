@@ -1,5 +1,5 @@
 <template>
-    <a class="button shrink" role="button" :href="url" :id="id">
+    <a class="button" role="button" :href="url" :id="id">
         <slot></slot>
         <fa-icon :icon="['fal', 'chevron-right']" />
     </a>
