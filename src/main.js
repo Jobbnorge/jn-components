@@ -45,6 +45,7 @@ window.Vue = Vue;
 Vue.use(VueRouter);
 
 const router = new VueRouter({
+  base: '/jn-components',
   mode: 'history',
   routes: [
     { path: '/dropdown', component: DashboardTopMenu },
