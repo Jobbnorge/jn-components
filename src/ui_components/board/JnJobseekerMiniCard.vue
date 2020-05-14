@@ -5,7 +5,7 @@
         <p class="title">{{ title }}, {{ age }}</p>
     </div>  
     <div style="vertical-align:top">
-        <div class="points"> <i class="icon"><fa-icon :icon="['fas', 'bullseye']" size="md"/></i> {{points}} poeng </div>    
+        <div class="points"> <i class="icon"><fa-icon :icon="['fas', 'bullseye']" size="sm"/></i> {{points}} poeng </div>    
     </div>
   </div>
   
