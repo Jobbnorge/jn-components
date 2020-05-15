@@ -1,13 +1,13 @@
 <template>
   <ul v-if="align === 'vertical'">
     <li v-for="(value, key) in figures" :key="key">
-      <fa-icon :icon="['far', 'square']" :style="{color: color(value)}" />
+      <fa-icon :icon="['far', 'square']" :style="{color: color(key)}" />
       <span class="ml-1">{{key}}: {{value}}</span>
     </li>
   </ul>
   <div v-else class="inline-view">
     <div class="mr-3" v-for="(value, key) in figures" :key="key">
-      <fa-icon :icon="['far', 'square']" :style="{color: color(value)}" />
+      <fa-icon :icon="['far', 'square']" :style="{color: color(key)}" />
       <span class="ml-2">{{key}}: {{value}}</span>
     </div>
   </div>
