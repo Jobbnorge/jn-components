@@ -4,76 +4,50 @@
       title="Annonse"
     >
       <template #content>
-        <ul>
+        <ul class="no-padding-ul">
       <JnListElement
-        isExternal= true
-        title="Jobbnorge.no"
-        secondaryText="Publisert - 10 dager igjen"
-        icon="file-alt"
-        url="https://jobbnorge.no"
-        borderBetweenElements= true
-        navigable= true
+      v-for="item in list1"
+      :key="item.id"
+        icon= "file-alt"
+        :title= item.title
+        :secondaryText= item.secondaryText
+        :isExternal= item.isExternal
+        :url= item.url
+        :borderBetweenElements= item.borderBetweenElements
+        :navigable= item.navigable
       >
-      </JnListElement> </ul>
+      </JnListElement> 
+      </ul> 
       </template>
-      <!-- <JnListElement
-        isExternal= true
-        title="Jobbnorge.no"
-        secondaryText="Utgått - 2 dager siden"
-        icon="file-alt"
-        url="https://jobbnorge.no"
-        borderBetweenElements= true
-        navigable= true
-      >
-      </JnListElement>
-      <JnListElement
-        isExternal= true
-        title="Jobbnorge.no"
-        secondaryText="Publisert - 10 dager igjen"
-        icon="file-alt"
-        url="https://jobbnorge.no"
-        borderBetweenElements= true
-        navigable= true
-      >
-      </JnListElement>
+      <template #button>
+      <JnTextButton>Gå til annonser</JnTextButton>
     </template>
-    <template #button>
-      <JnTextButton>Alle annonser</JnTextButton> -->
-    <!-- </template>
-    </JnCard>
-    <JnCard
+  </JnCard>
+  <JnCard
       title="Dokumenter"
     >
       <template #content>
+        <ul class="no-padding-ul">
       <JnListElement
-        isExternal= false
-        title="Innstillingsdokument (standard)"
-        icon="user-secret"
-        url="https://jobbnorge.no"
-        navigable= true
+      v-for="item in list2"
+      :key="item.id"
+        icon= "user-secret"
+        :title= item.title
+        :secondaryText= item.secondaryText
+        :isExternal= item.isExternal
+        :url= item.url
+        :borderBetweenElements= item.borderBetweenElements
+        :navigable= item.navigable
       >
-      </JnListElement>
-      <JnListElement
-        isExternal= false
-        title="Tilbudsbrev"
-        icon="user-secret"
-        url="https://jobbnorge.no"
-        navigable= true
-      >
-      </JnListElement>
-      <JnListElement
-        isExternal= false
-        title="Avslagsbrev"
-        icon="user-secret"
-        url="https://jobbnorge.no"
-        navigable= true
-      >
-      </JnListElement>
-    </template> -->
-    <template #button>
+      </JnListElement> 
+      </ul> 
+      </template>
+      <template #button>
       <JnTextButton>Gå til dokumenter</JnTextButton>
     </template>
-    </JnCard>
+  </JnCard>
+  
+   
   </div>
 </template>
 
@@ -88,6 +62,66 @@ export default {
         JnListElement,
         JnCard,
         JnTextButton
+    },
+    data() {
+        return {
+          list1: [
+            {
+              id:1,
+              isExternal: true,
+              title:"Jobbnorge.no",
+              secondaryText:"Publisert - 10 dager igjen",
+              url:"https://jobbnorge.no",
+              borderBetweenElements: true,
+              navigable: true
+            },
+            {
+              id:2,
+              isExternal: true,
+              title:"Jobbnorge.no",
+              secondaryText:"Utgått - 2 dager siden",
+              url:"https://jobbnorge.no",
+              borderBetweenElements: true,
+              navigable: true
+            },
+            {
+              id:3,
+              isExternal: true,
+              title:"Jobbnorge.no",
+              secondaryText:"Publisert - 5 dager igjen",
+              url:"https://jobbnorge.no",
+              borderBetweenElements: true,
+              navigable: true
+            }
+          ],
+        
+        list2: [
+          {
+            id:1,
+              isExternal: false,
+              title:"Innstillingsdokument (standard)",
+              url:"https://jobbnorge.no",
+              borderBetweenElements: false,
+              navigable: true
+          },
+          {
+            id:2,
+              isExternal: false,
+              title:"Avslagsbrev",
+              url:"https://jobbnorge.no",
+              borderBetweenElements: false,
+              navigable: true
+          },
+          {
+            id:3,
+              isExternal: false,
+              title:"Tilbudsbrev",
+              url:"https://jobbnorge.no",
+              borderBetweenElements: false,
+              navigable: true
+          },
+        ]
+        }
     }
 }
 </script>
@@ -96,5 +130,8 @@ export default {
     display: grid; 
     grid-template-columns: 1fr 1fr 1fr;  
     gap: 1rem; 
+  }
+  .no-padding-ul{
+    padding: 0;
   }
 </style>

@@ -1,4 +1,5 @@
 <template>
+    <!-- <li -->
     <li
         class="grid-wrapper"
         v-bind:class="{ borderBetween: borderBetweenElements, grow: navigable }"
@@ -14,6 +15,7 @@
             <i v-else class="center"><fa-icon :icon="['fal', 'chevron-right']" class="icon" size="lg"/></i>
         </div>
     </li>
+    <!-- </li> -->
 </template>
 
 <script>
@@ -27,8 +29,7 @@ export default {
         isExternal: Boolean,
         url: String,
         borderBetweenElements: Boolean,
-        navigable: Boolean,
-        listData: Array
+        navigable: Boolean
     },
     methods: {
         navigate(){
