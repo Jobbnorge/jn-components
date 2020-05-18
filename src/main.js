@@ -17,7 +17,9 @@ import {
   faComments, 
   faExternalLink, 
   faChevronRight, 
-  faFileAlt  
+  faFileAlt,
+  faSortNumericUp,
+  faSortNumericDownAlt
 } from '@fortawesome/pro-light-svg-icons';
 import {
   faSquare
@@ -74,7 +76,10 @@ library.add(
   faExternalLink, 
   faChevronRight, 
   faFileAlt,
-  faSquare)
+  faSquare,
+  faSortNumericUp,
+  faSortNumericDownAlt
+)
 
 Vue.component('fa-icon', FontAwesomeIcon)
 
