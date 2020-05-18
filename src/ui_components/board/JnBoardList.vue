@@ -34,6 +34,7 @@ export default {
 
 .head {
   font-size: .9em;
+  font-weight: 600;
   letter-spacing: 1px;
   padding: 1em;
   text-align: center;

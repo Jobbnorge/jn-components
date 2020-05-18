@@ -1,11 +1,11 @@
 <template>
   <div class="grid-wrapper">
     <div>
-        <p class="secondary-text">{{ name }}</p>
+        <p class="name">{{ name }}</p>
         <p class="title">{{ title }}, {{ age }}</p>
     </div>  
-    <div style="vertical-align:top">
-        <div class="points"> <i class="icon"><fa-icon :icon="['fas', 'bullseye']" size="sm"/></i> {{points}} poeng </div>    
+    <div>
+        <div class="points"> <i class="icon"><fa-icon :icon="['fas', 'bullseye']" size="sm"/></i> {{points}} poeng </div>   
     </div>
   </div>
   
@@ -28,8 +28,9 @@ export default {
 .points {
   text-align: right;
   font-size: .725rem;
-  vertical-align: top;
+  color: #1D764F;
 }
+  
 
 .grid-wrapper {
   background-color: #fff;
@@ -44,35 +45,12 @@ export default {
 
 .title {
   margin-bottom: 0.5rem;
+  color: #72616C;
 }
-.secondary-text {
-  color: #127dac;
+.name {
+  color: #44303c;
   font-size: 0.75rem;
+  font-weight: 600;
   margin: 0.5rem 0 0.25rem 0;
-}
-.extended {
-  border-bottom: 1px solid rgba(68, 48, 60, 0.3);
-}
-.grow {
-  transition: all 0.2s ease-in;
-}
-.grow:hover {
-  transform: scale(1.03);
-}
-a:link {
-  color: #44303c;
-  text-decoration: none;
-}
-a:visited {
-  color: #44303c;
-}
-a:hover {
-  color: #44303c;
-}
-a:active {
-  color: #44303c;
-}
-.center {
-  justify-self: center;
 }
 </style>

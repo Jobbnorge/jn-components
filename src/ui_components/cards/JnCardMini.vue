@@ -2,7 +2,7 @@
   <div class="jn-card-mini-wrapper">
     <slot name="chart" />
     <div v-if="figure" class="jn-card-mini-content jn-card-mini-figure">{{figure}}</div>
-    <div class="jn-card-mini-content jn-card-mini-info">{{info}}</div>
+    <div v-if="info" class="jn-card-mini-content jn-card-mini-info">{{info}}</div>
   </div>
 </template>
 
@@ -20,9 +20,11 @@ export default {
 .jn-card-mini-wrapper {
   background-color: #e8f5fa;
   padding: 1em 0;
+  display: grid; 
+  align-content: center;
 }
 .jn-card-mini-content {
-  text-align: center;
+  justify-self: center;
 }
 .jn-card-mini-figure {
   font-size: 4em;
