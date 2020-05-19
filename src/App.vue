@@ -12,7 +12,7 @@
           <router-link to="/mini-card" tag="li">Mini card</router-link>
           <router-link to="/tasklist" tag="li">TaskList</router-link>
           <router-link to="/board" tag="li">Board</router-link>
-          <router-link to="/rating" tag="li">Rangering</router-link>
+          <router-link to="/assessment" tag="li">Vurdering</router-link>
         </ul>
       </nav>
 

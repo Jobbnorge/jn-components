@@ -6,13 +6,22 @@
       v-bind:name="board.name"
       v-bind:items="board.items"
     />
-    <JnBinaryDecision text="Kvalifisert?" :decision="decision" @change="makeDecision" />
+    <JnBinaryDecision text="Kvalifisert?" :decision="decision" @change="makeDecision" />=======
+    <JnBoardList
+      :orderby="orderby"
+      :direction="direction"
+      v-for="board in boards"
+      v-bind:key="board.name"
+      v-bind:name="board.name"
+      v-bind:items="board.items"
+    />
   </div>
 </template>
 
 <script>
 import JnBoardList from "./JnBoardList";
 import JnBinaryDecision from "./JnBinaryDecision";
+import { ORDER_DIRECTION } from "./JnBoardList";
 
 export default {
   name: "JnBoard",
@@ -22,7 +31,9 @@ export default {
   },
   data: function() {
     return {
-      decision: null
+      decision: null,
+      orderby: undefined,
+      direction: ORDER_DIRECTION.ASCENDING
     };
   },
   props: {

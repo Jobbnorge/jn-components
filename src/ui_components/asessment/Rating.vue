@@ -38,12 +38,18 @@
         },
         methods: {
             showCurrentRating: function(rating) {
-                this.currentRating = (rating === 0) ? this.currentSelectedRating : "Gi kandidaten " + rating + " stjerner";
+                this.currentRating = (rating === 0) ? this.currentSelectedRating : "Gi kandidaten: " + rating ;
             },
             setCurrentSelectedRating: function(rating) {
-                this.currentSelectedRating = "Du har gitt: " + rating + " stjerner";
                 this.rating = rating; 
-                
+
+                if (this.rating > 1) {
+                    this.currentSelectedRating = "Din rangering: " + rating + " stjerner";
+                }
+                else {
+                    this.currentSelectedRating = "Din rangering: " + rating + " stjerne"; 
+                }
+                    
             },
             resetCurrentSelectedRating: function() {
                 this.currentRating = "Ingen rangering";

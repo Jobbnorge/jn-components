@@ -44,7 +44,7 @@ import ButtonDemo from './components/ButtonDemo.vue'
 import JnCardMiniCtn from './components/JnCardMiniCtn'
 import TaskListDemo from './components/TaskListDemo.vue'
 import BoardExample from './components/BoardExample.vue'
-import Rating from './ui_components/asessment/Rating.vue'
+import AsessmentExample from './components/AsessmentExample.vue'
 
 window.$ = $;
 window.Vue = Vue;
@@ -64,7 +64,7 @@ const router = new VueRouter({
     { path: '/mini-card', component: JnCardMiniCtn },
     { path: '/tasklist', component: TaskListDemo },
     { path: '/board', component: BoardExample },
-    { path: '/rating', component: Rating }
+    { path: '/assessment', component: AsessmentExample }
   ]
 });
 
