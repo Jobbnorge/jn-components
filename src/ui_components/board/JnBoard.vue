@@ -1,13 +1,6 @@
 <template>
   <div class="board">
     <JnBoardList
-      v-for="board in boards"
-      v-bind:key="board.name"
-      v-bind:name="board.name"
-      v-bind:items="board.items"
-    />
-    <JnBinaryDecision text="Kvalifisert?" :decision="decision" @change="makeDecision" />=======
-    <JnBoardList
       :orderby="orderby"
       :direction="direction"
       v-for="board in boards"
@@ -15,6 +8,7 @@
       v-bind:name="board.name"
       v-bind:items="board.items"
     />
+    <JnBinaryDecision text="Kvalifisert?" :decision="decision" @change="makeDecision" />
   </div>
 </template>
 

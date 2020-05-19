@@ -44,11 +44,10 @@ export default {
   props: {
     text: {
         type: String,
-        required
+        required: true
     },
     decision: {
-        type: Number,
-        required
+        type: Number
     }
   }
 };

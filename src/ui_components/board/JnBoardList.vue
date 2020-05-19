@@ -1,11 +1,7 @@
 <template>
   <div class="boardlist">
     <div class="head">{{ name }}</div>
-    <JnJobseekerMiniCard
-      v-for="item in orderedItems"
-      v-bind:key="item.key"
-      v-bind="item"
-    />
+    <JnJobseekerMiniCard v-for="item in orderedItems" v-bind:key="item.key" v-bind="item" />
   </div>
 </template>
 
@@ -13,21 +9,26 @@
 import JnJobseekerMiniCard from "./JnJobseekerMiniCard";
 import _ from "lodash";
 
+export const ORDER_DIRECTION = {
+  ASCENDING: 1,
+  DESCENDING: 2
+};
+
 export default {
   name: "JnBoardList",
   components: {
-    JnJobseekerMiniCard,
+    JnJobseekerMiniCard
   },
   props: {
     name: String,
     items: Array,
     orderby: String,
-    direction: String
+    direction: Number
   },
   computed: {
-    orderedItems: function () {
+    orderedItems: function() {
       var vm = this;
-      return _.orderBy(vm.items, vm.orderby, vm.direction ); 
+      return _.orderBy(vm.items, vm.orderby, vm.direction);
     }
   }
 };
