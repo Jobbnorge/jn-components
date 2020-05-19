@@ -2,7 +2,7 @@
   <div class="boardlist">
     <div class="head">{{ name }}</div>
     <JnJobseekerMiniCard
-      v-for="item in items"
+      v-for="item in orderedItems"
       v-bind:key="item.key"
       v-bind="item"
     />
@@ -11,11 +11,7 @@
 
 <script>
 import JnJobseekerMiniCard from "./JnJobseekerMiniCard";
-
-export const ORDER_DIRECTION = {
-  ASCENDING: 1,
-  DESCENDING: 2
-}
+import _ from "lodash";
 
 export default {
   name: "JnBoardList",
@@ -26,24 +22,14 @@ export default {
     name: String,
     items: Array,
     orderby: String,
-    direction: ORDER_DIRECTION
+    direction: String
   },
-  watch: {
-    orderby: function () {
-      this.orderby && this.direction && this.sort();
-    },
-    direction: function () {
-      this.orderby && this.direction && this.sort();
-    }
-  },
-  methods: {
-    sort: function () {
+  computed: {
+    orderedItems: function () {
       var vm = this;
-      return vm.items.sort(
-        (a, b) => a[vm.orderby].localeCompare(b[vm.orderby]) * vm.direction
-      );
-    },
-  },
+      return _.orderBy(vm.items, vm.orderby, vm.direction ); 
+    }
+  }
 };
 </script>
 
