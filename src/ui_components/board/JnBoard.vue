@@ -1,12 +1,13 @@
 <template>
   <div class="board">
-    <JnBoardList v-for="board in boards" v-bind:key="board.name" v-bind:name="board.name" v-bind:items="board.items"/>
+    <JnBoardList :orderby="orderby" :direction="direction" v-for="board in boards" v-bind:key="board.name" v-bind:name="board.name" v-bind:items="board.items"/>
   </div>
 </template>
 
 <script>
 
 import JnBoardList from "./JnBoardList";
+import { ORDER_DIRECTION } from "./JnBoardList";
 
 export default {
   name: "JnBoard",
@@ -14,8 +15,14 @@ export default {
     JnBoardList,
   },
   props: {
-    boards: Array,
+    boards: Array
   },
+  data: function() {
+    return {
+      orderby: undefined,
+      direction: ORDER_DIRECTION.ASCENDING
+    }        
+  }
 };
 </script>
 
