@@ -14,8 +14,8 @@ jobs:
                 node-version: 12
             - name: Install dependencies
               run: npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}" && npm ci
-            - name: Run tests
-              run: npm test
+            - name: Run build
+              run: npm run build
             - name: Release
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
