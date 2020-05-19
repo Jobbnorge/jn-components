@@ -5,7 +5,6 @@
         <ul>
           <router-link to="/card-container" tag="li">Card container</router-link>
           <router-link to="/horizontal" tag="li">Horizontal cards</router-link>
-          <router-link to="/dropdown" tag="li">Dropdown knapp</router-link>
           <router-link to="/dialog" tag="li">Dialogboks</router-link>
           <router-link to="/locale" tag="li">Locale</router-link>
           <router-link to="/lists" tag="li">Lists</router-link>
@@ -13,6 +12,7 @@
           <router-link to="/mini-card" tag="li">Mini card</router-link>
           <router-link to="/tasklist" tag="li">TaskList</router-link>
           <router-link to="/board" tag="li">Board</router-link>
+          <router-link to="/rating" tag="li">Rangering</router-link>
         </ul>
       </nav>
 

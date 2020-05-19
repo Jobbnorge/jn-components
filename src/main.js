@@ -19,7 +19,8 @@ import {
   faChevronRight, 
   faFileAlt,
   faSortNumericUp,
-  faSortNumericDownAlt
+  faSortNumericDownAlt,
+  faEraser
 } from '@fortawesome/pro-light-svg-icons';
 import {
   faSquare
@@ -32,7 +33,6 @@ import {
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 //Importing Vue components used in routing
-import DashboardTopMenu from './components/DashboardTopMenu.vue'
 import HorizontalCards from './components/HorizontalCards.vue'
 import DialogExample from './components/DialogExample.vue'
 import LocaleDemo from './components/LocaleDemo.vue'
@@ -42,6 +42,7 @@ import ButtonDemo from './components/ButtonDemo.vue'
 import JnCardMiniCtn from './components/JnCardMiniCtn'
 import TaskListDemo from './components/TaskListDemo.vue'
 import BoardExample from './components/BoardExample.vue'
+import Rating from './ui_components/asessment/Rating.vue'
 
 window.$ = $;
 window.Vue = Vue;
@@ -52,7 +53,6 @@ const router = new VueRouter({
   base: '/jn-components',
   mode: 'history',
   routes: [
-    { path: '/dropdown', component: DashboardTopMenu },
     { path: '/horizontal', component: HorizontalCards },
     { path: '/dialog', component: DialogExample },
     { path: '/locale', component: LocaleDemo },
@@ -61,7 +61,8 @@ const router = new VueRouter({
     { path: '/buttons', component: ButtonDemo },
     { path: '/mini-card', component: JnCardMiniCtn },
     { path: '/tasklist', component: TaskListDemo },
-    { path: '/board', component: BoardExample }
+    { path: '/board', component: BoardExample },
+    { path: '/rating', component: Rating }
   ]
 });
 
@@ -78,7 +79,8 @@ library.add(
   faFileAlt,
   faSquare,
   faSortNumericUp,
-  faSortNumericDownAlt
+  faSortNumericDownAlt,
+  faEraser
 )
 
 Vue.component('fa-icon', FontAwesomeIcon)
