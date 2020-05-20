@@ -1,5 +1,6 @@
 <template>
   <div class="grid-wrapper">
+    <Avatar :firstName="firstName" :lastName="lastName"/>
     <div>
         <p class="name">{{ firstName }} {{lastName}}</p>
         <p class="title">{{ title }}, {{ age }}</p>
@@ -13,8 +14,13 @@
 
 <script>
 
+import Avatar from "../misc/Avatar";
+
 export default {
   name: "JnJobseekerMiniCard",
+  components: {
+    Avatar
+  },
   props: {
     firstName: String,
     lastName: String,
@@ -40,7 +46,7 @@ export default {
   border-radius: 3px;
   padding: .5em;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
   align-items: baseline;
   color: #44303c; 
 }
