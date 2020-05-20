@@ -20,7 +20,9 @@ import {
   faFileAlt,
   faSortNumericUp,
   faSortNumericDownAlt,
-  faEraser
+  faEraser,
+  faCalendarAlt,
+  faClock
 } from '@fortawesome/pro-light-svg-icons';
 import {
   faSquare
@@ -43,7 +45,7 @@ import ButtonDemo from './components/ButtonDemo.vue'
 import JnCardMiniCtn from './components/JnCardMiniCtn'
 import TaskListDemo from './components/TaskListDemo.vue'
 import BoardExample from './components/BoardExample.vue'
-import AsessmentExample from './components/AsessmentExample.vue'
+import AssessmentExample from './components/AssessmentExample.vue'
 
 window.$ = $;
 window.Vue = Vue;
@@ -63,7 +65,7 @@ const router = new VueRouter({
     { path: '/mini-card', component: JnCardMiniCtn },
     { path: '/tasklist', component: TaskListDemo },
     { path: '/board', component: BoardExample },
-    { path: '/assessment', component: AsessmentExample }
+    { path: '/assessment', component: AssessmentExample }
   ]
 });
 
@@ -82,7 +84,9 @@ library.add(
   faSortNumericUp,
   faSortNumericDownAlt,
   faEraser,
-  faThumbsUp
+  faThumbsUp,
+  faCalendarAlt,
+  faClock
 )
 
 Vue.component('fa-icon', FontAwesomeIcon)
