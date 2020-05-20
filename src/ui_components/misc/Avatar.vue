@@ -22,8 +22,8 @@ export default {
         line-height: 3em;
         margin: auto;  
         border-radius: 50%;  
-        background: #E8F5FA;
-        color: #0E6489;
+        background: #FFEEF6;
+        color: #D41472;
         text-align: center;
     }
 </style>
