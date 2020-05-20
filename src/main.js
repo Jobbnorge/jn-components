@@ -88,7 +88,7 @@ library.add(
   faThumbsUp,
   faCalendarAlt,
   faClock,
-  faThumbsDown,
+  faThumbsDown
 )
 
 Vue.component('fa-icon', FontAwesomeIcon)
