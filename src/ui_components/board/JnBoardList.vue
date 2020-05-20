@@ -2,6 +2,7 @@
   <div class="boardlist">
     <div class="head">{{ name }}</div>
     <JnJobseekerMiniCard v-for="item in orderedItems" v-bind:key="item.key" v-bind="item" />
+    <slot name="button" />
   </div>
 </template>
 
