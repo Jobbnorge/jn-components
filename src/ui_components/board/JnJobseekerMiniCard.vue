@@ -1,7 +1,7 @@
 <template>
   <div class="grid-wrapper">
     <div>
-        <p class="name">{{ name }}</p>
+        <p class="name">{{ firstName }} {{lastName}}</p>
         <p class="title">{{ title }}, {{ age }}</p>
     </div>  
     <div>
@@ -16,7 +16,8 @@
 export default {
   name: "JnJobseekerMiniCard",
   props: {
-    name: String,
+    firstName: String,
+    lastName: String,
     title: String,
     points: Number,
     age: Number

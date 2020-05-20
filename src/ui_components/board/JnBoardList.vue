@@ -7,12 +7,8 @@
 
 <script>
 import JnJobseekerMiniCard from "./JnJobseekerMiniCard";
-import _ from "lodash";
 
-export const ORDER_DIRECTION = {
-  ASCENDING: 1,
-  DESCENDING: 2
-};
+import _ from "lodash";
 
 export default {
   name: "JnBoardList",
@@ -23,7 +19,7 @@ export default {
     name: String,
     items: Array,
     orderby: String,
-    direction: Number
+    direction: String
   },
   computed: {
     orderedItems: function() {

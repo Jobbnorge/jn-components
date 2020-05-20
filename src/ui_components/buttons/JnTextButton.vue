@@ -1,7 +1,8 @@
 <template>
     <a class="button" role="button" :href="url" :id="id">
         <slot></slot>
-        <fa-icon :icon="['fal', 'chevron-right']" />
+        <fa-icon v-if="icon" :icon="['fal', icon]" />
+        <fa-icon v-else :icon="['fal', 'chevron-right']" />
     </a>
 </template>
 
@@ -10,7 +11,8 @@ export default {
     name: "TextButton", 
     props: {
         url: String,
-        id: String
+        id: String,
+        icon: String
     }   
 }
 </script>

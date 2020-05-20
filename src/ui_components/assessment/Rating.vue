@@ -6,7 +6,7 @@
                 @current-rating="showCurrentRating" 
                 @rating-selected="setCurrentSelectedRating" 
                 :increment="0.5"
-                :star-size="30"
+                :star-size="size"
                 active-color = "#D41472" 
              />
              <p>{{rating}}({{avgRating}})</p>
@@ -26,6 +26,9 @@
         name: "rating",
         components: {
             StarRating
+        },
+        props: {
+            size: Number 
         },
         data() {
             return {
