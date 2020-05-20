@@ -50,7 +50,7 @@ export default {
               lastName: "Granlund",
               title: "Butikkmedarbeider",
               points: 850,
-              age: 27,
+              age: 28,
             },
           ],
         },
