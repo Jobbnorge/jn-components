@@ -8,7 +8,14 @@
       v-bind:name="board.name"
       v-bind:items="board.items"
     />
-    <JnBinaryDecision text="Kvalifisert?" :decision="decision" @change="makeDecision" />
+    <div v-for="fluff in fluffs" :key="fluff.id">
+      <JnBinaryDecision
+        text="Kvalifisert?"
+        :decision="fluff.decision"
+        @change="makeDecision($event, fluff.id)"
+        :id="fluff.id"
+      />
+    </div>
   </div>
 </template>
 
@@ -25,7 +32,24 @@ export default {
   },
   data: function() {
     return {
-      decision: null,
+      fluffs: [
+        {
+          id: 1,
+          decision: null
+        },
+        {
+          id: 12,
+          decision: null
+        },
+        {
+          id: 123,
+          decision: null
+        },
+        {
+          id: 1234,
+          decision: null
+        }
+      ],
       orderby: undefined,
       direction: ORDER_DIRECTION.ASCENDING
     };
@@ -34,8 +58,8 @@ export default {
     boards: Array
   },
   methods: {
-    makeDecision({ srcElement: { value } }) {
-      this.decision = Number(value);
+    makeDecision({ srcElement: { value } }, fluffId) {
+      this.fluffs.find(f => f.id == fluffId).decision = Number(value);
     }
   }
 };
