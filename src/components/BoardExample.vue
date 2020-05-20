@@ -20,13 +20,15 @@ export default {
           name: "Til vurdering",
           items: [
             {
-              name: "Per-Oskar Helgesen",
+              firstName: "Per-Oskar",
+              lastName: "Helgesen",
               title: "Rådgiver",
               points: 967,
               age: 32,
             },
             {
-              name: "Gunnvor H. Mohaug",
+              firstName: "Gunnvor H.",
+              lastName: "Mohaug",
               title: "Arbeidsledig",
               points: 1003,
               age: 31,
@@ -37,13 +39,15 @@ export default {
           name: "Intervju",
           items: [
             {
-              name: "Nils Carl Fredrik Berg Johansson",
+              firstName: "Nils Carl Fredrik Berg",
+              lastName: "Johansson",
               title: "Selger",
               points: 990,
               age: 27,
             },
             {
-              name: "June Larsen Granlund",
+              firstName: "June Larsen",
+              lastName: "Granlund",
               title: "Butikkmedarbeider",
               points: 850,
               age: 27,
