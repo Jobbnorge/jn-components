@@ -30,7 +30,8 @@ import {
 
 import { 
   faBullseye,
-  faThumbsUp
+  faThumbsUp,
+  faThumbsDown
 } from '@fortawesome/pro-solid-svg-icons';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -86,7 +87,8 @@ library.add(
   faEraser,
   faThumbsUp,
   faCalendarAlt,
-  faClock
+  faClock,
+  faThumbsDown,
 )
 
 Vue.component('fa-icon', FontAwesomeIcon)

@@ -1,22 +1,19 @@
 <template>
   <div class="boardlist">
     <div class="head">{{ name }}</div>
-    <JnJobseekerMiniCard
-      v-for="item in orderedItems"
-      v-bind:key="item.key"
-      v-bind="item"
-    />
+    <JnJobseekerMiniCard v-for="item in orderedItems" v-bind:key="item.key" v-bind="item" />
   </div>
 </template>
 
 <script>
 import JnJobseekerMiniCard from "./JnJobseekerMiniCard";
+
 import _ from "lodash";
 
 export default {
   name: "JnBoardList",
   components: {
-    JnJobseekerMiniCard,
+    JnJobseekerMiniCard
   },
   props: {
     name: String,
@@ -25,9 +22,9 @@ export default {
     direction: String
   },
   computed: {
-    orderedItems: function () {
+    orderedItems: function() {
       var vm = this;
-      return _.orderBy(vm.items, vm.orderby, vm.direction ); 
+      return _.orderBy(vm.items, vm.orderby, vm.direction);
     }
   }
 };
