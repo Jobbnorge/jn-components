@@ -22,7 +22,9 @@ import {
   faSortNumericDownAlt,
   faEraser,
   faCalendarAlt,
-  faClock
+  faClock,
+  faChevronUp,
+  faChevronDown
 } from '@fortawesome/pro-light-svg-icons';
 import {
   faSquare
@@ -88,7 +90,9 @@ library.add(
   faThumbsUp,
   faCalendarAlt,
   faClock,
-  faThumbsDown
+  faThumbsDown,
+  faChevronUp,
+  faChevronDown
 )
 
 Vue.component('fa-icon', FontAwesomeIcon)
