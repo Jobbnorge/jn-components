@@ -1,6 +1,6 @@
 <template>
   <div class="grid-wrapper">
-    <Avatar :firstName="firstName" :lastName="lastName" color="pink" :id="id"/>
+    <Avatar :firstName="firstName" :lastName="lastName" :id="id"/>
     <div>
         <p class="name">{{ firstName }} {{lastName}}</p>
         <p class="title">{{ title }}, {{ age }}</p>
