@@ -27,8 +27,7 @@ export default {
     title: String,
     points: Number,
     id: Number,
-    age: Number,
-    idx: Number
+    age: Number
   }
 };
 </script>
@@ -48,7 +47,7 @@ export default {
   border-radius: 3px;
   padding: .5em;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: auto 2fr 1fr;
   align-items: baseline;
   color: #44303c; 
 }
