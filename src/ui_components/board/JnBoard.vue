@@ -1,8 +1,6 @@
 <template>
   <div class="board">
     <JnBoardList
-      :orderby="orderby"
-      :direction="direction"
       v-for="board in boards"
       v-bind:key="board.name"
       v-bind:name="board.name"
@@ -22,7 +20,6 @@
 <script>
 import JnBoardList from "./JnBoardList";
 import JnBinaryDecision from "./JnBinaryDecision";
-import { ORDER_DIRECTION } from "./JnBoardList";
 
 export default {
   name: "JnBoard",
@@ -49,9 +46,7 @@ export default {
           id: 1234,
           decision: null
         }
-      ],
-      orderby: undefined,
-      direction: ORDER_DIRECTION.ASCENDING
+      ]
     };
   },
   props: {

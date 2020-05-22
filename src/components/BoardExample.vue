@@ -25,6 +25,7 @@ export default {
               title: "Rådgiver",
               points: 967,
               age: 32,
+              id: 1
             },
             {
               firstName: "Gunnvor H.",
@@ -32,6 +33,7 @@ export default {
               title: "Arbeidsledig",
               points: 1003,
               age: 31,
+              id: 2
             },
           ],
         },
@@ -39,11 +41,12 @@ export default {
           name: "Intervju",
           items: [
             {
-              firstName: "Nils Carl Fredrik Berg",
-              lastName: "Johansson",
+              firstName: "Nils Carl Fredrik",
+              lastName: "Berg-Johansson",
               title: "Selger",
               points: 990,
               age: 27,
+              id: 3
             },
             {
               firstName: "June Larsen",
@@ -51,6 +54,7 @@ export default {
               title: "Butikkmedarbeider",
               points: 850,
               age: 28,
+              id: 4
             },
           ],
         },

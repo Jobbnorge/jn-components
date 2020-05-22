@@ -1,6 +1,6 @@
 <template>
   <div class="grid-wrapper">
-    <Avatar :firstName="firstName" :lastName="lastName"/>
+    <Avatar :firstName="firstName" :lastName="lastName" color="pink" :id="id"/>
     <div>
         <p class="name">{{ firstName }} {{lastName}}</p>
         <p class="title">{{ title }}, {{ age }}</p>
@@ -26,7 +26,9 @@ export default {
     lastName: String,
     title: String,
     points: Number,
-    age: Number
+    id: Number,
+    age: Number,
+    idx: Number
   }
 };
 </script>
