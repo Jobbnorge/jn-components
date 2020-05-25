@@ -4,11 +4,10 @@
             <fa-icon :icon="['fal', 'chevron-up']" size="4x" />
         </button>
         <button class="text-xxl btn pad darken-hover animate" type="button" @click="openModal">{{showNumber}}</button>
-        <button class="btn pad darken-hover animate" type="button" @click="decrement" >
+        <button class="btn pad darken-hover animate" type="button" @click="decrement">
             <fa-icon :icon="['fal', 'chevron-down']" size="4x" />
         </button>
         <p v-if="this.counter == this.max || this.counter == this.min">{{message}}</p>
-        
     </div>
 </template>
 
@@ -39,6 +38,7 @@
         },
         methods: {
             increment() {
+                console.log(this.startAt); 
                 if(this.counter < this.max) {
                     this.counter += this.incrementBy; 
                 }
@@ -52,6 +52,10 @@
                 }
                 this.showNumber = this.counter
             },
+            openModal() {
+                console.log("modal open")
+            }
+
         }
     }
 </script>

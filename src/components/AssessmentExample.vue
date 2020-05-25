@@ -3,9 +3,9 @@
         <Rating :size="20" /> 
         
         <div class="container">
-            <JnPickDateTime :action="tellTime" colorTheme="green" />
+            <JnPickDateTime :action="tellTime" colorTheme="" />
         </div>
-        <JnCounter :startAt="10" :max="20" :min="1" message="Du har nådd enden på lista"/>
+        <JnCounter :startAt="20" :max="20" :min="1" message="Du har nådd enden på lista"/>
     </div>
     
 </template>
