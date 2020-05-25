@@ -7,45 +7,51 @@
         <button class="btn pad darken-hover animate" type="button" @click="decrement" >
             <fa-icon :icon="['fal', 'chevron-down']" size="4x" />
         </button>
-        <p v-if="this.counter == this.max || this.counter == this.min">{{message}}</p> 
+        <p v-if="this.counter == this.max || this.counter == this.min">{{message}}</p>
+        
     </div>
 </template>
+
 <script>
+
     export default {
+        name: "JnCounter",
         props: {
             startAt: Number,
             max: Number,
             min: Number,
+            step: Number, 
             message: String
         },
         data() {
             return {
                 counter: 0,
-                showNumber: "-"
+                showNumber: "-",
+                incrementBy: 1 
             }
         },
         created() {
             this.counter = this.startAt; 
+            
+            if(this.step) {
+                this.incrementBy = this.step 
+            }
         },
         methods: {
             increment() {
                 if(this.counter < this.max) {
-                    this.counter += 1; 
+                    this.counter += this.incrementBy; 
                 }
-        
+         
                 this.showNumber = this.counter 
 
             },
             decrement() {  
                 if(this.counter > this.min) {
-                    this.counter -=1; 
+                    this.counter -= this.incrementBy; 
                 }
                 this.showNumber = this.counter
             },
-            openModal() {
-                alert("Her kommer det noe gøy senere")
-            }
-
         }
     }
 </script>

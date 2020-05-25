@@ -10,25 +10,27 @@
       data-backdrop="static"
       data-keyboard="false"
     >
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog" role="document" v-bind:class="getSize(this.size)">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="jnDialogModalLabel">{{ modalTitle }}</h5>
+            <h5 class="modal-title" id="jnDialogModalLabel">{{ this.modalTitle }}</h5>
           </div>
-          <div class="modal-body">{{ modalBody }}</div>
+          <div class="modal-body">
+            <slot name="body">{{this.modalBody}}</slot>
+          </div>
           <div class="modal-footer">
             <button
               v-if="rejectButton.visible"
               type="button"
               class="btn btn-secondary"
               @click="rejectModal"
-            >{{ rejectButton.text }}</button>
+            >{{ this.rejectButton.text }}</button>
             <button
               v-if="resolveButton.visible"
               type="button"
               class="btn btn-primary"
               @click="resolveModal"
-            >{{ resolveButton.text }}</button>
+            >{{ this.resolveButton.text }}</button>
           </div>
         </div>
       </div>
@@ -44,6 +46,7 @@ export default {
       display: false,
       modalTitle: "",
       modalBody: "",
+      size: "",
       rejectButton: {
         visible: false,
         text: ""
@@ -54,6 +57,7 @@ export default {
       }
     };
   },
+  
   watch: {
     display: function(val) {
       if (val) {
@@ -63,6 +67,7 @@ export default {
       }
     }
   },
+  
   methods: {
     resolveModal() {
       this.display = false;
@@ -77,6 +82,14 @@ export default {
     },
     showModal(_display) {
       this.display = _display;
+    },
+    getSize(size) {
+      switch(size) {
+        case "large": 
+          return "modal-lg";
+        case "small": 
+          return "modal-sm";
+      }
     }
   }
 };
