@@ -26,14 +26,12 @@ import {
   faChevronUp,
   faChevronDown
 } from '@fortawesome/pro-light-svg-icons';
-import {
-  faSquare
-} from '@fortawesome/free-regular-svg-icons';
 
 import { 
   faBullseye,
   faThumbsUp,
-  faThumbsDown
+  faThumbsDown,
+  faCircle
 } from '@fortawesome/pro-solid-svg-icons';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -83,7 +81,6 @@ library.add(
   faExternalLink, 
   faChevronRight, 
   faFileAlt,
-  faSquare,
   faSortNumericUp,
   faSortNumericDownAlt,
   faEraser,
@@ -92,7 +89,8 @@ library.add(
   faClock,
   faThumbsDown,
   faChevronUp,
-  faChevronDown
+  faChevronDown,
+  faCircle
 )
 
 Vue.component('fa-icon', FontAwesomeIcon)
