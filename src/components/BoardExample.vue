@@ -42,7 +42,7 @@ export default {
           items: [
             {
               firstName: "Nils Carl Fredrik",
-              lastName: "Berg-Johansson",
+              lastName: "Akka Berg-Johansson",
               title: "Selger",
               points: 990,
               age: 27,

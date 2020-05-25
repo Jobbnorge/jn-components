@@ -1,7 +1,7 @@
 <template>
   <div class="grid-wrapper">
-    <Avatar :firstName="firstName" :lastName="lastName" :id="id"/>
-    <div>
+    <Avatar class="avatar" :firstName="firstName" :lastName="lastName" :id="id"/>
+    <div class="info">
         <p class="name">{{ firstName }} {{lastName}}</p>
         <p class="title">{{ title }}, {{ age }}</p>
     </div>  
@@ -38,14 +38,12 @@ export default {
   text-align: right;
   font-size: .725rem;
   color: #1D764F;
-}
-  
-
+}  
 .grid-wrapper {
   background-color: #fff;
-  margin: .5em;  
+  margin: .5rem;  
   border-radius: 3px;
-  padding: .5em;
+  padding: .5rem;
   display: grid;
   grid-template-columns: auto 2fr 1fr;
   align-items: baseline;
@@ -56,10 +54,21 @@ export default {
   margin-bottom: 0.5rem;
   color: #72616C;
 }
+
 .name {
   color: #44303c;
   font-size: 0.75rem;
   font-weight: 600;
   margin: 0.5rem 0 0.25rem 0;
 }
+
+.info {
+  align-self: center;
+}
+
+.avatar {
+  margin: 0 .75rem;
+  align-self: center;
+}
+
 </style>

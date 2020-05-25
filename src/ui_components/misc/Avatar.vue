@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import _ from "lodash";
+
 export default {
     name: "Avatar",
     props: {
@@ -23,10 +25,10 @@ export default {
     },
     computed: {
         initials : (vm) => {
-           var firstNames = vm.firstName.split(' ')[0].split('-');
-           var lastNames = vm.lastName.split(' ')[0].split('-');
+           var firstNameInitials = _.first(vm.firstName.split(' ')).split('-').map(n => n.charAt(0)).join('');
+           var lastNamesInitials = _.last(vm.lastName.split(' ')).split('-').map(n => n.charAt(0)).join('');
 
-           return `${firstNames.map(n => n.charAt(0)).join('')}${lastNames.map(n => n.charAt(0)).join('')}`
+           return `${firstNameInitials}${lastNamesInitials}`
         },
         colorClass: (vm) => vm.color || vm.colorfromindex() 
     }
