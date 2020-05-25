@@ -5,11 +5,11 @@
                 :show-rating="false"
                 @current-rating="showCurrentRating" 
                 @rating-selected="setCurrentSelectedRating" 
-                :increment="0.5"
+                :increment="1"
                 :star-size="size"
                 active-color = "#D41472" 
              />
-             <p>{{rating}}({{avgRating}})</p>
+             <p>{{rating}}({{avgRating}} i snitt)</p>
         </div>
         <button class="btn btn-tertiary" @click="resetCurrentSelectedRating">
             <fa-icon :icon="['fal', 'eraser']" />
