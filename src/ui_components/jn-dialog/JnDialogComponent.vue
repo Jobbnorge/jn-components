@@ -2,7 +2,7 @@
   <div>
     <div
       class="modal fade"
-      id="jnDialogModal"
+      :id="modalId"
       tabindex="-1"
       role="dialog"
       aria-labelledby="jnDialogModalLabel"
@@ -41,53 +41,54 @@
 <script>
 export default {
   name: "JnDialogComponent",
-  data: function() {
-    return {
-      display: false,
-      modalTitle: "",
-      modalBody: "",
-      size: "",
-      rejectButton: {
-        visible: false,
-        text: ""
-      },
-      resolveButton: {
-        visible: false,
-        text: ""
-      }
-    };
+  props: {
+    modalId: {
+      type: String,
+      default: "jnDialogModal"
+    },
+    display: Boolean,
+    modalTitle: String,
+    modalBody: String,
+    size: String,
+    rejectButton: {
+      visible: Boolean,
+      text: String
+    },
+    resolveButton: {
+      visible: Boolean,
+      text: String
+    }
   },
-  
+  mounted() {
+    var vm = this;
+    $(document).ready(() =>
+      $(`#${this.modalId}`).on("hidden.bs.modal", () => vm.$emit("modalClosed"))
+    );
+  },
   watch: {
     display: function(val) {
       if (val) {
-        $(document).ready(() => $("#jnDialogModal").modal("show"));
+        $(document).ready(() => $(`#${this.modalId}`).modal("show"));
       } else {
-        $(document).ready(() => $("#jnDialogModal").modal("hide"));
+        $(document).ready(() => $(`#${this.modalId}`).modal("hide"));
       }
     }
   },
-  
   methods: {
     resolveModal() {
-      this.display = false;
       this.$emit("resolveModal");
     },
     rejectModal() {
-      this.display = false;
       this.$emit("rejectModal");
     },
     setOptions(opt) {
       Object.assign(this.$data, opt);
     },
-    showModal(_display) {
-      this.display = _display;
-    },
     getSize(size) {
-      switch(size) {
-        case "large": 
+      switch (size) {
+        case "large":
           return "modal-lg";
-        case "small": 
+        case "small":
           return "modal-sm";
       }
     }
