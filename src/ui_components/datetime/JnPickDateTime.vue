@@ -77,6 +77,7 @@
     .datetime-container {
         display: grid;
         grid-gap: 0.5rem;
+        margin: 0.5rem; 
     }
     label {
         display: grid;
@@ -96,6 +97,7 @@
     }
     .red {
         color: #D41472;
+        background-color: inherit;
 
     }
     .red:hover, .red:focus, .red:active {
@@ -105,6 +107,7 @@
     }
     .blue {
         color: #127dac;
+        background-color: inherit;
 
     }
     .blue:hover, .blue:focus, .blue:active {
@@ -114,6 +117,7 @@
     }
     .green {
         color: #1D764F;
+        background-color: inherit;
 
     }
     .green:hover, .green:focus, .green:active {
@@ -123,6 +127,7 @@
     }
     .black {
         color: #44303C;
+        background-color: inherit;
 
     }
     .black:hover, .black:focus, .black:active {
