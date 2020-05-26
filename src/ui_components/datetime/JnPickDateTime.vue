@@ -5,8 +5,8 @@
             <input 
                 v-bind:class="getColorTheme(this.colorTheme)" 
                 type="date" 
-                v-model="selectDate" 
-                @blur="handleOnBlur" 
+                v-model="selectDate"
+                @change="handleOnChange"
                 name="date" 
             />
         </label>
@@ -15,8 +15,8 @@
             <input 
                 v-bind:class="getColorTheme(this.colorTheme)" 
                 type="time" 
-                v-model="selectTime"  
-                @blur="handleOnBlur"
+                v-model="selectTime"
+                @change="handleOnChange"
                 name="time"
             />
         </label>
@@ -38,8 +38,7 @@
             }
         },
         methods: {
-            handleOnBlur() {
-
+            handleOnChange() {
                 if(event.srcElement.name === "date") {
                     this.dateLabel = "Dato:"               
                 }
@@ -70,6 +69,7 @@
     .datetime-container {
         display: grid;
         grid-gap: 0.5rem;
+        margin: 0.5rem; 
     }
     label {
         display: grid;
@@ -89,6 +89,7 @@
     }
     .red {
         color: #D41472;
+        background-color: inherit;
 
     }
     .red:hover, .red:focus, .red:active {
@@ -98,6 +99,7 @@
     }
     .blue {
         color: #127dac;
+        background-color: inherit;
 
     }
     .blue:hover, .blue:focus, .blue:active {
@@ -107,6 +109,7 @@
     }
     .green {
         color: #1D764F;
+        background-color: inherit;
 
     }
     .green:hover, .green:focus, .green:active {
@@ -116,6 +119,7 @@
     }
     .black {
         color: #44303C;
+        background-color: inherit;
 
     }
     .black:hover, .black:focus, .black:active {
