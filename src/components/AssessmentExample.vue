@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="container">
-            <JnPickDateTime :action="tellTime" colorTheme="green" />
+            <JnPickDateTime @inputBlur="inputBlur" colorTheme="green" />
         </div>
         <JnCounter :startAt="20" :max="20" :min="1" message="Du har nådd enden på lista"/>
     </div>
@@ -26,6 +26,9 @@
         methods: {
             tellTime(time) {
                 this.time = time; 
+            },
+            inputBlur(date) {
+                console.info(date)
             }
         }
     

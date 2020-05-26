@@ -27,7 +27,6 @@
     export default {
         name: "jnPickDateTime",
         props: {
-            action: Function,
             colorTheme: String 
         },
         data() {
@@ -48,14 +47,8 @@
                     this.timeLabel = "Tid:"
                 }
 
-                this.updateComponents();  
-            },
-            updateComponents() {
-
-                //construct object to pass back to mother
                 var dateTime = { date: this.selectDate, time: this.selectTime }
-                return this.action(dateTime); 
-
+                this.$emit("inputBlur", dateTime);
             },
             getColorTheme(color) {
 
