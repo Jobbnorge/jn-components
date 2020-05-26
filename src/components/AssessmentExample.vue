@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="container">
-            <JnPickDateTime @inputBlur="inputBlur" colorTheme="green" />
+            <JnPickDateTime @inputChanged="inputChanged" colorTheme="green" />
         </div>
         <JnCounter :startAt="20" :max="20" :min="1" message="Du har nådd enden på lista"/>
     </div>

@@ -47,7 +47,7 @@
                 }
 
                 var dateTime = { date: this.selectDate, time: this.selectTime }
-                this.$emit("inputBlur", dateTime);
+                this.$emit("inputChanged", dateTime);
             },
             getColorTheme(color) {
 
