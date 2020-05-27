@@ -5,8 +5,9 @@
         <p class="name">{{ firstName }} {{lastName}}</p>
         <p class="title">{{ title }}, {{ age }}</p>
     </div>  
-    <div>
-        <div class="points"> <i class="icon"><fa-icon :icon="['fas', 'bullseye']" size="sm"/></i> {{points}} poeng </div>   
+    <div class="details">
+        <div class="points"> <i class="icon"><fa-icon :icon="['fas', 'bullseye']" size="sm"/></i> {{points}} poeng </div>
+        <div class="label">{{ label }}</div>
     </div>
   </div>
   
@@ -27,18 +28,15 @@ export default {
     title: String,
     points: Number,
     id: Number,
-    age: Number
+    age: Number,
+    label: String
   }
 };
 </script>
 
 <style scoped>
 
-.points {
-  text-align: right;
-  font-size: .725rem;
-  color: #1D764F;
-}  
+
 .grid-wrapper {
   background-color: #fff;
   margin: .5rem;  
@@ -69,6 +67,25 @@ export default {
 .avatar {
   margin: 0 .75rem;
   align-self: center;
+}
+
+.details {
+  display: grid;
+}
+
+.points {
+  text-align: right;
+  font-size: .725rem;
+  color: #1D764F;
+}  
+
+.label {
+  background: #FFEEF6;
+  color: #D41472;
+  border-radius: 16px;
+  width: auto;
+  padding: 0 .5em;
+  justify-self: end;
 }
 
 </style>
