@@ -1,19 +1,38 @@
 <template>
-  <div class="wrapper">
-    <JnBoard :boards="boards" />    
-  </div>  
+  <div class="board">
+    <JnBoardList
+      name="Til vurdering"
+      :items="boards[0].items"
+      @draggableChanged="listChanged($event, boards[0].items)"
+      draggableGroup="candidates"
+    />
+    <JnBoardList
+      name="Intervju"
+      :items="boards[1].items"
+      @draggableChanged="listChanged($event, boards[1].items)"
+      draggableGroup="candidates"
+    />
+    <div v-for="fluff in fluffs" :key="fluff.id">
+      <JnBinaryDecision
+        text="Kvalifisert?"
+        :decision="fluff.decision"
+        @change="makeDecision($event, fluff.id)"
+        :id="fluff.id"
+      />
+    </div>
+  </div>
 </template>
 
 <script>
-
-import JnBoard from "./../ui_components/board/JnBoard";
-
+import JnBoardList from "./../ui_components/board/JnBoardList";
+import JnBinaryDecision from "./../ui_components/board/JnBinaryDecision";
 export default {
   name: "demoList",
   components: {
-    JnBoard
+    JnBoardList,
+    JnBinaryDecision
   },
-  data: function () {
+  data: function() {
     return {
       boards: [
         {
@@ -34,8 +53,8 @@ export default {
               points: 1003,
               age: 31,
               id: 2
-            },
-          ],
+            }
+          ]
         },
         {
           name: "Intervju",
@@ -55,18 +74,46 @@ export default {
               points: 850,
               age: 28,
               id: 4
-            },
-          ],
-        },
+            }
+          ]
+        }
       ],
+      fluffs: [
+        {
+          id: 1,
+          decision: null
+        },
+        {
+          id: 12,
+          decision: null
+        },
+        {
+          id: 123,
+          decision: null
+        },
+        {
+          id: 1234,
+          decision: null
+        }
+      ]
     };
   },
+  methods: {
+    listChanged(evt, list) {
+      if (Object.prototype.hasOwnProperty.call(evt, "added")) {
+        list.push(evt.added.element);
+      } else if (Object.prototype.hasOwnProperty.call(evt, "removed")) {
+        let index = list.indexOf(evt.removed.element);
+        list.splice(index, 1);
+      }
+    }
+  }
 };
 </script>
 <style scoped>
-.wrapper {
+.board {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
 }
 </style>

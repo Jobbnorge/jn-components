@@ -1,31 +1,41 @@
 <template>
   <div class="boardlist">
     <div class="head">{{ name }}</div>
-    <JnJobseekerMiniCard v-for="item in orderedItems" v-bind:key="item.id" v-bind="item" />
+    <draggable :list="orderedItems" :group="draggableGroup" @change="draggableChanged">
+      <JnJobseekerMiniCard v-for="item in orderedItems" v-bind:key="item.id" v-bind="item" />
+    </draggable>
     <slot name="button" />
   </div>
 </template>
 
 <script>
 import JnJobseekerMiniCard from "./JnJobseekerMiniCard";
+import draggable from "vuedraggable";
 
 import _ from "lodash";
 
 export default {
   name: "JnBoardList",
   components: {
-    JnJobseekerMiniCard
+    JnJobseekerMiniCard,
+    draggable
   },
   props: {
     name: String,
     items: Array,
     orderby: String,
-    direction: String
+    direction: String,
+    draggableGroup: String
   },
   computed: {
     orderedItems: function() {
       var vm = this;
       return _.orderBy(vm.items, vm.orderby, vm.direction);
+    }
+  },
+  methods: {
+    draggableChanged(evt) {
+      this.$emit("draggableChanged", evt);
     }
   }
 };
