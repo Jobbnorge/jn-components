@@ -44,7 +44,7 @@ export default {
               title: "Rådgiver",
               points: 967,
               age: 32,
-              id: 1
+              id: 1,
             },
             {
               firstName: "Gunnvor H.",
