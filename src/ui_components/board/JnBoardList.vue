@@ -1,7 +1,7 @@
 <template>
   <div class="boardlist">
     <div class="head">{{ name }}</div>
-    <JnJobseekerMiniCard v-for="item in orderedItems" v-bind:key="item.id" v-bind="item" />
+    <JnJobseekerMiniCard v-for="(item,index) in orderedItems" v-bind:key="item.id" v-bind="item" :label="`Nr.${index}`"/>
     <slot name="button" />
   </div>
 </template>
