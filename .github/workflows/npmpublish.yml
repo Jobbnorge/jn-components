@@ -20,6 +20,4 @@ jobs:
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                 NPM_TOKEN: ${{ secrets.GPR_PAT }}
-              run: npx semantic-release
-            - name: Send event
-              run: curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/Jobbnorge/board-prototype/dispatches --data '{"event_type": "build_application"}'        
+              run: npx semantic-release            
