@@ -4,7 +4,10 @@
     <button class="btn btn-primary" type="button" @click="openConfirmModal">Confirm-Modal</button>
     <button class="btn btn-primary" type="button" @click="openFluffModal">Fluff-Modal</button>
 
-    <JnDialogComponent v-bind="fluffData" @resolveModal="resolveModal">
+    <JnDialogComponent v-bind="fluffData" @resolveModal="resolveModal" @rejectModal="rejectModal">
+      <template #header>
+        <p>I am the header</p>
+      </template>
       <template #body>
         <div>
           <p>hello jeg kan være en hvilken som helst komponente :P</p>
@@ -28,12 +31,12 @@ export default {
       fluffData: {
         modalId: "fluffModal",
         display: false,
-        modalTitle: "hei",
         modalBody: "fluff",
-        size: "",
+        modalTitle: "", 
+        size: "large",
         rejectButton: {
-          visible: false,
-          text: ""
+          visible: true,
+          text: "Avbryt"
         },
         resolveButton: {
           visible: true,
@@ -57,6 +60,10 @@ export default {
     },
     resolveModal() {
       this.fluffData.display = false;
+    },
+    rejectModal() {
+      this.fluffData.display = false; 
+      //do other stuff
     }
   }
 };

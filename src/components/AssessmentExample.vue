@@ -3,7 +3,7 @@
         <div class="container">
             <JnPickDateTime @inputChanged="inputChanged" colorTheme="green" />
         </div>
-        <JnCounter :startAt="20" :max="20" :min="1" message="Du har nådd enden på lista"/>
+        <JnCounter :startAt="20" :max="20" :min="1" />
     </div>
     
 </template>

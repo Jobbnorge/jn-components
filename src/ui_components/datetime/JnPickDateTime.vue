@@ -6,7 +6,7 @@
                 v-bind:class="getColorTheme(this.colorTheme)" 
                 type="date" 
                 v-model="selectDate"
-                @change="handleOnChange"
+                @blur="handleOnChange"
                 name="date" 
             />
         </label>
@@ -16,7 +16,7 @@
                 v-bind:class="getColorTheme(this.colorTheme)" 
                 type="time" 
                 v-model="selectTime"
-                @change="handleOnChange"
+                @blur="handleOnChange"
                 name="time"
             />
         </label>

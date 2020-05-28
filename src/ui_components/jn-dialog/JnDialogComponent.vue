@@ -12,8 +12,10 @@
     >
       <div class="modal-dialog" role="document" v-bind:class="getSize(this.size)">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="jnDialogModalLabel">{{ this.modalTitle }}</h5>
+          <div class="modal-header primary">
+            <slot name="header">
+              <h5 v-if="modalTitle" class="modal-title" id="jnDialogModalLabel">{{ this.modalTitle }}</h5>
+            </slot>
           </div>
           <div class="modal-body">
             <slot name="body">{{this.modalBody}}</slot>
@@ -95,3 +97,10 @@ export default {
   }
 };
 </script>
+<style>
+  .primary {
+    background-color: #127dac; 
+    color: #fff; 
+    padding-bottom: 0.5rem; 
+  }
+</style>

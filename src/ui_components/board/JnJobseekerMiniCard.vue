@@ -1,5 +1,5 @@
 <template>
-  <div class="grid-wrapper" @click="$emit('miniCardClicked', $event)">
+  <div class="grid-wrapper" @click="$emit('miniCardClicked', id)">
     <Avatar class="avatar" :firstName="firstName" :lastName="lastName" :id="id"/>
     <div class="info">
         <p class="name">{{ firstName }} {{lastName}}</p>
