@@ -5,6 +5,8 @@
       :items="boards[0].items"
       @draggableChanged="listChanged($event, boards[0].items)"
       draggableGroup="candidates"
+      @draggableItemClicked="draggableItemClicked"
+      :isDraggable="false"
     />
     <JnBoardList
       name="Intervju"
@@ -44,7 +46,7 @@ export default {
               title: "Rådgiver",
               points: 967,
               age: 32,
-              id: 1,
+              id: 1
             },
             {
               firstName: "Gunnvor H.",
@@ -106,6 +108,9 @@ export default {
         let index = list.indexOf(evt.removed.element);
         list.splice(index, 1);
       }
+    },
+    draggableItemClicked(e) {
+      console.info(e)
     }
   }
 };

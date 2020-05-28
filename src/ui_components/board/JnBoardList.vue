@@ -1,8 +1,18 @@
 <template>
   <div class="boardlist">
     <div class="head">{{ name }}</div>
-    <draggable :list="orderedItems" :group="draggableGroup" @change="draggableChanged">
-      <JnJobseekerMiniCard v-for="item in orderedItems" v-bind:key="item.id" v-bind="item" />
+    <draggable
+      :list="orderedItems"
+      :group="draggableGroup"
+      @change="draggableChanged"
+      :disabled="!isDraggable"
+    >
+      <JnJobseekerMiniCard
+        v-for="item in orderedItems"
+        v-bind:key="item.id"
+        v-bind="item"
+        @miniCardClicked="$emit('draggableItemClicked', $event)"
+      />
     </draggable>
     <slot name="button" />
   </div>
@@ -25,7 +35,11 @@ export default {
     items: Array,
     orderby: String,
     direction: String,
-    draggableGroup: String
+    draggableGroup: String,
+    isDraggable: {
+      type: Boolean,
+      default: true
+    }
   },
   computed: {
     orderedItems: function() {
