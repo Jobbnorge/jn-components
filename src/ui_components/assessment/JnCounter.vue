@@ -1,13 +1,12 @@
 <template>
     <div class="counter">
-        <button class="btn pad darken-hover animate" type="button" @click="increment">
+        <button class="btn pad darken-hover animate" type="button" @click="decrement">
             <fa-icon :icon="['fal', 'chevron-up']" size="4x" />
         </button>
         <button class="text-xxl btn pad darken-hover animate" type="button" @click="openModal">{{showNumber}}</button>
-        <button class="btn pad darken-hover animate" type="button" @click="decrement">
+        <button class="btn pad darken-hover animate" type="button" @click="increment">
             <fa-icon :icon="['fal', 'chevron-down']" size="4x" />
         </button>
-        <p v-if="this.counter == this.max || this.counter == this.min">{{message}}</p>
     </div>
 </template>
 
@@ -19,14 +18,15 @@
             startAt: Number,
             max: Number,
             min: Number,
-            step: Number, 
-            message: String
+            step: Number,
+            message: String,
         },
         data() {
             return {
                 counter: 0,
                 showNumber: "-",
-                incrementBy: 1 
+                incrementBy: 1,
+                down: "decrement"
             }
         },
         created() {
@@ -38,7 +38,6 @@
         },
         methods: {
             increment() {
-                console.log(this.startAt); 
                 if(this.counter < this.max) {
                     this.counter += this.incrementBy; 
                 }

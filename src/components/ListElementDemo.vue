@@ -46,7 +46,7 @@
       <JnTextButton>Gå til dokumenter</JnTextButton>
     </template>
   </JnCard>
-  
+  <JnIconList :candidateDetails="details" />
    
   </div>
 </template>
@@ -55,13 +55,15 @@
 import JnListElement from "./../ui_components/lists/JnListElement";
 import JnCard from "./../ui_components/cards/JnCard"; 
 import JnTextButton from './../ui_components/buttons/JnTextButton';
+import JnIconList from './../ui_components/lists/JnIconList'; 
 
 export default {
     name: "demoList",
     components:{
         JnListElement,
         JnCard,
-        JnTextButton
+        JnTextButton,
+        JnIconList
     },
     data() {
         return {
@@ -120,7 +122,19 @@ export default {
               borderBetweenElements: false,
               navigable: true
           },
-        ]
+        ],
+        details: 
+          {
+            id: "12345",
+            firstName: "Per",
+            lastName: "Persson",
+            details: {
+              birthday: ["10.06.1977", "calendar-alt"],
+              title: ["Lite Original", "briefcase"],
+              email: ["test@test.no", "envelope"],
+              phone: ["123456789", "phone"]
+            }
+          }    
         }
     }
 }
