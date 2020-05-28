@@ -5,7 +5,9 @@
       :list="orderedItems"
       :group="draggableGroup"
       @change="draggableChanged"
-      :disabled="!isDraggable"
+      ghost-class="my-ghost-class"
+      easing="cubic-bezier(1, 0, 0, 1)"
+      animation="150"
     >
       <JnJobseekerMiniCard
         v-for="item in orderedItems"
@@ -57,9 +59,16 @@ export default {
 
 <style scoped>
 .boardlist {
-  background-color: #eee;
-  border-radius: 3px;
-  overflow: hidden;
+	background-color: #eee;
+	border-radius: 3px;
+	overflow: hidden;
+	display: grid;
+	grid-template-rows: 50px;
+	row-gap: 1em;
+}
+
+.my-ghost-class {
+  opacity: 0.5;
 }
 
 .head {
@@ -71,6 +80,5 @@ export default {
   text-transform: uppercase;
   color: #1d764f;
   background-color: #d3f5df;
-  margin-bottom: 1em;
 }
 </style>

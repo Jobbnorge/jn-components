@@ -110,7 +110,10 @@ export default {
       }
     },
     draggableItemClicked(e) {
-      console.info(e)
+      console.info(e);
+    },
+    makeDecision({ srcElement: { value } }, fluffId) {
+      this.fluffs.find(f => f.id == fluffId).decision = Number(value);
     }
   }
 };
