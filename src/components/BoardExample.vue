@@ -14,6 +14,12 @@
       @draggableChanged="listChanged($event, boards[1].items)"
       draggableGroup="candidates"
     />
+    <JnBoardList
+      name="Innstillinger"
+      :items="boards[2].items"
+      @draggableChanged="listChanged($event, boards[1].items)"
+      draggableGroup="candidates"
+    />    
     <div v-for="fluff in fluffs" :key="fluff.id">
       <JnBinaryDecision
         text="Kvalifisert?"
@@ -69,6 +75,27 @@ export default {
         },
         {
           name: "Intervju",
+          items: [
+            {
+              firstName: "Nils Carl Fredrik",
+              lastName: "Akka Berg-Johansson",
+              title: "Selger",
+              points: 990,
+              age: 27,
+              id: 3
+            },
+            {
+              firstName: "June Larsen",
+              lastName: "Granlund",
+              title: "Butikkmedarbeider",
+              points: 850,
+              age: 28,
+              id: 4
+            }
+          ]
+        },
+        {
+          name: "Innstillinger",
           items: [
             {
               firstName: "Nils Carl Fredrik",

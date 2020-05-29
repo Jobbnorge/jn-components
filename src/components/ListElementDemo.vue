@@ -46,7 +46,7 @@
       <JnTextButton>Gå til dokumenter</JnTextButton>
     </template>
   </JnCard>
-  <JnIconList :candidateDetails="details" />
+  <JnIconList :listItems="details" />
    
   </div>
 </template>
@@ -123,19 +123,13 @@ export default {
               navigable: true
           },
         ],
-        details: 
-          {
-            id: "12345",
-            firstName: "Per",
-            lastName: "Persson",
-            details: {
-              birthday: ["10.06.1977", "calendar-alt"],
-              title: ["Lite Original", "briefcase"],
-              email: ["test@test.no", "envelope"],
-              phone: ["123456789", "phone"]
-            }
-          }    
+        details: {
+            birthday: ["10.06.1977", "calendar-alt"],
+            title: ["Lite Original", "briefcase"],
+            email: ["test@test.no", "envelope"],
+            phone: ["123456789", "phone"]
         }
+      }
     }
 }
 </script>
