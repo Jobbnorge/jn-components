@@ -1,11 +1,20 @@
 <template>
     <div>
         <button class="btn-drop dropdown-toggle" data-toggle="dropdown">
-             <fa-icon :icon="['fal', icon]"/>
+             <fa-icon v-if="icon" :icon="['fal', icon]"/>
             {{text}}
         </button>
         <div class="dropdown-menu">
-            <a class="dropdown-item" v-for="(option,x) in options" :key="x" :href="option.url">{{option.text}}</a>
+            <ul v-if="type === 'event'">
+                <li class="dropdown-item" 
+                    v-for="(option,x) in options" 
+                    :key="x"
+                    @click="handleClick(option)"
+                >
+                    {{option.text}}
+                </li>
+            </ul>
+            <a v-else class="dropdown-item" v-for="(option,x) in options" :key="x" :href="option.url">{{option.text}}</a>
         </div>
     </div>
 </template>
@@ -16,7 +25,13 @@
         props: {
             text: String,
             icon: String,
+            type: String,
             options: Array
+        },
+        methods: {
+            handleClick(option) {
+                this.$emit('itemClicked', option)
+            }
         }
     }
 </script>
@@ -33,5 +48,9 @@
         outline: none;
         padding-bottom: 0px; 
         border-bottom: 2px solid rgb(127, 255, 199);
+    }
+    ul {
+        list-style: none; 
+        padding: 0;
     }
 </style>
