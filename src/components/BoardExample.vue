@@ -22,6 +22,15 @@
         :id="fluff.id"
       />
     </div>
+    <div v-for="fluff in fluffer" :key="fluff.id">
+      <JnBinaryDecision
+        text="Horisontal layout"
+        layout="horizontal"
+        :decision="fluff.decision"
+        @change="makeHorDecision($event, fluff.id)"
+        :id="fluff.id"
+      />
+    </div>
   </div>
 </template>
 
@@ -97,6 +106,16 @@ export default {
           id: 1234,
           decision: null
         }
+      ],
+      fluffer: [
+        {
+          id: 22,
+          decision: null
+        },
+        {
+          id: 23,
+          decision: null
+        },
       ]
     };
   },
@@ -114,6 +133,9 @@ export default {
     },
     makeDecision({ srcElement: { value } }, fluffId) {
       this.fluffs.find(f => f.id == fluffId).decision = Number(value);
+    },
+    makeHorDecision({ srcElement: { value } }, fluffId) {
+      this.fluffer.find(f => f.id == fluffId).decision = Number(value);
     }
   }
 };
