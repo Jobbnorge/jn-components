@@ -1,5 +1,5 @@
 <template functional>
-  <div class="jn-binary-decision-wrapper">
+  <div class="jn-binary-decision-wrapper" v-bind:class="props.layout">
     <span>{{props.text}}</span>
     <div>
       <input
@@ -52,6 +52,10 @@ export default {
     },
     decision: {
       type: Number
+    },
+    layout: {
+      type: String,
+      default: "vertical"
     }
   }
 };
@@ -71,8 +75,13 @@ label {
 }
 .jn-binary-decision-wrapper {
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
   align-items: center;
   justify-items: center;
+}
+.vertical {
+    grid-template-rows: repeat(3, 1fr);
+}
+.horizontal {
+  grid-template-columns: repeat(3, 1fr);
 }
 </style>
