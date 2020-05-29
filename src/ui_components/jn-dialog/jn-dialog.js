@@ -27,29 +27,42 @@ const infoDefault = {
 
 class JnDialogModule {
     constructor() {
+        this.jnDialogCtn = null;
         this.jnDialogComp = null;
     }
-    mountVueComponent(props) {
-        let el = document.createElement("div");
-        el.id = "jnDialogCtn";
-        document.getElementsByTagName("body")[0].appendChild(el);
+    mountVueComponent(props, { header, body } = {}) {
+        if (!this.jnDialogCtn) {
+            this.jnDialogCtn = document.createElement("div");
+            this.jnDialogCtn.id = "jnDialogCtn";
+            document.getElementsByTagName("body")[0].appendChild(this.jnDialogCtn);
+        } else {
+            this.jnDialogCtn.removeChild(this.jnDialogCtn.firstChild);
+        }
+        if (this.jnDialogComp) this.jnDialogComp.$destroy();
 
         let offDocumentJnDialogComp = Vue.component(JnDialogComponent.name, JnDialogComponent);
-        this.jnDialogComp = new offDocumentJnDialogComp({propsData: props}).$mount();
+        this.jnDialogComp = new offDocumentJnDialogComp({ propsData: props });
 
-        document.getElementById("jnDialogCtn").appendChild(this.jnDialogComp.$el);
+        if (header) {
+            this.jnDialogComp.$slots.header = this.jnDialogComp.$createElement(header.node, { props: header.componentProps, domProps: header.domProps });
+        }
+
+        if (body) {
+            this.jnDialogComp.$slots.body = this.jnDialogComp.$createElement(body.node, { props: body.componentProps, domProps: body.domProps });
+        }
+
+        this.jnDialogComp.$mount();
+        this.jnDialogCtn.appendChild(this.jnDialogComp.$el);
     }
     setModalProps(props) {
         Object.assign(this.jnDialogComp, props);
     }
     confirm(options) {
-        if (!document.getElementById("jnDialogCtn")) {
-            this.mountVueComponent({ ...confirmDefault, ...options });
-        }
-  
+        this.mountVueComponent({ ...confirmDefault, ...options });
+
         this.setModalProps({ ...confirmDefault, ...options })
         this.jnDialogComp.display = true;
-        
+
         var self = this;
         return new Promise((resolve, reject) => {
             this.jnDialogComp.$on("resolveModal", () => {
@@ -64,9 +77,7 @@ class JnDialogModule {
         });
     }
     info(options) {
-        if (!document.getElementById("jnDialogCtn")) {
-            this.mountVueComponent({ ...infoDefault, ...options });
-        }
+        this.mountVueComponent({ ...infoDefault, ...options });
 
         this.setModalProps({ ...infoDefault, ...options })
         this.jnDialogComp.display = true;
@@ -76,6 +87,20 @@ class JnDialogModule {
             this.jnDialogComp.$on("resolveModal", () => {
                 self.jnDialogComp.display = false;
                 resolve("info read");
+            });
+        });
+    }
+    richInfo(options, childNodes) {
+        this.mountVueComponent({ ...infoDefault, ...options }, childNodes);
+
+        this.setModalProps({ ...infoDefault, ...options })
+        this.jnDialogComp.display = true;
+
+        var self = this;
+        return new Promise(resolve => {
+            this.jnDialogComp.$on("resolveModal", () => {
+                self.jnDialogComp.display = false;
+                resolve("rich info read");
             });
         });
     }

@@ -1,6 +1,7 @@
 <template>
   <div>
     <button class="btn btn-primary" type="button" @click="openInfoModal">Info-Modal</button>
+    <button class="btn btn-primary" type="button" @click="openRichInfoModal">Rich info Modal</button>
     <button class="btn btn-primary" type="button" @click="openConfirmModal">Confirm-Modal</button>
     <button class="btn btn-primary" type="button" @click="openFluffModal">Fluff-Modal</button>
 
@@ -20,6 +21,7 @@
 <script>
 import { jnDialog } from "./../ui_components/jn-dialog/jn-dialog";
 import JnDialogComponent from "./../ui_components/jn-dialog/JnDialogComponent";
+import CustomComp from "../ui_components/datetime/JnPickDateTime";
 
 export default {
   name: "DialogExample",
@@ -32,7 +34,7 @@ export default {
         modalId: "fluffModal",
         display: false,
         modalBody: "fluff",
-        modalTitle: "", 
+        modalTitle: "",
         size: "large",
         rejectButton: {
           visible: true,
@@ -49,6 +51,21 @@ export default {
     openInfoModal() {
       jnDialog.info({ modalTitle: this.$t("modal.modalTitle") });
     },
+    openRichInfoModal() {
+      jnDialog.richInfo(
+        { modalTitle: "I am even richer" },
+        {
+          header: {
+            node: "h1",
+            domProps: { innerHTML: "blue" }
+          },
+          body: {
+            node: CustomComp,
+            componentProps: { colorTheme: "red" }
+          }
+        }
+      );
+    },
     openConfirmModal() {
       jnDialog
         .confirm()
@@ -62,7 +79,7 @@ export default {
       this.fluffData.display = false;
     },
     rejectModal() {
-      this.fluffData.display = false; 
+      this.fluffData.display = false;
       //do other stuff
     }
   }
