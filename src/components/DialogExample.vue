@@ -61,7 +61,7 @@ export default {
           },
           body: {
             node: CustomComp,
-            data: {componentProps: { colorTheme: "red" }}
+            data: {props: { colorTheme: "red" }, domProps: {className: "fluff-class"}}
           }
         }
       );
