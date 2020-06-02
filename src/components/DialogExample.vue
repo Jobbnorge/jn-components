@@ -57,11 +57,11 @@ export default {
         {
           header: {
             node: "h1",
-            domProps: { innerHTML: "blue" }
+            data: {domProps: { innerHTML: "blue", className: "hello-class" }}
           },
           body: {
             node: CustomComp,
-            componentProps: { colorTheme: "red" }
+            data: {componentProps: { colorTheme: "red" }}
           }
         }
       );

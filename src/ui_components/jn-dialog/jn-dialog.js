@@ -46,12 +46,13 @@ class JnDialogModule {
         let offDocumentJnDialogComp = Vue.component(JnDialogComponent.name, JnDialogComponent);
         this.jnDialogComp = new offDocumentJnDialogComp({ propsData: props });
 
+        // ref to header.data and body.data: https://vuejs.org/v2/guide/render-function.html#The-Data-Object-In-Depth
         if (header) {
-            this.jnDialogComp.$slots.header = this.jnDialogComp.$createElement(header.node, { props: header.componentProps, domProps: header.domProps });
+            this.jnDialogComp.$slots.header = this.jnDialogComp.$createElement(header.node, header.data);
         }
 
         if (body) {
-            this.jnDialogComp.$slots.body = this.jnDialogComp.$createElement(body.node, { props: body.componentProps, domProps: body.domProps });
+            this.jnDialogComp.$slots.body = this.jnDialogComp.$createElement(body.node, body.data);
         }
 
         this.jnDialogComp.$mount();
