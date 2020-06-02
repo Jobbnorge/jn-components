@@ -38,7 +38,10 @@ class JnDialogModule {
         } else {
             this.jnDialogCtn.removeChild(this.jnDialogCtn.firstChild);
         }
-        if (this.jnDialogComp) this.jnDialogComp.$destroy();
+        if (this.jnDialogComp){
+          this.jnDialogComp.$children.forEach(childComp => childComp.$destroy());
+          this.jnDialogComp.$destroy();
+        }
 
         let offDocumentJnDialogComp = Vue.component(JnDialogComponent.name, JnDialogComponent);
         this.jnDialogComp = new offDocumentJnDialogComp({ propsData: props });
