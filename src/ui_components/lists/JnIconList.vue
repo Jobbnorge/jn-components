@@ -1,7 +1,7 @@
 <template functional>
     <div>
-        <ul v-for="(item, x) in props.listItems" :key="x">
-            <li>
+        <ul>
+            <li v-for="(item, x) in props.listItems" :key="x">
                 <fa-icon :icon="['fal', item[1]]" />
                 {{item[0]}}
             </li> 
@@ -22,5 +22,8 @@ export default {
     ul {
         list-style: none;
         padding: 0;
+    }
+    svg {
+        margin-right: 0.5rem; 
     }
 </style>
