@@ -12,7 +12,7 @@
     >
       <div class="modal-dialog" role="document" v-bind:class="getSize(this.size)">
         <div class="modal-content">
-          <div class="modal-header primary">
+          <div class="modal-header primary use-grid-justify-end">
             <slot name="header">
               <h5 v-if="modalTitle" class="modal-title" id="jnDialogModalLabel">{{ this.modalTitle }}</h5>
             </slot>
@@ -102,5 +102,9 @@ export default {
     background-color: #127dac; 
     color: #fff; 
     padding-bottom: 0.5rem; 
+  }
+  .use-grid-justify-end {
+    display: grid; 
+    justify-items: end;
   }
 </style>

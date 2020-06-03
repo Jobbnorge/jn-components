@@ -15,6 +15,37 @@
         </div>
       </template>
     </JnDialogComponent>
+
+    <h2>Simple Modal</h2>
+    <p>Is just an empty shell of slots with @ok and @close events where v-show toggles visibility (display: none)</p>
+      <button
+      type="button"
+      class="btn btn-primary"
+      @click="openSimpleModal"
+    >
+      Open Modal!
+    </button>
+    <JnSimpleModal 
+      v-show="isModalVisible"
+      @close="closeSimpleModal"
+      @ok="resolveSimpleModal"
+    >
+    <template #header>
+      <div class="modal-header-right">
+        <button
+              type="button"
+              class="btn"
+              @click="closeSimpleModal"
+              aria-label="Close modal"
+        >
+        <fa-icon :icon="['fas', 'times']" />
+        </button>
+      </div>
+    </template>
+    <template #body>
+      <p>The body</p>
+    </template>
+    </JnSimpleModal>
   </div>
 </template>
 
@@ -22,11 +53,13 @@
 import { jnDialog } from "./../ui_components/jn-dialog/jn-dialog";
 import JnDialogComponent from "./../ui_components/jn-dialog/JnDialogComponent";
 import CustomComp from "../ui_components/datetime/JnPickDateTime";
+import JnSimpleModal from "../ui_components/jn-dialog/JnSimpleModal"; 
 
 export default {
   name: "DialogExample",
   components: {
-    JnDialogComponent
+    JnDialogComponent,
+    JnSimpleModal
   },
   data: function() {
     return {
@@ -44,7 +77,9 @@ export default {
           visible: true,
           text: "Fluff OK"
         }
-      }
+      },
+      isModalVisible: false,
+
     };
   },
   methods: {
@@ -81,7 +116,24 @@ export default {
     rejectModal() {
       this.fluffData.display = false;
       //do other stuff
+    },
+    openSimpleModal() {
+      this.isModalVisible = true
+    },
+    closeSimpleModal() {
+      this.isModalVisible = false;
+      //do stuff on 'close' / 'cancel'
+    },
+    resolveSimpleModal() {
+      this.isModalVisible = false
+      //do stuff on 'ok'
     }
   }
 };
 </script>
+<style scoped>
+  .modal-header-right {
+    display: grid; 
+    justify-items: end;
+  }
+</style>
