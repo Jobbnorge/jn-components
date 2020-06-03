@@ -34,7 +34,8 @@ import {
   faBullseye,
   faThumbsUp,
   faThumbsDown,
-  faCircle
+  faCircle,
+  faTimes
 } from '@fortawesome/pro-solid-svg-icons';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -95,7 +96,8 @@ library.add(
   faEnvelope,
   faPhone,
   faCalendarAlt,
-  faBriefcase
+  faBriefcase,
+  faTimes
 )
 
 Vue.component('fa-icon', FontAwesomeIcon)
