@@ -17,7 +17,7 @@
               <h5 v-if="modalTitle" class="modal-title" id="jnDialogModalLabel">{{ this.modalTitle }}</h5>
             </slot>
           </div>
-          <div class="modal-body">
+          <div class="modal-body overflow-y">
             <slot name="body">{{this.modalBody}}</slot>
           </div>
           <div class="modal-footer">
@@ -102,9 +102,5 @@ export default {
     background-color: #127dac; 
     color: #fff; 
     padding-bottom: 0.5rem; 
-  }
-  .use-grid-justify-end {
-    display: grid; 
-    justify-items: end;
   }
 </style>

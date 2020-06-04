@@ -3,6 +3,7 @@
     <div class="simple-modal-backdrop">
       <div class="simple-modal"
         role="dialog"
+        :id="id"
         aria-labelledby="modalTitle"
         aria-describedby="modalDescription"
       >
@@ -41,6 +42,9 @@
 <script>
     export default {
         name: "JnSimpleModal",
+        props: {
+          id: String 
+        },
         methods: {
             close() {
                 this.$emit('close'); 
