@@ -5,45 +5,24 @@
     <button class="btn btn-primary" type="button" @click="openConfirmModal">Confirm-Modal</button>
     <button class="btn btn-primary" type="button" @click="openFluffModal">Use component in body</button>
 
-    <JnDialogComponent v-bind="fluffData" @resolveModal="resolveModal" @rejectModal="rejectModal">
+    <JnDialogComponent
+      v-bind="fluffData"
+      @resolveModal="resolveModal"
+      @rejectModal="rejectModal"
+      v-if="isModalVisible"
+    >
       <template #header>
         <p>I am the header</p>
       </template>
       <template #body>
-          <JnDropDownBtn text="No anchor-tag" type="event" :options='[{text: "hello"}, {text: "hello 2"}]' @itemClicked="itemClicked" />
+        <JnDropDownBtn
+          text="No anchor-tag"
+          type="event"
+          :options="[{text: 'hello'}, {text: 'hello 2'}]"
+          @itemClicked="itemClicked"
+        />
       </template>
     </JnDialogComponent>
-
-    <h2>Simple Modal</h2>
-    <p>Is just an empty shell of slots with @ok and @close events where v-show toggles visibility (display: none)</p>
-      <button
-      type="button"
-      class="btn btn-primary"
-      @click="openSimpleModal"
-    >
-      Open Modal!
-    </button>
-    <JnSimpleModal 
-      v-show="isModalVisible"
-      @close="closeSimpleModal"
-      @ok="resolveSimpleModal"
-    >
-    <template #header>
-      <div class="modal-header-right">
-        <button
-              type="button"
-              class="btn"
-              @click="closeSimpleModal"
-              aria-label="Close modal"
-        >
-        <fa-icon :icon="['fas', 'times']" />
-        </button>
-      </div>
-    </template>
-    <template #body>
-      <p>The body</p>
-    </template>
-    </JnSimpleModal>
   </div>
 </template>
 
@@ -51,14 +30,12 @@
 import { jnDialog } from "./../ui_components/jn-dialog/jn-dialog";
 import JnDialogComponent from "./../ui_components/jn-dialog/JnDialogComponent";
 import CustomComp from "../ui_components/datetime/JnPickDateTime";
-import JnSimpleModal from "../ui_components/jn-dialog/JnSimpleModal"; 
-import JnDropDownBtn from "../ui_components/buttons/JnDropDownBtn"
+import JnDropDownBtn from "../ui_components/buttons/JnDropDownBtn";
 
 export default {
   name: "DialogExample",
   components: {
     JnDialogComponent,
-    JnSimpleModal,
     JnDropDownBtn
   },
   data: function() {
@@ -78,13 +55,12 @@ export default {
           text: "Fluff OK"
         }
       },
-      isModalVisible: false,
-
+      isModalVisible: false
     };
   },
   methods: {
     openInfoModal() {
-      jnDialog.info({ modalTitle: this.$t("modal.modalTitle") });
+      jnDialog.info({ modalTitle: "Jeg er en info modal" });
     },
     openRichInfoModal() {
       jnDialog.richInfo(
@@ -92,11 +68,14 @@ export default {
         {
           header: {
             node: "h1",
-            data: {domProps: { innerHTML: "blue", className: "hello-class" }}
+            data: { domProps: { innerHTML: "blue", className: "hello-class" } }
           },
           body: {
             node: CustomComp,
-            data: {props: { colorTheme: "red" }, domProps: {className: "fluff-class"}}
+            data: {
+              props: { colorTheme: "red" },
+              domProps: { className: "fluff-class" }
+            }
           }
         }
       );
@@ -108,32 +87,23 @@ export default {
         .catch(err => console.warn(err));
     },
     openFluffModal() {
-      this.fluffData.display = true;
+      this.isModalVisible = true;
     },
     resolveModal() {
-      this.fluffData.display = false;
+      this.isModalVisible = false;
     },
     rejectModal() {
-      this.fluffData.display = false;
-      //do other stuff
-    },
-    openSimpleModal() {
-      this.isModalVisible = true
-    },
-    closeSimpleModal() {
       this.isModalVisible = false;
-      //do stuff on 'close' / 'cancel'
     },
-    resolveSimpleModal() {
-      this.isModalVisible = false
-      //do stuff on 'ok'
+    itemClicked(e) {
+      console.info(e);
     }
   }
 };
 </script>
 <style scoped>
-  .modal-header-right {
-    display: grid; 
-    justify-items: end;
-  }
+.modal-header-right {
+  display: grid;
+  justify-items: end;
+}
 </style>

@@ -35,12 +35,6 @@ class JnDialogModule {
             this.jnDialogCtn = document.createElement("div");
             this.jnDialogCtn.id = "jnDialogCtn";
             document.getElementsByTagName("body")[0].appendChild(this.jnDialogCtn);
-        } else {
-            this.jnDialogCtn.removeChild(this.jnDialogCtn.firstChild);
-        }
-        if (this.jnDialogComp){
-          this.jnDialogComp.$children.forEach(childComp => childComp.$destroy());
-          this.jnDialogComp.$destroy();
         }
 
         let offDocumentJnDialogComp = Vue.component(JnDialogComponent.name, JnDialogComponent);
@@ -63,50 +57,54 @@ class JnDialogModule {
     }
     confirm(options) {
         this.mountVueComponent({ ...confirmDefault, ...options });
-
-        this.setModalProps({ ...confirmDefault, ...options })
-        this.jnDialogComp.display = true;
-
+        this.setModalProps({ ...confirmDefault, ...options });
         var self = this;
+        this.jnDialogComp.$on("modalClosed", () => {
+            self.unmountJnDialog();
+        });
+
         return new Promise((resolve, reject) => {
             this.jnDialogComp.$on("resolveModal", () => {
-                self.jnDialogComp.display = false;
                 resolve("jn dialog modal resolved");
             });
 
             this.jnDialogComp.$on("rejectModal", () => {
-                self.jnDialogComp.display = false;
                 reject("jn dialog modal rejected");
             });
         });
     }
     info(options) {
         this.mountVueComponent({ ...infoDefault, ...options });
-
-        this.setModalProps({ ...infoDefault, ...options })
-        this.jnDialogComp.display = true;
-
+        this.setModalProps({ ...infoDefault, ...options });
         var self = this;
+        this.jnDialogComp.$on("modalClosed", () => {
+            self.unmountJnDialog();
+        });
+
         return new Promise(resolve => {
             this.jnDialogComp.$on("resolveModal", () => {
-                self.jnDialogComp.display = false;
                 resolve("info read");
             });
         });
     }
     richInfo(options, childNodes) {
         this.mountVueComponent({ ...infoDefault, ...options }, childNodes);
-
-        this.setModalProps({ ...infoDefault, ...options })
-        this.jnDialogComp.display = true;
-
+        this.setModalProps({ ...infoDefault, ...options });
         var self = this;
+        this.jnDialogComp.$on("modalClosed", () => {
+            self.unmountJnDialog();
+        });
+
         return new Promise(resolve => {
             this.jnDialogComp.$on("resolveModal", () => {
-                self.jnDialogComp.display = false;
                 resolve("rich info read");
             });
         });
+    }
+    unmountJnDialog() {
+        this.jnDialogCtn.removeChild(this.jnDialogCtn.firstChild);
+        this.jnDialogComp.$children.forEach(childComp => childComp.$destroy());
+        this.jnDialogComp.$destroy();
     }
 }
 export const jnDialog = new JnDialogModule();
