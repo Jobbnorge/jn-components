@@ -15,12 +15,7 @@
         <p>I am the header</p>
       </template>
       <template #body>
-        <JnDropDownBtn
-          text="No anchor-tag"
-          type="event"
-          :options="[{text: 'hello'}, {text: 'hello 2'}]"
-          @itemClicked="itemClicked"
-        />
+          <JnDropDownBtn :text="selected" type="event" :options='[{text: "hello"}, {text: "hello 2"}]' @itemClicked="itemClicked" />
       </template>
     </JnDialogComponent>
   </div>
@@ -55,7 +50,9 @@ export default {
           text: "Fluff OK"
         }
       },
-      isModalVisible: false
+      isModalVisible: false,
+      selected: "Velg noe"
+
     };
   },
   methods: {
@@ -95,8 +92,8 @@ export default {
     rejectModal() {
       this.isModalVisible = false;
     },
-    itemClicked(e) {
-      console.info(e);
+    itemClicked(option) {
+      this.selected = option.text; 
     }
   }
 };

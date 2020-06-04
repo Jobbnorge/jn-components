@@ -9,7 +9,7 @@
                 <li class="dropdown-item" 
                     v-for="(option,x) in options" 
                     :key="x"
-                    @click="handleClick(option)"
+                    @click="$emit('itemClicked', option )"
                 >
                     {{option.text}}
                 </li>
@@ -28,11 +28,6 @@
             type: String,
             options: Array
         },
-        methods: {
-            handleClick(option) {
-                this.$emit('itemClicked', option)
-            }
-        }
     }
 </script>
 
