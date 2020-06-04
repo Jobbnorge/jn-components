@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <button class="btn-drop dropdown-toggle" data-toggle="dropdown">
+    <div class="dropdown">
+        <button class="btn-drop dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
              <fa-icon v-if="icon" :icon="['fal', icon]"/>
             {{text}}
         </button>
