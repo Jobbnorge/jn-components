@@ -1,9 +1,9 @@
 <template functional>
     <div>
-        <ul v-for="(detail, x) in props.candidateDetails.details" :key="x">
-            <li>
-                <fa-icon :icon="['fal', detail[1]]" />
-                {{detail[0]}}
+        <ul>
+            <li v-for="(item, x) in props.listItems" :key="x">
+                <fa-icon :icon="['fal', item[1]]" />
+                {{item[0]}}
             </li> 
         </ul>
     </div>
@@ -14,7 +14,7 @@ export default {
     name: "JnIconList",
     functional: true, 
     props: {
-        candidateDetails: Object 
+        listItems: Object 
     }
 }
 </script>
@@ -22,5 +22,8 @@ export default {
     ul {
         list-style: none;
         padding: 0;
+    }
+    svg {
+        margin-right: 0.5rem; 
     }
 </style>

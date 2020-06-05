@@ -34,7 +34,8 @@ import {
   faBullseye,
   faThumbsUp,
   faThumbsDown,
-  faCircle
+  faCircle,
+  faTimes
 } from '@fortawesome/pro-solid-svg-icons';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -48,7 +49,6 @@ import ListElementDemo from './components/ListElementDemo.vue'
 import ButtonDemo from './components/ButtonDemo.vue'
 import JnCardMiniCtn from './components/JnCardMiniCtn'
 import TaskListDemo from './components/TaskListDemo.vue'
-import BoardExample from './components/BoardExample.vue'
 import AssessmentExample from './components/AssessmentExample.vue'
 
 window.$ = $;
@@ -68,7 +68,6 @@ const router = new VueRouter({
     { path: '/buttons', component: ButtonDemo },
     { path: '/mini-card', component: JnCardMiniCtn },
     { path: '/tasklist', component: TaskListDemo },
-    { path: '/board', component: BoardExample },
     { path: '/assessment', component: AssessmentExample }
   ]
 });
@@ -97,7 +96,8 @@ library.add(
   faEnvelope,
   faPhone,
   faCalendarAlt,
-  faBriefcase
+  faBriefcase,
+  faTimes
 )
 
 Vue.component('fa-icon', FontAwesomeIcon)

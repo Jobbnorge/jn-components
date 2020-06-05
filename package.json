@@ -18,6 +18,7 @@
     "@fortawesome/pro-regular-svg-icons": "^5.13.0",
     "@fortawesome/pro-solid-svg-icons": "^5.13.0",
     "@fortawesome/vue-fontawesome": "^0.1.9",
+    "@popperjs/core": "^2.4.0",
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.4",
     "d3": "^5.16.0",
@@ -27,7 +28,7 @@
     "semantic-release": "^17.0.8",
     "vue": "^2.6.11",
     "vue-i18n": "^8.18.1",
-    "vue-router": "^3.3.1",
+    "vue-router": "^3.3.2",
     "vue-star-rating": "^1.6.1",
     "vuedraggable": "^2.23.2"
   },
