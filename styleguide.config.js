@@ -7,10 +7,9 @@ module.exports = {
         }
     ],
     require: [
-
+        path.join(__dirname, 'assets/css/bootstrap.min.css'),
         path.join(__dirname, 'assets/css/bootstrap_limitless.css'),
         path.join(__dirname, 'assets/css/Jobbadmin_responsive.css')
     ],
-    styleguideDir: "public/docs",
-   
+    styleguideDir: "public/docs"
 }
