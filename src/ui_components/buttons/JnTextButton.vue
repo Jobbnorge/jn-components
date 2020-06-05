@@ -39,3 +39,13 @@ export default {
     }
     
 </style>
+
+<docs>
+```jsx
+<JnTextButton
+url="https://jobbnorge.no"
+id="4"
+icon="file-alt"
+></JnTextButton>
+```
+</docs>
