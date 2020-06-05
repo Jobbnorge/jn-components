@@ -32,6 +32,9 @@ export default {
          */
         isExternal: Boolean,
         url: String,
+        /**
+         * Streker vises mellom elementene
+         */
         borderBetweenElements: Boolean,
         /**
          * Viser at elementer kan klikkes på og viser navigeringsikon (ekstern eller intern)
