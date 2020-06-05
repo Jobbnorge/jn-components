@@ -12,5 +12,5 @@ module.exports = {
         path.join(__dirname, 'assets/css/Jobbadmin_responsive.css')
     ],
     styleguideDir: "public/styleguide",
-    styleguidePublicPath: "/docs"
+    styleguidePublicPath: "public/docs"
 }
