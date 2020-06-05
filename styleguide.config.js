@@ -11,5 +11,6 @@ module.exports = {
         path.join(__dirname, 'assets/css/bootstrap_limitless.css'),
         path.join(__dirname, 'assets/css/Jobbadmin_responsive.css')
     ],
-    styleguideDir: "public/docs"
+    styleguideDir: "public/styleguide",
+    styleguidePublicPath: "/docs"
 }
