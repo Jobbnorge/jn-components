@@ -21,6 +21,9 @@
             return {
                 time: {}
             }
+            /**
+       * Gets called when the user clicks on the button
+       */
             
         },
         methods: {

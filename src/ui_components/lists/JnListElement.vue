@@ -19,16 +19,26 @@
 </template>
 
 <script>
-
 export default {
+    
     name: "JnList",
     props: {
+        
         icon: String,
         title: String,
         secondaryText: String,
+        /**
+         * Viser enten ekstern eller intern ikon for navigering
+         */
         isExternal: Boolean,
         url: String,
+        /**
+         * Streker vises mellom elementene
+         */
         borderBetweenElements: Boolean,
+        /**
+         * Viser at elementer kan klikkes på og viser navigeringsikon (ekstern eller intern)
+        */
         navigable: Boolean
     },
     methods: {
@@ -86,3 +96,10 @@ export default {
         justify-self: center;
     }
 </style>
+
+<docs>
+blblblbjdjdjdj
+
+```[import](./../../components/ListElementDemo.vue)
+```
+</docs>
