@@ -23,7 +23,7 @@
       </JnCardMini>
     </div>
     <div style="height:800px;">
-      <JnPieChart :figures="pieData2" />
+      <JnPieChart :figures="pieData2" :defaultFigure="6" defaultText="Totalt" />
     </div>
     <div class="pie-chart-wrapper">
       <JnPieChart :figures="pieData2" />

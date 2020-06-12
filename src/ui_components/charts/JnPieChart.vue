@@ -26,6 +26,14 @@ export default {
       validator: function(val) {
         return val.match(/^#[0-9A-F]{6}$/).length > 0;
       }
+    },
+    defaultFigure: {
+      type: String,
+      default: ""
+    },
+    defaultText: {
+      type: String,
+      default: ""
     }
   },
   methods: {
@@ -36,8 +44,8 @@ export default {
     },
     hideFigure() {
       let groupElements = this.$el.getElementsByTagName("text");
-      groupElements[0].textContent = "";
-      groupElements[1].textContent = "";
+      groupElements[0].textContent = this.defaultFigure
+      groupElements[1].textContent = this.defaultText
     },
     renderChart() {
       if (Object.keys(this.figures).length <= 0) return;
@@ -110,14 +118,14 @@ export default {
           .attr("text-anchor", "middle")
           .attr("y", "-10")
           .attr("style", `font-size:${fontSizeFigure}px`)
-          .text("");
+          .text(`${this.defaultFigure}`);
         svg
           .append("text")
           .attr("text-anchor", "middle")
           .attr("x", "0")
           .attr("y", `${donutDiameter * 0.15}`)
           .attr("style", `font-size:${fontSizeText}px`)
-          .text("");
+          .text(`${this.defaultText}`);
       }
     }
   },
