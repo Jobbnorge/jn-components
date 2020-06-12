@@ -27,9 +27,7 @@ export default {
         icon: String,
         title: String,
         secondaryText: String,
-        /**
-         * Viser enten ekstern eller intern ikon for navigering
-         */
+        /** Viser enten ekstern eller intern ikon for navigering*/
         isExternal: Boolean,
         url: String,
         /**
@@ -96,10 +94,3 @@ export default {
         justify-self: center;
     }
 </style>
-
-<docs>
-blblblbjdjdjdj
-
-```[import](./../../components/ListElementDemo.vue)
-```
-</docs>

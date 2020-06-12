@@ -1,5 +1,15 @@
 # jn-vue-components
 
+## Documentation
+Is found [here](https://jobbnorge.github.io/jn-components/docs/)
+
+```
+npm run styleguide
+```
+
+
+[Vue styleguidist](https://vue-styleguidist.github.io/)
+
 ## Project setup
 ```
 npm install
@@ -29,3 +39,4 @@ fix: (patch)
 feat: (minor)
 perf: (major)
 ```
+

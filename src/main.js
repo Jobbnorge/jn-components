@@ -7,38 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './../assets/css/bootstrap_limitless.css'
 import './../assets/css/Jobbadmin_responsive.css'
 import VueI18n from 'vue-i18n'
+import './fontawesome.js'
 
-//Font-awesome stuff 
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
-import { 
-  faUserSecret, 
-  faUserPlus, 
-  faComments, 
-  faExternalLink, 
-  faChevronRight, 
-  faFileAlt,
-  faSortNumericUp,
-  faSortNumericDownAlt,
-  faEraser,
-  faCalendarAlt,
-  faClock,
-  faChevronUp,
-  faChevronDown,
-  faEnvelope,
-  faPhone,
-  faBriefcase
-} from '@fortawesome/pro-light-svg-icons';
-
-import { 
-  faBullseye,
-  faThumbsUp,
-  faThumbsDown,
-  faCircle,
-  faTimes
-} from '@fortawesome/pro-solid-svg-icons';
-
-import { library } from '@fortawesome/fontawesome-svg-core'
 
 //Importing Vue components used in routing
 import HorizontalCards from './components/HorizontalCards.vue'
@@ -75,32 +45,6 @@ const router = new VueRouter({
 
 Vue.use(VueI18n)
 
-library.add(
-  faBullseye,
-  faUserSecret, 
-  faUserPlus, 
-  faComments, 
-  faExternalLink, 
-  faChevronRight, 
-  faFileAlt,
-  faSortNumericUp,
-  faSortNumericDownAlt,
-  faEraser,
-  faThumbsUp,
-  faCalendarAlt,
-  faClock,
-  faThumbsDown,
-  faChevronUp,
-  faChevronDown,
-  faCircle,
-  faEnvelope,
-  faPhone,
-  faCalendarAlt,
-  faBriefcase,
-  faTimes
-)
-
-Vue.component('fa-icon', FontAwesomeIcon)
 
 const i18n = new VueI18n({
   locale: 'ja', // set locale
