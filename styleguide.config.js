@@ -30,9 +30,6 @@ module.exports = {
             sidebarBackground: '#f5f5f5',
             ribbonBackground: '#e90',
             ribbonText: '#fff'
-        },
-        fontFamily:{
-            base: 'Roboto'
         }
     }
    
