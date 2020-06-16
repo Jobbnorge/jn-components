@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './../assets/css/bootstrap_limitless.css'
 import './../assets/css/Jobbadmin_responsive.css'
 import VueI18n from 'vue-i18n'
-import './fontawesome.js'
+import './Jn_fontawesome.js'
 
 
 //Importing Vue components used in routing
