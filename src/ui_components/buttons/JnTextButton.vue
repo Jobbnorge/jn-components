@@ -8,7 +8,7 @@
 
 <script>
 export default {
-    name: "TextButton", 
+    name: "JnTextButton", 
     props: {
         url: String,
         id: String,

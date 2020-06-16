@@ -6,7 +6,7 @@
 import _ from "lodash";
 
 export default {
-    name: "Avatar",
+    name: "JnAvatar",
     props: {
         firstName: String,
         lastName: String,
