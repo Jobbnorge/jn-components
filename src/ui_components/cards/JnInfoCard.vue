@@ -1,6 +1,6 @@
 <template>
     <article class="info-wrapper" v-if="showInfoCard">
-        <button class="btn end muted" type="button" @click="showInfoCard=false">
+        <button class="btn end muted" type="button" v-if="removable" @click="showInfoCard=false">
             <fa-icon :icon="['fas', 'times']" />
         </button>
         <div>
@@ -23,7 +23,11 @@ export default {
         icon: {
             type: String, 
             default: "info-circle"
-        } 
+        },
+        removable: {
+            type: Boolean,
+            default: false
+        }
     },
     data() {
         return {
