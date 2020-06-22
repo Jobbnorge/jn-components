@@ -20,6 +20,7 @@ import ButtonDemo from './components/ButtonDemo.vue'
 import JnCardMiniCtn from './components/JnCardMiniCtn'
 import TaskListDemo from './components/TaskListDemo.vue'
 import AssessmentExample from './components/AssessmentExample.vue'
+import InfoCardDemo from './components/InfoCardDemo'
 
 window.$ = $;
 window.Vue = Vue;
@@ -38,7 +39,8 @@ const router = new VueRouter({
     { path: '/buttons', component: ButtonDemo },
     { path: '/mini-card', component: JnCardMiniCtn },
     { path: '/tasklist', component: TaskListDemo },
-    { path: '/assessment', component: AssessmentExample }
+    { path: '/assessment', component: AssessmentExample },
+    { path: '/info-card', component: InfoCardDemo }
   ]
 });
 

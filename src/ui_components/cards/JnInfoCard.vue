@@ -1,6 +1,6 @@
 <template>
     <article class="info-wrapper" v-if="showInfoCard">
-        <button class="btn end muted" type="button" v-if="removable" @click="showInfoCard=false">
+        <button class="btn end muted" type="button" v-if="removable" @click="hideInfoCard">
             <fa-icon :icon="['fas', 'times']" />
         </button>
         <div>
@@ -32,6 +32,12 @@ export default {
     data() {
         return {
             showInfoCard: true  
+        }
+    },
+    methods: {
+        hideInfoCard(evt) {
+            this.showInfoCard = false;
+            this.$emit('infoCardHidden', evt);
         }
     }
 }
