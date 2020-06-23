@@ -1,29 +1,27 @@
 <template functional>
-    <div>
-        <ul>
-            <li v-for="(item, x) in props.listItems" :key="x">
-                <fa-icon :icon="['fal', item[1]]" />
-                {{item[0]}}
-            </li> 
-        </ul>
-    </div>
+  <ul>
+    <li v-for="(value, name, index) in props.listItems" :key="index">
+      <fa-icon :icon="['fal', value]" />
+      {{name}}
+    </li>
+  </ul>
 </template>
 
 <script>
 export default {
-    name: "JnIconList",
-    functional: true, 
-    props: {
-        listItems: Object 
-    }
-}
+  functional: true,
+  name: "JnIconList",
+  props: {
+    listItems: Object
+  }
+};
 </script>
 <style scoped>
-    ul {
-        list-style: none;
-        padding: 0;
-    }
-    svg {
-        margin-right: 0.5rem; 
-    }
+ul {
+  list-style: none;
+  padding: 0;
+}
+svg {
+  margin-right: 0.5rem;
+}
 </style>
