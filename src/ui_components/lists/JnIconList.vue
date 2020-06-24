@@ -1,5 +1,5 @@
 <template functional>
-  <ul>
+  <ul :class="data.staticClass" v-bind="data.attrs">
     <li v-for="(value, name, index) in props.listItems" :key="index">
       <fa-icon :icon="['fal', value]" />
       {{name}}
