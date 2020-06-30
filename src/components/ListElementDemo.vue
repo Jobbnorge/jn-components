@@ -13,7 +13,16 @@
             :url="item.url"
             :borderBetweenElements="item.borderBetweenElements"
             :navigable="item.navigable"
-          ></JnListElement>
+          >
+            <template #left-side>
+              <Avatar
+                :firstName="item.user.firstName"
+                :lastName="item.user.lastName"
+                :id="item.id"
+              >
+              </Avatar>
+            </template>
+          </JnListElement>
         </ul>
       </template>
       <template #button>
@@ -33,7 +42,11 @@
             :url="item.url"
             :borderBetweenElements="item.borderBetweenElements"
             :navigable="item.navigable"
-          ></JnListElement>
+          >
+          <template #right-side>
+            <JnIconButton icon="download" size="lg" hasAnimation />
+          </template>
+          </JnListElement>
         </ul>
       </template>
       <template #button>
@@ -49,6 +62,8 @@ import JnListElement from "./../ui_components/lists/JnListElement";
 import JnCard from "./../ui_components/cards/JnCard";
 import JnTextButton from "./../ui_components/buttons/JnTextButton";
 import JnIconList from "./../ui_components/lists/JnIconList";
+import JnIconButton from "./../ui_components/buttons/JnIconButton";
+import Avatar from "./../ui_components/misc/Avatar"
 
 export default {
   name: "demoList",
@@ -56,7 +71,9 @@ export default {
     JnListElement,
     JnCard,
     JnTextButton,
-    JnIconList
+    JnIconList,
+    Avatar,
+    JnIconButton
   },
   data() {
     return {
@@ -68,7 +85,11 @@ export default {
           secondaryText: "Publisert - 10 dager igjen",
           url: "https://jobbnorge.no",
           borderBetweenElements: true,
-          navigable: true
+          navigable: true,
+          user: {
+            firstName: "Emmy",
+            lastName: "Sortland"
+          }
         },
         {
           id: 2,
@@ -77,7 +98,11 @@ export default {
           secondaryText: "Utgått - 2 dager siden",
           url: "https://jobbnorge.no",
           borderBetweenElements: true,
-          navigable: true
+          navigable: true,
+          user: {
+            firstName: "Vilje",
+            lastName: "Bech"
+          }
         },
         {
           id: 3,
@@ -86,7 +111,11 @@ export default {
           secondaryText: "Publisert - 5 dager igjen",
           url: "https://jobbnorge.no",
           borderBetweenElements: true,
-          navigable: true
+          navigable: true,
+          user: {
+            firstName: "Lars",
+            lastName: "Eliassen"
+          }
         }
       ],
 
@@ -97,7 +126,7 @@ export default {
           title: "Innstillingsdokument (standard)",
           url: "https://jobbnorge.no",
           borderBetweenElements: false,
-          navigable: true
+          
         },
         {
           id: 2,

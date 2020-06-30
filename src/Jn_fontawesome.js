@@ -18,7 +18,8 @@ import {
   faEnvelope,
   faPhone,
   faBriefcase,
-  faInfoCircle
+  faInfoCircle,
+  faDownload
 } from '@fortawesome/pro-light-svg-icons';
 
 import { 
@@ -54,7 +55,8 @@ library.add(
     faCalendarAlt,
     faBriefcase,
     faTimes,
-    faInfoCircle
+    faInfoCircle,
+    faDownload
   )
   
   Vue.component('fa-icon', FontAwesomeIcon)

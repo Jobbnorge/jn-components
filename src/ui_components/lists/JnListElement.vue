@@ -5,15 +5,20 @@
         v-bind:class="{ borderBetween: borderBetweenElements, grow: navigable }"
         @click="navigable ? navigate() : null "
         >
-        <i class="icon"><fa-icon :icon="['fal', icon]" size="lg"/></i>
+        <slot name="left-side">
+            <i class="icon"><fa-icon :icon="['fal', icon]" size="lg"/></i>
+        </slot>
         <div>
             <p v-if="secondaryText" class="secondary-text">{{secondaryText}}</p>
             <p class="title">{{title}}</p>
         </div>
-        <div v-if="navigable">
-            <i v-if="isExternal" class="center"><fa-icon :icon="['fal','external-link']" class="icon" size="lg"/></i>
-            <i v-else class="center"><fa-icon :icon="['fal', 'chevron-right']" class="icon" size="lg"/></i>
-        </div>
+            <div v-if="navigable">
+                <i v-if="isExternal" class="center"><fa-icon :icon="['fal','external-link']" class="icon" size="lg"/></i>
+                <i v-else class="center"><fa-icon :icon="['fal', 'chevron-right']" class="icon" size="lg"/></i>
+            </div>
+            <div v-if="!navigable">
+                <slot name="right-side"></slot>
+            </div>
     </li>
     <!-- </li> -->
 </template>
