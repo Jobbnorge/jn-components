@@ -3,11 +3,7 @@
     <JnCardHorizontal
       v-for="card in cards"
       :key="card.title"
-      :mainFrameTitle="card.mainFrameTitle"
-      :colorTheme="card.colorTheme"
-      :secondFrameTitle="card.secondFrameTitle"
-      :secondFrameTopText="card.secondFrameTopText"
-      :icon="card.icon"
+      v-bind="card"
     ></JnCardHorizontal>
   </div>
 </template>
@@ -46,6 +42,18 @@ export default {
           colorTheme: "green",
           secondFrameTitle: "Forespørsler",
           secondFrameTopText: "Krever handling"
+        },        {
+          mainFrameTitle: "8",
+          mainFrameSubtitle: "Søknader",
+          colorTheme: "blue",
+          secondFrameTitle: "I snitt per stilling",
+          secondFrameFontSize: "small"
+        },        {
+          mainFrameTitle: "24",
+          mainFrameSubtitle: "Søknader totalt",
+          colorTheme: "blue",
+          secondFrameTitle: "Fordelt på 4 publiserte stillinger",
+          secondFrameFontSize: "small"
         }
       ]
     };
@@ -58,7 +66,7 @@ export default {
   padding: 1em;
   display: grid;
   grid-template-columns: repeat(2, 314px);
-  grid-template-rows: repeat(2, 103px);
+  grid-template-rows: repeat(3, 103px);
   grid-gap: 1em;
 }
 </style>

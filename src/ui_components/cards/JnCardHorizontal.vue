@@ -1,13 +1,16 @@
 <template>
   <div class="jn-card-hor">
-    <div class="frame main-frame" v-bind:class="GetBackground(this.colorTheme, true)">
-      <h1 v-if="icon==null">{{mainFrameTitle}}</h1>
-      <h1>
+    <div class="main-frame" v-bind:class="GetBackground(this.colorTheme, true)">
+      <div v-if="icon==null" :class="{'has-subtitle': mainFrameSubtitle != undefined}">
+        <span>{{mainFrameTitle}}</span>
+        <span v-if="mainFrameSubtitle">{{mainFrameSubtitle}}</span>
+      </div>
+      <div v-else>
         <fa-icon :icon="['fal', this.icon]" />
-      </h1>
+      </div>
     </div>
     <div class="frame second-frame" v-bind:class="GetBackground(this.colorTheme, false)">
-      <h5 class="txt-black">{{secondFrameTitle}}</h5>
+      <h5 class="txt-black" :class="GetFontSize()">{{secondFrameTitle}}</h5>
       <span
         class="top-right-text"
         v-bind:class="GetTextColor(this.colorTheme)"
@@ -20,8 +23,13 @@ export default {
   name: "JnCardHorizontal",
   props: {
     mainFrameTitle: String,
+    mainFrameSubtitle: String,
     secondFrameTitle: String,
     secondFrameTopText: String,
+    secondFrameFontSize: {
+      type: String,
+      default: "medium"
+    },
     colorTheme: String,
     icon: String
   },
@@ -50,6 +58,19 @@ export default {
           return "txt-green";
         case "black":
           return "txt-black";
+      }
+    },
+    GetFontSize () {
+      switch (this.secondFrameFontSize) {
+        case "small": {
+          return "font-size-small"
+        }
+        case "medium": {
+          return "font-size-medium"
+        }
+        case "large": {
+          return "font-size-large"
+        }
       }
     }
   }
@@ -80,6 +101,26 @@ export default {
 
 .main-frame {
   color: #fff;
+}
+.main-frame > div {
+  height: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+.main-frame > div.has-subtitle {
+  grid-template-rows: 1fr 1fr;
+}
+.main-frame > div.has-subtitle span:first-child{
+  align-self: end;
+}
+.main-frame > div.has-subtitle span:last-child{
+  align-self: start;
+  font-size: 0.8em;
+  text-align: center;
+}
+.main-frame > div > :first-child {
+  font-size: 1.5625em;
 }
 .txt-green {
   color: #1d764f;
@@ -127,5 +168,17 @@ export default {
 
 .bg-black-secondary {
   background: #f6f5f6;
+}
+
+.font-size-small {
+  font-size: 1em;
+}
+
+.font-size-medium {
+  font-size: 1.2em;
+}
+
+.font-size-large {
+  font-size: 1.4em;
 }
 </style>
