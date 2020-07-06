@@ -116,7 +116,6 @@ export default {
 }
 .main-frame > div.has-subtitle span:last-child{
   align-self: start;
-  font-size: 0.8em;
   text-align: center;
 }
 .main-frame > div > :first-child {
