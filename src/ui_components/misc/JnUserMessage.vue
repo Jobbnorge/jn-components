@@ -53,7 +53,6 @@
 <style scoped>
     .message-grid {
         display: grid;
-        width: 80%;
         margin-bottom: 1rem; 
     }
     .message-container {
