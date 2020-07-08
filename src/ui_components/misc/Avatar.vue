@@ -1,5 +1,5 @@
 <template>
-    <div class="initials" :class="colorClass">{{initials}}</div>
+    <div class="initials" :class="colorClass" @click="$emit('avatarClicked')">{{initials}}</div>
 </template>
 
 <script>
@@ -11,7 +11,11 @@ export default {
         firstName: String,
         lastName: String,
         color: String,
-        id: Number
+        id: Number,
+        clickable: {
+            type: Boolean,
+            default: false 
+        }
     },
     data: function() {
         return {
@@ -30,7 +34,15 @@ export default {
 
            return `${firstNameInitials}${lastNamesInitials}`
         },
-        colorClass: (vm) => vm.color || vm.colorfromindex() 
+        colorClass: (vm) => {
+            var color = vm.color || vm.colorfromindex()
+            if(vm.clickable) {
+                return `click ${color} `
+            }
+            else {
+                return color 
+            }
+        }
     }
 }
 </script>
@@ -43,26 +55,46 @@ export default {
         margin: auto;  
         border-radius: 50%;  
         text-align: center;
+        box-sizing: border-box;
+    }
+    .click {
+        cursor: pointer;
     }
 
     .pink {
         background: #FFEEF6;
         color: #D41472;
+        border: 1px solid transparent;
+    }
+    .click.pink:hover {
+        border: 1px solid #D41472; 
     }
 
     .grey {
         background: #F6F5F6;
         color: #44303C;
+        border: 1px solid transparent;
+    }
+    .click.grey:hover {
+        border: 1px solid #44303c; 
     }
 
     .blue {
         background: #E8F5FA;
         color: #127DAC;
+        border: 1px solid transparent;
+    }
+    .click.blue:hover {
+        border: 1px solid #127dac; 
     }
 
     .green {
         background: #D3F5DF;
         color: #1D764F;
+        border: 1px solid transparent;
+    }
+    .click.green:hover {
+        border: 1px solid #1D764F; 
     }
 
 

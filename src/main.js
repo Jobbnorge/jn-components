@@ -6,9 +6,10 @@ import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './../assets/css/bootstrap_limitless.css'
 import './../assets/css/Jobbadmin_responsive.css'
+import './../assets/css/tooltip.css'
 import VueI18n from 'vue-i18n'
 import './Jn_fontawesome.js'
-
+import VTooltip from 'v-tooltip'
 
 //Importing Vue components used in routing
 import HorizontalCards from './components/HorizontalCards.vue'
@@ -22,6 +23,7 @@ import TaskListDemo from './components/TaskListDemo.vue'
 import AssessmentExample from './components/AssessmentExample.vue'
 import InfoCardDemo from './components/InfoCardDemo'
 import JnUserMessageDemo from "./components/JnUserMessageDemo"; 
+import AvatarExample from "./components/AvatarExample"; 
 
 window.$ = $;
 window.Vue = Vue;
@@ -42,16 +44,29 @@ const router = new VueRouter({
     { path: '/tasklist', component: TaskListDemo },
     { path: '/assessment', component: AssessmentExample },
     { path: '/info-card', component: InfoCardDemo },
-    { path: '/user-message', component: JnUserMessageDemo }
+    { path: '/user-message', component: JnUserMessageDemo },
+    { path: '/avatars', component: AvatarExample }
   ]
 });
 
 
 Vue.use(VueI18n)
 
-
 const i18n = new VueI18n({
   locale: 'ja', // set locale
+})
+
+Vue.use(VTooltip, {
+  disposeTimeout: 5000,
+  popover: {
+    defaultPopperOptions: {
+      modifiers: {
+        preventOverflow: {
+          padding: 12,
+        },
+      },
+    },
+  },
 })
 
 new Vue({
