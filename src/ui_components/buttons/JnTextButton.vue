@@ -1,5 +1,5 @@
 <template>
-    <a class="button" role="button" :href="url" :id="id">
+    <a class="button" role="button" :href="url" :id="id" @click="$emit('txtBtnClicked')">
         <slot></slot>
         <fa-icon v-if="icon" :icon="['fal', icon]" />
         <fa-icon v-else :icon="['fal', 'chevron-right']" />
@@ -25,6 +25,7 @@ export default {
         text-transform: uppercase; 
         text-decoration: none;
         color: #44303c;
+        cursor: pointer; 
     }
     svg {
         margin-left: 0.5rem; 
