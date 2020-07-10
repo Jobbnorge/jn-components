@@ -7,13 +7,14 @@
     <div class="mini">
         <h4>Mini avatar -bare å endre fontstørrelse</h4>
         <Avatar firstName="Kåre" lastName="Jensen" color="green" />
+        <Avatar fullName="Jens Jensen" color="blue" />
     </div>
     <div class="super-avatar">
         <h4>Klikkbar "avatar" med v-popover (funker ikke i styleguide)</h4>
         <v-popover
             offset="16"
         >
-        <Avatar firstName="+" lastName="2" :id="3" clickable />
+        <Avatar rawText="+2" :id="3" clickable />
             <template slot="popover">
                 <div class="mini">
                     <div class="user">

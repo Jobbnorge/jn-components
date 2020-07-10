@@ -10,6 +10,8 @@ export default {
     props: {
         firstName: String,
         lastName: String,
+        fullName: String,
+        rawText: String,
         color: String,
         id: Number,
         clickable: {
@@ -29,10 +31,20 @@ export default {
     },
     computed: {
         initials : (vm) => {
-           var firstNameInitials = _.first(vm.firstName.split(' ')).split('-').map(n => n.charAt(0)).join('');
-           var lastNamesInitials = _.last(vm.lastName.split(' ')).split('-').map(n => n.charAt(0)).join('');
+           if(vm.fullName) {
+               const names = vm.fullName.split(' ');
+               return `${names[0].charAt(0)}${names[names.length-1].charAt(0)}`
+           }
+           else if(vm.rawText) {
+               return vm.rawText
+           }
+           else {
+                var firstNameInitials = _.first(vm.firstName.split(' ')).split('-').map(n => n.charAt(0)).join('');
+                var lastNamesInitials = _.last(vm.lastName.split(' ')).split('-').map(n => n.charAt(0)).join('');
 
-           return `${firstNameInitials}${lastNamesInitials}`
+                return `${firstNameInitials}${lastNamesInitials}`
+           } 
+
         },
         colorClass: (vm) => {
             var color = vm.color || vm.colorfromindex()

@@ -1,11 +1,12 @@
 <template>
     <div>
         <JnUserMessage v-for="message in mockData" :key="mockData.indexOf(message)"
-        :messageDetails = message
-        :isLoggedInUser="checkSender(message.userId)"
+        :isLoggedInUser="message.isAuthor"
         :showBadge="message.unread"
+        :author="message.author"
+        :sent="message.date"
         >
-        <template #message-body>{{message.text}}</template>
+        <template #message-body>{{message.message}}</template>
         </JnUserMessage>
     </div>
 </template>
@@ -22,28 +23,27 @@ export default {
             loggedInUser: 321, 
             mockData: [
                 {
-                    unread: false,
-                    firstName: "Lars",
-                    lastName: "Eliassen",
-                    userId: 123,
-                    sent: "08:21",
-                    text: "Heia, syns ikke du at det er litt rart at kandidaten har oppgitt å jobbe to steder samtidig 100% ? Jeg syns i hvertfall at vi bør undersøke dette nærmere fordi vi skal være årvåkne ovenfor juks"
+                date:"$date('2020-05-25 12:24:05')",
+                author:"Bjarke Nitritius Rødpølse",
+                message:"Heij",
+                unread:false,
+                tagged:false,
+                isAuthor: false
                 },
                 {
-                    unread: false,
-                    firstName: "Vilje",
-                    lastName: "Bech",
-                    userId: 321,
-                    sent: "09:11",
-                    text: "Oi! Såpass ja :O Men da må vi jo nesten undersøke det nærmere"
+                date:"$date('2020-05-25 12:44:05')",
+                author:"Tester Testersen",
+                message:"Hallo du!",
+                unread:false,
+                tagged:false,
+                isAuthor: true
                 },
                 {
-                    unread: true, 
-                    firstName: "Emmy",
-                    lastName: "Sortland",
-                    userId: 456,
-                    sent: "10:32",
-                    text: "Jeg kan gjøre det!"
+                date:"$date('2020-05-25 13:24:05')",
+                author:"Hans Hansen",
+                message:"Flott vær i dag du @Tagget Bruker",
+                unread:false,
+                tagged:true
                 }
             ]
         }

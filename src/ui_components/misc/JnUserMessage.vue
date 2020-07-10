@@ -5,7 +5,7 @@
             <JnBadge v-if="showBadge" colorClass="pink">Ny</JnBadge>
         </section>
         <div class="message-container" v-bind:class="{right: isLoggedInUser}">
-            <Avatar v-if="!isLoggedInUser" :firstName="messageDetails.firstName" :lastName="messageDetails.lastName" :id="messageDetails.userId"></Avatar>
+            <Avatar v-if="!isLoggedInUser" :fullName="author" :id="324"></Avatar>
             <div class="message" v-bind:class="{senderBg: isLoggedInUser}">
                 <slot name="message-body"></slot>
             </div>
@@ -33,18 +33,22 @@
                 type: Boolean,
                 default: false
             },
-            /** Forventer firstName, lastName & sent*/
-            messageDetails: {
-                type: Object,
+            sent: {
+                type: Date,
+                default: null
+            },
+            author: {
+                type: String,
+                default: "Jobbadmin Bruker"
             }
         },
         computed: {
             details: vm => {
                 if(vm.isLoggedInUser) {
-                    return `${vm.messageDetails.sent}`
+                    return `${vm.sent}`
                 }
                 else {
-                    return `${vm.messageDetails.firstName} ${vm.messageDetails.lastName} - ${vm.messageDetails.sent}`
+                    return `${vm.author} - ${vm.sent}`
                 }
             }
         }
