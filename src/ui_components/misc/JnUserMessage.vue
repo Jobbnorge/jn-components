@@ -5,7 +5,7 @@
             <JnBadge v-if="showBadge" colorClass="pink">Ny</JnBadge>
         </section>
         <div class="message-container" v-bind:class="{right: isLoggedInUser}">
-            <Avatar v-if="!isLoggedInUser" :fullName="author" :id="324"></Avatar>
+            <Avatar v-if="!isLoggedInUser" :fullName="author" :id="authorId"></Avatar>
             <div class="message" v-bind:class="{senderBg: isLoggedInUser}">
                 <slot name="message-body"></slot>
             </div>
@@ -40,6 +40,10 @@
             author: {
                 type: String,
                 default: "Jobbadmin Bruker"
+            },
+            authorId: {
+                type: Number,
+                default: null
             }
         },
         computed: {

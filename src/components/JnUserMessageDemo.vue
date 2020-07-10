@@ -1,10 +1,11 @@
 <template>
     <div>
-        <JnUserMessage v-for="message in mockData" :key="mockData.indexOf(message)"
-        :isLoggedInUser="message.isAuthor"
-        :showBadge="message.unread"
-        :author="message.author"
+        <JnUserMessage v-for="message in mockData" :key="message.id"
+        :isLoggedInUser="message.userFlags.isAuthor"
+        :showBadge="message.userFlags.unread"
+        :author="message.author.name"
         :sent="message.date"
+        :authorId="message.author.id"
         >
         <template #message-body>{{message.message}}</template>
         </JnUserMessage>
@@ -23,28 +24,50 @@ export default {
             loggedInUser: 321, 
             mockData: [
                 {
+                id: 1232654,
                 date:"$date('2020-05-25 12:24:05')",
-                author:"Bjarke Nitritius Rødpølse",
+                author: {
+                    name: "Bjarke Nitritius Rødpølse",
+                    id: 123
+                },
+                userFlags: {
+                    unread:false,
+                    tagged:false,
+                    isAuthor: false
+                },
                 message:"Heij",
-                unread:false,
-                tagged:false,
-                isAuthor: false
                 },
                 {
-                date:"$date('2020-05-25 12:44:05')",
-                author:"Tester Testersen",
-                message:"Hallo du!",
-                unread:false,
-                tagged:false,
-                isAuthor: true
+                id: 7894561,
+                date:"$date('2020-05-25 12:24:05')",
+                author: {
+                    name: "Arne Per",
+                    id: 456
+                },
+                userFlags: {
+                    unread:false,
+                    tagged:false,
+                    isAuthor: true
+                },
+                message:"Heia du!",
                 },
                 {
-                date:"$date('2020-05-25 13:24:05')",
-                author:"Hans Hansen",
-                message:"Flott vær i dag du @Tagget Bruker",
-                unread:false,
-                tagged:true
+                id: 7894563123,
+                date:"$date('2020-05-25 12:24:05')",
+                author: {
+                    name: "Lene Nilsen",
+                    id: 789
+                },
+                userFlags: {
+                    unread:true,
+                    tagged:false,
+                    isAuthor: false
+                },
+                message:"Flotters!",
                 }
+                
+                
+                
             ]
         }
     },
