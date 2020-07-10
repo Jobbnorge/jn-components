@@ -34,8 +34,8 @@
                 default: false
             },
             sent: {
-                type: Date,
-                default: null
+                type: String,
+                default: ""
             },
             author: {
                 type: String,
@@ -67,6 +67,9 @@
         display: grid;
         grid-template-columns: auto 1fr;
     }
+    .message-container:first-child {
+        display: flex; 
+    }
     .message-details {
         display: flex;
         align-items: baseline;
@@ -97,12 +100,6 @@
     @media only screen and (max-width: 800px) {
         .message-grid {
             max-width: 100%;
-        }
-    }
-    @media only screen and (max-width: 600px) {
-        .message-container {
-            display: flex;
-            flex-direction: column-reverse;
         }
     }
 

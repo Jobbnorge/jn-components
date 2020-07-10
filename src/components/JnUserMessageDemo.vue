@@ -60,10 +60,10 @@ export default {
                 },
                 userFlags: {
                     unread:true,
-                    tagged:false,
+                    tagged:true,
                     isAuthor: false
                 },
-                message:"Flotters!",
+                message:"Flotters, da fikser du det @Arne Per?",
                 }
                 
                 
