@@ -30,6 +30,23 @@
             </template>
         </v-popover>
     </div>
+    <div>
+        <h4>Tooltip Avatar</h4>
+        <Avatar firstName="Gunnar" lastName="Rødberg" color="pink" hoverable
+        v-tooltip="{
+            content: tooltip,
+            placement: 'bottom-center',
+            classes: ['info'],
+            targetClasses: ['it-has-a-tooltip'],
+            delay: {
+                show: 300,
+                hide: 200,
+            },
+        }"
+        
+        
+        />
+    </div>
 </div>
 </template>
 <script>
@@ -38,6 +55,11 @@ export default {
     name: "AvatarExample", 
     components: {
         Avatar
+    },
+    data() {
+        return {
+            tooltip: "Gunnar Rødberg"
+        }
     }
 }
 </script>

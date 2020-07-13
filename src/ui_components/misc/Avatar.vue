@@ -17,6 +17,10 @@ export default {
         clickable: {
             type: Boolean,
             default: false 
+        },
+        hoverable: {
+            type: Boolean,
+            default: false 
         }
     },
     data: function() {
@@ -50,6 +54,9 @@ export default {
             var color = vm.color || vm.colorfromindex()
             if(vm.clickable) {
                 return `click ${color} `
+            }
+            else if(vm.hoverable) {
+                return `hoverable ${color}`
             }
             else {
                 return color 
@@ -107,6 +114,9 @@ export default {
     }
     .click.green:hover {
         border: 1px solid #1D764F; 
+    }
+    .hoverable {
+        cursor: pointer; 
     }
 
 

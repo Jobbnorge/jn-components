@@ -4,8 +4,8 @@
   }
   
   .tooltip .tooltip-inner {
-    background: black;
-    color: white;
+    background: #F6F5F6;
+    color: #44303C;
     border-radius: 16px;
     padding: 5px 10px 4px;
   }
@@ -16,7 +16,8 @@
     border-style: solid;
     position: absolute;
     margin: 5px;
-    border-color: black;
+    border-color: #F6F5F6;
+;
     z-index: 1;
   }
   
