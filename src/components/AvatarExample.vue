@@ -37,7 +37,6 @@
             content: tooltip,
             placement: 'bottom-center',
             classes: ['info'],
-            targetClasses: ['it-has-a-tooltip'],
             delay: {
                 show: 300,
                 hide: 200,

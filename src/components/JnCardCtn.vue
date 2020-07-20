@@ -14,6 +14,19 @@
           <button class="btn btn-primary" type="button" @click="anotherHandler">I'm from bootstrap</button>
         </template>
       </JnCard>
+      <JnCard
+        title="Sist sette stillinger"
+      >
+      <template #description>
+        Finner ingen nylig sette stillinger
+      </template>
+      <template #content>
+        <EmptyStateSVG />
+      </template>
+        <template #button>
+         <JnTextButton>Gå til stillinger</JnTextButton>
+        </template>
+      </JnCard>
     </div>
     <div class="wrapper">
       <JnCard
@@ -43,12 +56,15 @@
 import JnCard from "./../ui_components/cards/JnCard"
 import ContentPlaceholder from "./../ui_components/models/ContentPlaceholder"
 import JnTextButton from "./../ui_components/buttons/JnTextButton"
+import EmptyStateSVG from "./../mock_data/EmptyStateSVG"
 
 export default {
   name: "JnCardCtn",
   components: {
     JnCard,
-    JnTextButton
+    JnTextButton,
+    EmptyStateSVG
+
   },
   data: function() {
     return {

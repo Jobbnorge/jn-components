@@ -56,4 +56,7 @@ export default {
 .card-body {
   grid-template-columns: 1fr;
 }
+div > svg {
+  margin: 0 auto; 
+}
 </style>
