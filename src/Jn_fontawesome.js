@@ -24,7 +24,8 @@ import {
   faUserCircle,
   faPassport,
   faCheckCircle,
-  faHome
+  faHome,
+  faUserLock
 } from '@fortawesome/pro-light-svg-icons';
 
 import { 
@@ -66,7 +67,8 @@ library.add(
     faUserCircle,
     faPassport,
     faCheckCircle,
-    faHome
+    faHome,
+    faUserLock
 
 
 

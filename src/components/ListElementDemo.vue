@@ -153,6 +153,7 @@ export default {
     setTimeout(function() {
       vm.$set(vm.listItems, "hello", "info-circle");
       vm.$set(vm.listItems, "fluff puff hei", "briefcase");
+      vm.$set(vm.listItems, "some information", "user-lock"); 
     }, 1000);
   }
 };
