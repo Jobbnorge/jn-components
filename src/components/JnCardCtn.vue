@@ -30,6 +30,20 @@
     </div>
     <div class="wrapper">
       <JnCard
+        title="Uten box-shadow"
+        flat 
+      >
+      <template #description>
+        Kan man lage andre typer kort
+      </template>
+      <template #content>
+        <p>Her er noe innhold</p>
+      </template>
+        <template #button>
+         <JnTextButton>Bare se her</JnTextButton>
+        </template>
+      </JnCard>
+      <JnCard
         :title="cardOpt.title"
         :subtitle="cardOpt.subtitle"
         v-for="num in [1,2,3,4,5]"

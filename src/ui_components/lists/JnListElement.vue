@@ -78,6 +78,7 @@ export default {
     }
     .grow{
         transition: all .2s ease-in;
+        cursor: pointer;
     }
     .grow:hover{
         transform: scale(1.03);

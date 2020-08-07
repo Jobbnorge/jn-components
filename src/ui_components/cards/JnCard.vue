@@ -1,5 +1,5 @@
 <template>
-  <div class="card jn-card">
+  <div v-bind:class="{ flat: flat }" class="jn-card">
     <div class="wrapper card-body">
       <h2 v-if="(title.length > 2)" class="jn-card-title">{{ title }}</h2>
       <p v-if="(subtitle)" class="jn-card-subtitle">{{ subtitle }}</p>
@@ -27,6 +27,7 @@ export default {
   props: {
     title: String,
     subtitle: String,
+    flat: Boolean, 
     contentPlaceholder: ContentPlaceholder
   }
 };
@@ -46,6 +47,9 @@ export default {
   box-sizing: border-box;
   box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.12);
 }
+.flat {
+  box-shadow: none;
+}
 .jn-card-title {
   font-size: 1.125rem;
   text-transform: uppercase;
@@ -55,6 +59,7 @@ export default {
 }
 .card-body {
   grid-template-columns: 1fr;
+  padding: 1.25rem; 
 }
 div > svg {
   margin: 0 auto; 
