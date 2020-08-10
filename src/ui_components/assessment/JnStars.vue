@@ -4,12 +4,13 @@
             :star-size="size" 
             :rating="showAmount"
             :max-rating="max"
-            :show-rating="!hasValueHigherThanAmount"
+            :show-rating="!hideRating"
             :read-only="readOnly"
+            :increment="increment"
             active-color = "#D41472"
             @rating-selected="emitUpward"
         />
-        <span v-if="hasValueHigherThanAmount">{{value}}</span>
+        <span v-if="ratingOrValue">{{value}}</span>
     </div>
 </template>
 <script>
@@ -40,16 +41,29 @@ export default {
             type: Boolean,
             default: false 
         },
+        /** Skjul tekst på høyre side */
+        hideRating: {
+            type: Boolean,
+            default: false 
+        },
+        /** Hvor mange biter skal en stjerne deles opp i ? */
+        increment: {
+            type: Number,
+            default: 1
+        },
         /** SVG-størrelse. Eksempelet viser 50 vs. 25 */
-        size: Number 
+        size: {
+            type: Number, 
+            default: 50
+        }
     },
     computed: {
-        hasValueHigherThanAmount: vm => {
+        ratingOrValue: vm => {
             if(vm.value > vm.showAmount) {
-                return true; 
+                return true  
             }
             else {
-                return false; 
+                return false 
             }
         }
     },
