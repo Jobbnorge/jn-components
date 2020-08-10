@@ -5,7 +5,7 @@
             :rating="showAmount"
             :max-rating="max"
             :show-rating="!hideRating"
-            :read-only="readOnly"
+            :read-only="inputDisabled"
             :increment="increment"
             active-color = "#D41472"
             @rating-selected="emitUpward"
@@ -37,7 +37,7 @@ export default {
             default: 0 
         },
         /** Bruk denne dersom bruker ikke skal kunne endre antall stjerner */
-        readOnly: {
+        inputDisabled: {
             type: Boolean,
             default: false 
         },
