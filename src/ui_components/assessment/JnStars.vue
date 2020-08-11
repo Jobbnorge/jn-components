@@ -7,6 +7,9 @@
             :show-rating="!hideRating"
             :read-only="inputDisabled"
             :increment="increment"
+            :border-width="border"
+            :inactive-color="inactiveColor"
+            border-color = "#737373"
             active-color = "#D41472"
             @rating-selected="emitUpward"
         />
@@ -50,6 +53,14 @@ export default {
         increment: {
             type: Number,
             default: 1
+        },
+        border: {
+            type: Number,
+            default: 0 
+        },
+        inactiveColor: {
+            type: String,
+            default: "#CCCCCC"
         },
         /** SVG-størrelse. Eksempelet viser 50 vs. 25 */
         size: {
