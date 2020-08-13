@@ -60,6 +60,7 @@ export default {
 .card-body {
   grid-template-columns: 1fr;
   padding: 1.25rem; 
+  height: 100%; 
 }
 div > svg {
   margin: 0 auto; 

@@ -87,6 +87,9 @@
         width: fit-content; 
         
     }
+    .message:empty {
+        display: none; 
+    }
     .senderBg {
         background: #E8F5FA;
     }
