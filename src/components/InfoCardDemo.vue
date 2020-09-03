@@ -1,29 +1,40 @@
 <template>
-<div>
-    <JnInfoCard 
-    title="Vi oppdaterer Jobbadmin" 
-    body="Oppdateringen vil foregå fra 07:00 - 08:00 den 26.6. Systemet vil derfor kunne oppleves som treigt innimellom"
+  <div>
+    <JnInfoCard
+      title="Vi oppdaterer Jobbadmin"
+      body="Oppdateringen vil foregå fra 07:00 - 08:00 den 26.6. Systemet vil derfor kunne oppleves som treigt innimellom"
+      :hyperlink="myHyperlink"
     />
-    <JnInfoCard 
-    title="Nye funksjoner"
-    icon="comments" 
-    body="Nå kan du endelig gjøre masse greier du har ventet lenge på å få gjøre i Jobbadmin. Vi gleder oss, håper du også gjør det!"
-    removable
+    <JnInfoCard
+      title="Nye funksjoner"
+      icon="comments"
+      body="Nå kan du endelig gjøre masse greier du har ventet lenge på å få gjøre i Jobbadmin. Vi gleder oss, håper du også gjør det!"
+      removable
     />
-</div>
+  </div>
 </template>
 <script>
-    import JnInfoCard from '../ui_components/cards/JnInfoCard'
+import Hyperlink from "../domain/Hyperlink";
+import JnInfoCard from "../ui_components/cards/JnInfoCard";
 export default {
-    name: "InfoCardDemo",
-    components: {
-        JnInfoCard
-    }
-}
+  name: "InfoCardDemo",
+  components: {
+    JnInfoCard,
+  },
+  data: function () {
+    return {
+      myHyperlink: new Hyperlink(),
+    };
+  },
+  created() {
+    this.myHyperlink.friendlyName = "Vis mer";
+    this.myHyperlink.url = "http://trunk.com/apps/jobbadmin";
+  },
+};
 </script>
 <style scoped>
-    div {
-        display: grid;
-        gap: 1rem; 
-    }
+div {
+  display: grid;
+  gap: 1rem;
+}
 </style>
