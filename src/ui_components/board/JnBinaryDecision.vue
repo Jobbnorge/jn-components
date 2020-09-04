@@ -53,6 +53,9 @@ export default {
     decision: {
       type: Number
     },
+    /**
+         * Kan velge vertical eller horizontal
+        */
     layout: {
       type: String,
       default: "vertical"
