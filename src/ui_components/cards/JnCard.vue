@@ -1,40 +1,42 @@
 <template>
   <div v-bind:class="{ flat: flat }" class="jn-card">
-    <div class="wrapper card-body">
+    <div class="jn-card-header">
       <h2 v-if="(title.length > 2)" class="jn-card-title">{{ title }}</h2>
       <p v-if="(subtitle)" class="jn-card-subtitle">{{ subtitle }}</p>
-      <div>
-        <slot name="content">
-          <img v-if="contentPlaceholder" :src="contentPlaceholder.imgPath" class="card-img mt-2 mb-2" :alt="contentPlaceholder.imgAlt" />
-        </slot>
-      </div>
-      <slot name="description">
+    </div>
+    <div class="wrapper jn-card-body">
+      <slot name="content">
+        <img
+          v-if="contentPlaceholder"
+          :src="contentPlaceholder.imgPath"
+          class="card-img mt-2 mb-2"
+          :alt="contentPlaceholder.imgAlt"
+        />
       </slot>
-      <div class="wrapper">
-        <slot name="button">
-        </slot>
-      </div>
+      <slot name="description"></slot>
+    </div>
+    <div class="jn-cardfooter wrapper">
+      <slot name="button"></slot>
     </div>
   </div>
 </template>
 
 <script>
-
-import ContentPlaceholder from './../models/ContentPlaceholder'
+import ContentPlaceholder from "./../models/ContentPlaceholder";
 
 export default {
   name: "JnCard",
   props: {
     title: String,
     subtitle: String,
-    flat: Boolean, 
-    contentPlaceholder: ContentPlaceholder
-  }
+    flat: Boolean,
+    contentPlaceholder: ContentPlaceholder,
+  },
 };
 </script>
 
 <style scoped>
-.wrapper {
+.wrapper{
   display: grid;
 }
 .wrapper > a {
@@ -57,12 +59,13 @@ export default {
 .jn-card-subtitle {
   font-size: 1.125rem;
 }
-.card-body {
+.jn-card {
   grid-template-columns: 1fr;
-  padding: 1.25rem; 
-  height: 100%; 
+  padding: 1.25rem;
+  height: 100%;
+  display:grid;
 }
 div > svg {
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 </style>
