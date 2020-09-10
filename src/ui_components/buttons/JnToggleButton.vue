@@ -11,7 +11,10 @@ export default {
     name: "JnToggleButton",
     props: {
         icon: String,
-        secondIcon: String, 
+        secondIcon: String,
+        /**
+         * Kan settes til 'left' eller 'right'
+         */
         placement: String,
         action: Function
     },
