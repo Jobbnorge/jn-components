@@ -50,6 +50,7 @@ class JnDialogModule {
         }
 
         this.jnDialogComp.$mount();
+        while (this.jnDialogCtn.lastElementChild) this.jnDialogCtn.removeChild(this.jnDialogCtn.lastElementChild); 
         this.jnDialogCtn.appendChild(this.jnDialogComp.$el);
     }
     setModalProps(props) {
