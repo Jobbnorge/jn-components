@@ -80,4 +80,7 @@ header {
   display: grid;
   grid-template-columns: 9fr 1fr;
 }
+article{
+  height: fit-content;
+}
 </style>
