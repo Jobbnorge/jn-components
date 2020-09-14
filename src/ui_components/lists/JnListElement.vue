@@ -5,7 +5,7 @@
     @click="navigable ? navigate() : null "
   >
     <slot name="left-side">
-      <i class="icon">
+      <i class="icon" v-if="icon">
         <FontAwesomeIcon :icon="icon" />
       </i>
     </slot>
@@ -50,7 +50,6 @@ export default {
   },
   props: {
     icon: {
-      required: true,
       type: Object,
     },
     title: String,
