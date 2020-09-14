@@ -121,8 +121,8 @@ a:active {
   justify-self: center;
 }
 .svg-inline--fa {
-  width: 1em;
-  height: 1em;
+  width: 1.33333em;
+  height: 1.33333em;
   display: inline-block;
 }
 </style>

@@ -7,9 +7,6 @@
       <FontAwesomeIcon :icon="icon" color="#127dac" />
       <header>
         <h1 class="info-header">{{title}}</h1>
-        <a class="end muted" href="#" role="button" v-if="removable" @click="hideInfoCard">
-          <fa-icon :icon="['fas', 'times']" />
-        </a>
       </header>
       <section>
         <p>{{body}}</p>
