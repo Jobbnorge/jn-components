@@ -5,8 +5,8 @@
         <span>{{mainFrameTitle}}</span>
         <span v-if="mainFrameSubtitle">{{mainFrameSubtitle}}</span>
       </div>
-      <div v-else>
-        <fa-icon :icon="['fal', this.icon]" />
+      <div v-else style="padding:18px">
+        <FontAwesomeIcon :icon="icon" />
       </div>
     </div>
     <div class="frame second-frame" v-bind:class="GetBackground(this.colorTheme, false)">
@@ -19,8 +19,16 @@
   </div>
 </template>
 <script>
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { config as fontAwesomeConfig } from "@fortawesome/fontawesome-svg-core";
+
+fontAwesomeConfig.autoAddCss = false;
+
 export default {
   name: "JnCardHorizontal",
+  components: {
+    FontAwesomeIcon
+  },
   props: {
     mainFrameTitle: String,
     mainFrameSubtitle: String,
@@ -28,15 +36,13 @@ export default {
     secondFrameTopText: String,
     secondFrameFontSize: {
       type: String,
-      default: "medium"
+      default: "medium",
     },
     colorTheme: String,
-    icon: String
+    icon: Object,
   },
   methods: {
-    GetBackground: function(color, mainFrame) {
-      if (color == "black") console.log(this.icon);
-
+    GetBackground: function (color, mainFrame) {
       switch (color) {
         case "red":
           return mainFrame ? "bg-red" : "bg-red-secondary";
@@ -48,7 +54,7 @@ export default {
           return mainFrame ? "bg-black" : "bg-black-secondary";
       }
     },
-    GetTextColor: function(color) {
+    GetTextColor: function (color) {
       switch (color) {
         case "red":
           return "txt-red";
@@ -60,20 +66,20 @@ export default {
           return "txt-black";
       }
     },
-    GetFontSize () {
+    GetFontSize() {
       switch (this.secondFrameFontSize) {
         case "small": {
-          return "font-size-small"
+          return "font-size-small";
         }
         case "medium": {
-          return "font-size-medium"
+          return "font-size-medium";
         }
         case "large": {
-          return "font-size-large"
+          return "font-size-large";
         }
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -111,10 +117,10 @@ export default {
 .main-frame > div.has-subtitle {
   grid-template-rows: 1fr 1fr;
 }
-.main-frame > div.has-subtitle span:first-child{
+.main-frame > div.has-subtitle span:first-child {
   align-self: end;
 }
-.main-frame > div.has-subtitle span:last-child{
+.main-frame > div.has-subtitle span:last-child {
   align-self: start;
   text-align: center;
 }

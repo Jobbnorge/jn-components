@@ -6,7 +6,7 @@
           <JnListElement
             v-for="item in list1"
             :key="item.id"
-            icon="file-alt"
+            :icon="faFileAlt"
             :title="item.title"
             :secondaryText="item.secondaryText"
             :isExternal="item.isExternal"
@@ -15,12 +15,7 @@
             :navigable="item.navigable"
           >
             <template #left-side>
-              <Avatar
-                :firstName="item.user.firstName"
-                :lastName="item.user.lastName"
-                :id="item.id"
-              >
-              </Avatar>
+              <Avatar :firstName="item.user.firstName" :lastName="item.user.lastName" :id="item.id"></Avatar>
             </template>
           </JnListElement>
         </ul>
@@ -35,7 +30,7 @@
           <JnListElement
             v-for="item in list2"
             :key="item.id"
-            icon="user-secret"
+            :icon="faUserSecret"
             :title="item.title"
             :secondaryText="item.secondaryText"
             :isExternal="item.isExternal"
@@ -43,9 +38,9 @@
             :borderBetweenElements="item.borderBetweenElements"
             :navigable="item.navigable"
           >
-          <template #right-side>
-            <JnIconButton icon="download" size="lg" hasAnimation />
-          </template>
+            <template #right-side>
+              <JnIconButton icon="download" size="lg" hasAnimation />
+            </template>
           </JnListElement>
         </ul>
       </template>
@@ -63,7 +58,14 @@ import JnCard from "./../ui_components/cards/JnCard";
 import JnTextButton from "./../ui_components/buttons/JnTextButton";
 import JnIconList from "./../ui_components/lists/JnIconList";
 import JnIconButton from "./../ui_components/buttons/JnIconButton";
-import Avatar from "./../ui_components/misc/Avatar"
+import Avatar from "./../ui_components/misc/Avatar";
+import {
+  faBriefcase,
+  faUserLock,
+  faInfoCircle,
+  faFileAlt,
+  faUserSecret,
+} from "@fortawesome/pro-light-svg-icons";
 
 export default {
   name: "demoList",
@@ -73,7 +75,7 @@ export default {
     JnTextButton,
     JnIconList,
     Avatar,
-    JnIconButton
+    JnIconButton,
   },
   data() {
     return {
@@ -88,8 +90,8 @@ export default {
           navigable: true,
           user: {
             firstName: "Emmy",
-            lastName: "Sortland"
-          }
+            lastName: "Sortland",
+          },
         },
         {
           id: 2,
@@ -101,8 +103,8 @@ export default {
           navigable: true,
           user: {
             firstName: "Vilje",
-            lastName: "Bech"
-          }
+            lastName: "Bech",
+          },
         },
         {
           id: 3,
@@ -114,9 +116,9 @@ export default {
           navigable: true,
           user: {
             firstName: "Lars",
-            lastName: "Eliassen"
-          }
-        }
+            lastName: "Eliassen",
+          },
+        },
       ],
 
       list2: [
@@ -126,7 +128,6 @@ export default {
           title: "Innstillingsdokument (standard)",
           url: "https://jobbnorge.no",
           borderBetweenElements: false,
-          
         },
         {
           id: 2,
@@ -134,7 +135,7 @@ export default {
           title: "Avslagsbrev",
           url: "https://jobbnorge.no",
           borderBetweenElements: false,
-          navigable: true
+          navigable: true,
         },
         {
           id: 3,
@@ -142,20 +143,22 @@ export default {
           title: "Tilbudsbrev",
           url: "https://jobbnorge.no",
           borderBetweenElements: false,
-          navigable: true
-        }
+          navigable: true,
+        },
       ],
-      listItems: {}
+      listItems: {},
+      faFileAlt,
+      faUserSecret,
     };
   },
   created() {
     var vm = this;
-    setTimeout(function() {
-      vm.$set(vm.listItems, "hello", "info-circle");
-      vm.$set(vm.listItems, "fluff puff hei", "briefcase");
-      vm.$set(vm.listItems, "some information", "user-lock"); 
+    setTimeout(function () {
+      vm.$set(vm.listItems, "hello", faInfoCircle);
+      vm.$set(vm.listItems, "fluff puff hei", faBriefcase);
+      vm.$set(vm.listItems, "some information", faUserLock);
     }, 1000);
-  }
+  },
 };
 </script>
 <style scoped>

@@ -8,7 +8,6 @@ import './../assets/css/bootstrap_limitless.css'
 import './../assets/css/Jobbadmin_responsive.css'
 import './../assets/css/tooltip.css'
 import VueI18n from 'vue-i18n'
-import './Jn_fontawesome.js'
 import VTooltip from 'v-tooltip'
 
 //Importing Vue components used in routing
@@ -53,7 +52,7 @@ const router = new VueRouter({
 Vue.use(VueI18n)
 
 const i18n = new VueI18n({
-  locale: 'ja', // set locale
+  locale: 'ja'
 })
 
 Vue.use(VTooltip, {

@@ -1,10 +1,10 @@
 <template>
   <article class="info-wrapper" v-if="showInfoCard">
     <button class="btn end muted" type="button" v-if="removable" @click="hideInfoCard">
-      <fa-icon :icon="['fas', 'times']" />
+      <FontAwesomeIcon :icon="faTimes" />
     </button>
     <div>
-      <fa-icon :icon="['fal', icon]" color="#127dac" size="2x" />
+      <FontAwesomeIcon :icon="icon" color="#127dac" />
       <header>
         <h1 class="info-header">{{title}}</h1>
       </header>
@@ -16,21 +16,30 @@
   </article>
 </template>
 <script>
-import Hyperlink from '../../domain/Hyperlink'
+import Hyperlink from "../../domain/Hyperlink";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { config as fontAwesomeConfig } from "@fortawesome/fontawesome-svg-core";
+import { faInfoCircle, faTimes } from "@fortawesome/pro-light-svg-icons";
+
+fontAwesomeConfig.autoAddCss = false;
+
 export default {
   name: "JnInfoCard",
+  components: {
+    FontAwesomeIcon,
+  },
   props: {
     title: String,
     body: String,
-    /** Vises som linkknapp nederst i info kortet
+    /** Vises som lenkeknapp nederst i info kortet
      * @values Hyperlink {friendlyName: String, url:String}
      */
     hyperlink: {
       type: Hyperlink,
     },
     icon: {
-      type: String,
-      default: "info-circle",
+      type: Object,
+      default: () => faInfoCircle,
     },
     removable: {
       type: Boolean,
@@ -40,6 +49,7 @@ export default {
   data() {
     return {
       showInfoCard: true,
+      faTimes,
     };
   },
   methods: {
@@ -74,5 +84,10 @@ section {
 }
 .end {
   justify-self: end;
+}
+.svg-inline--fa {
+  width: 2em;
+  height: 2em;
+  display: inline-block;
 }
 </style>

@@ -1,18 +1,18 @@
-<template functional>
-  <div class="jn-binary-decision-wrapper" v-bind:class="props.layout">
-    <span>{{props.text}}</span>
+<template>
+  <div class="jn-binary-decision-wrapper" v-bind:class="layout">
+    <span>{{text}}</span>
     <div>
       <input
         type="radio"
-        :id="`yes_${props.id}`"
+        :id="`yes_${id}`"
         value="1"
-        :name="`decision_${props.id}`"
+        :name="`decision_${id}`"
         :checked="decision === 1"
-        v-on="listeners"
+        @click="$emit('clicked-decision', $event)"
       />
-      <label :for="`yes_${props.id}`">
-        <span :class="{'with-opacity' : props.decision !== 1}">
-          <fa-icon :icon="['fas', 'thumbs-up']" />
+      <label :for="`yes_${id}`">
+        <span :class="{'with-opacity' : decision !== 1}">
+          <FontAwesomeIcon :icon="faThumbsUp" />
         </span>
         <span class="ml-1">Ja</span>
       </label>
@@ -21,15 +21,15 @@
     <div>
       <input
         type="radio"
-        :id="`no_${props.id}`"
+        :id="`no_${id}`"
         value="0"
-        :name="`decision_${props.id}`"
+        :name="`decision_${id}`"
         :checked="decision === 0"
-        v-on="listeners"
+        @click="$emit('clicked-decision', $event)"
       />
-      <label :for="`no_${props.id}`">
-        <span :class="{'with-opacity' : props.decision !== 0}">
-          <fa-icon :icon="['fas', 'thumbs-down']" />
+      <label :for="`no_${id}`">
+        <span :class="{'with-opacity' : decision !== 0}">
+          <FontAwesomeIcon :icon="faThumbsDown" />
         </span>
         <span class="ml-1">Nei</span>
       </label>
@@ -38,29 +38,43 @@
 </template>
 
 <script>
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { config as fontAwesomeConfig } from "@fortawesome/fontawesome-svg-core";
+import { faThumbsUp, faThumbsDown } from "@fortawesome/pro-light-svg-icons";
+
+fontAwesomeConfig.autoAddCss = false;
+
 export default {
-  functional: true,
   name: "JnBinaryDecision",
+  components: {
+    FontAwesomeIcon,
+  },
+  data: function () {
+    return {
+      faThumbsUp,
+      faThumbsDown,
+    };
+  },
   props: {
     id: {
       type: Number,
-      required: true
+      required: true,
     },
     text: {
       type: String,
-      required: true
+      required: true,
     },
     decision: {
-      type: Number
+      type: Number,
     },
     /**
-         * Kan velge vertical eller horizontal
-        */
+     * Kan velge vertical eller horizontal
+     */
     layout: {
       type: String,
-      default: "vertical"
-    }
-  }
+      default: "vertical",
+    },
+  },
 };
 </script>
 
@@ -82,9 +96,14 @@ label {
   justify-items: center;
 }
 .vertical {
-    grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
 .horizontal {
   grid-template-columns: repeat(3, 1fr);
+}
+.svg-inline--fa {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
 }
 </style>

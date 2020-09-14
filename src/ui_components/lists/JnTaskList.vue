@@ -3,12 +3,7 @@
     <ul>
       <li v-for="task in tasks" v-bind:key="task.id">
         <div class="task">
-          <input
-            v-model="task.completed"
-            type="checkbox"
-            :id="task.id"
-            @change="toggle(task)"
-          />
+          <input v-model="task.completed" type="checkbox" :id="task.id" @change="toggle(task)" />
           <label v-bind:class="{ completed : task.completed }" :for="task.name">{{task.name}}</label>
         </div>
       </li>
@@ -21,8 +16,8 @@ export default {
   name: "JnTaskList",
   props: {
     tasks: Array,
-    toggle: { type : Function}
-  }  
+    toggle: { type: Function },
+  },
 };
 </script>
 

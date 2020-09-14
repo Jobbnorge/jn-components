@@ -1,13 +1,13 @@
 <template>
   <ul v-if="align === 'vertical'">
     <li v-for="(value, key) in figures" :key="key">
-      <fa-icon :icon="['fas', 'circle']" :style="{color: color(key)}" />
+      <FontAwesomeIcon :icon="faCircle" :style="{color: color(key)}" />
       <span class="ml-1">{{key}}: {{value}}</span>
     </li>
   </ul>
   <div v-else class="inline-view">
     <div class="mr-3" v-for="(value, key) in figures" :key="key">
-      <fa-icon :icon="['fas', 'circle']" :style="{color: color(key)}" />
+      <FontAwesomeIcon :icon="faCircle" :style="{color: color(key)}" />
       <span class="ml-2">{{key}}: {{value}}</span>
     </div>
   </div>
@@ -15,8 +15,17 @@
 
 <script>
 import * as d3 from "d3";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { config as fontAwesomeConfig } from "@fortawesome/fontawesome-svg-core";
+import { faCircle } from "@fortawesome/pro-solid-svg-icons";
+
+fontAwesomeConfig.autoAddCss = false;
+
 export default {
   name: "JnLegend",
+  components: {
+    FontAwesomeIcon
+  },
   props: {
     figures: {
       type: Object,
@@ -30,7 +39,7 @@ export default {
   data: function() {
     return {
       color: function() {},
-      hexColors: []
+      hexColors: [],faCircle
     };
   },
   methods: {
@@ -71,5 +80,10 @@ div.inline-view {
 }
 div.inline-view > div {
   display: inline;
+}
+.svg-inline--fa {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
 }
 </style>
