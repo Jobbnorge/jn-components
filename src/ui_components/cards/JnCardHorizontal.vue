@@ -5,7 +5,7 @@
         <span>{{mainFrameTitle}}</span>
         <span v-if="mainFrameSubtitle">{{mainFrameSubtitle}}</span>
       </div>
-      <div v-else style="padding:18px">
+      <div v-else :style="{padding: `${iconPadding}px`}">
         <FontAwesomeIcon :icon="icon" />
       </div>
     </div>
@@ -40,6 +40,11 @@ export default {
     },
     colorTheme: String,
     icon: Object,
+    /** Used to set the size of the icon. The larger the padding the smaller the icon.*/
+    iconPadding: {
+      type: Number,
+      default: 18
+    }
   },
   methods: {
     GetBackground: function (color, mainFrame) {

@@ -36,6 +36,7 @@ export default {
         },
         {
           icon: faComments,
+          iconPadding: 34,
           colorTheme: "green",
           secondFrameTitle: "Forespørsler",
           secondFrameTopText: "Krever handling",
