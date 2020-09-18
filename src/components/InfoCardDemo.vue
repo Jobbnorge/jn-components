@@ -7,7 +7,7 @@
     />
     <JnInfoCard
       title="Nye funksjoner"
-      icon="comments"
+      :icon="faComments"
       body="Nå kan du endelig gjøre masse greier du har ventet lenge på å få gjøre i Jobbadmin. Vi gleder oss, håper du også gjør det!"
       removable
     />
@@ -15,6 +15,7 @@
 </template>
 <script>
 import Hyperlink from "../domain/Hyperlink";
+import { faComments } from "@fortawesome/pro-light-svg-icons";
 import JnInfoCard from "../ui_components/cards/JnInfoCard";
 export default {
   name: "InfoCardDemo",
@@ -24,6 +25,7 @@ export default {
   data: function () {
     return {
       myHyperlink: new Hyperlink(),
+      faComments,
     };
   },
   created() {

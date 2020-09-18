@@ -1,51 +1,57 @@
 <template>
-    <div role="button" @click="filter" :class="{active: isActive}">
-        <fa-icon :icon="['fal', activeIcon]" v-if="placement ==='left'"></fa-icon>
-        <slot></slot>
-        <fa-icon :icon="['fal', icon]" v-if="placement === 'right'"></fa-icon>
-    </div>    
+  <div role="button" @click="isActive = !isActive" :class="{active: isActive}">
+    <FontAwesomeIcon :icon="isActive ? iconActive : iconInactive" v-if="placement ==='left'" />
+    <slot></slot>
+    <FontAwesomeIcon :icon="isActive ? iconActive : iconInactive" v-if="placement === 'right'" />
+  </div>
 </template>
 
 <script>
-export default {
-    name: "JnToggleButton",
-    props: {
-        icon: String,
-        secondIcon: String,
-        /**
-         * Kan settes til 'left' eller 'right'
-         */
-        placement: String,
-        action: Function
-    },
-    data() {
-        return {
-            isActive: false,
-            activeIcon: this.icon 
-        }
-    },
-    methods: {
-        filter() {
-            this.isActive = !this.isActive
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { config as fontAwesomeConfig } from "@fortawesome/fontawesome-svg-core";
 
-            if(this.isActive) {
-                this.activeIcon = this.secondIcon
-                //Action 1
-            }
-            else {
-                this.activeIcon = this.icon
-            }
-        }
-    }
-}
+fontAwesomeConfig.autoAddCss = false;
+
+export default {
+  name: "JnToggleButton",
+  components: {
+    FontAwesomeIcon,
+  },
+  props: {
+    iconActive: {
+      required: true,
+      type: Object,
+    },
+    iconInactive: {
+      required: true,
+      type: Object,
+    },
+    /**
+     * Kan settes til 'left' eller 'right'
+     */
+    placement: {
+      type: String,
+      default: "left",
+      validator: (val) => ["left", "right"].indexOf(val) != -1,
+    },
+  },
+  data() {
+    return {
+      isActive: false,
+    };
+  },
+};
 </script>
 
 <style scoped>
-    .active {
-        color: #D41472;
-        font-weight: 600;
-    }
-    svg {
-        margin: 0rem 0.5rem 0rem 0.5rem; 
-    }
+.active {
+  color: #d41472;
+  font-weight: 600;
+}
+.svg-inline--fa {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  margin: 0rem 0.5rem 0rem 0.5rem;
+}
 </style>
