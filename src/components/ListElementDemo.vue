@@ -39,7 +39,7 @@
             :navigable="item.navigable"
           >
             <template #right-side>
-              <JnIconButton icon="download" size="lg" hasAnimation />
+              <JnIconButton :icon="faDownload" size="lg" hasAnimation />
             </template>
           </JnListElement>
         </ul>
@@ -65,6 +65,7 @@ import {
   faInfoCircle,
   faFileAlt,
   faUserSecret,
+  faDownload
 } from "@fortawesome/pro-light-svg-icons";
 
 export default {
@@ -149,6 +150,7 @@ export default {
       listItems: {},
       faFileAlt,
       faUserSecret,
+      faDownload
     };
   },
   created() {
