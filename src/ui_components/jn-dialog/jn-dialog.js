@@ -32,9 +32,18 @@ class JnDialogModule {
     }
     mountVueComponent(props, { header, body } = {}) {
         if (!this.jnDialogCtn) {
-            this.jnDialogCtn = document.createElement("div");
-            this.jnDialogCtn.id = "jnDialogCtn";
-            document.getElementsByTagName("body")[0].appendChild(this.jnDialogCtn);
+            if (document.getElementById("jnDialogCtn") !== undefined) {
+                this.jnDialogCtn = document.getElementById("jnDialogCtn");
+            } else {
+                this.jnDialogCtn = document.createElement("div");
+                this.jnDialogCtn.id = "jnDialogCtn";
+                document.getElementsByTagName("body")[0].appendChild(this.jnDialogCtn);
+            }
+        }
+
+        if (this.jnDialogCtn.hasChildNodes()) {
+            console.warn("Cancel mount component process: only one modal component in DOM at a time")
+            return;
         }
 
         let offDocumentJnDialogComp = Vue.component(JnDialogComponent.name, JnDialogComponent);
@@ -50,7 +59,6 @@ class JnDialogModule {
         }
 
         this.jnDialogComp.$mount();
-        while (this.jnDialogCtn.lastElementChild) this.jnDialogCtn.removeChild(this.jnDialogCtn.lastElementChild); 
         this.jnDialogCtn.appendChild(this.jnDialogComp.$el);
     }
     setModalProps(props) {
