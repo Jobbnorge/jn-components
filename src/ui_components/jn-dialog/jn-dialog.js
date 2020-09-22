@@ -32,7 +32,7 @@ class JnDialogModule {
     }
     mountVueComponent(props, { header, body } = {}) {
         if (!this.jnDialogCtn) {
-            if (document.getElementById("jnDialogCtn") !== undefined) {
+            if (document.getElementById("jnDialogCtn") !== null) {
                 this.jnDialogCtn = document.getElementById("jnDialogCtn");
             } else {
                 this.jnDialogCtn = document.createElement("div");
