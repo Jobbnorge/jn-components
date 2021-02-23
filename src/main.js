@@ -23,7 +23,7 @@ import AssessmentExample from './components/AssessmentExample.vue'
 import InfoCardDemo from './components/InfoCardDemo'
 import JnUserMessageDemo from "./components/JnUserMessageDemo"; 
 import AvatarExample from "./components/AvatarExample"; 
-import HelpBoxExample from "./components/InfoBoxExample"; 
+import InfoBoxExample from "./components/InfoBoxExample"; 
 
 window.$ = $;
 window.Vue = Vue;

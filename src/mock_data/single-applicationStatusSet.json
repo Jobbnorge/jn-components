@@ -1,0 +1,60 @@
+{
+  "id": 1,
+  "name": [
+    {
+      "text": "Samling A",
+      "systemLanguageId": 1
+    },
+    {
+      "text": "Set A",
+      "systemLanguageId": 2
+    }
+  ],
+  "isDefault": true,
+  "applicationStatus": [
+    {
+      "id": 1,
+      "name": [
+        {
+          "text": "Intervju",
+          "systemLanguageId": 1
+        },
+        {
+          "text": "Interview",
+          "systemLanguageId": 2
+        }
+      ],
+      "action": "Interview",
+      "sortOrder": 1
+    },
+    {
+      "id": 2,
+      "name": [
+        {
+          "text": "Ansatt",
+          "systemLanguageId": 1
+        },
+        {
+          "text": "Employed",
+          "systemLanguageId": 2
+        }
+      ],
+      "action": "Hire",
+      "sortOrder": 2
+    },
+    {
+      "id": 3,
+      "name": [
+        {
+          "text": "Egendefinert Status",
+          "systemLanguageId": 1
+        },
+        {
+          "text": "Custom status",
+          "systemLanguageId": 2
+        }
+      ],
+      "sortOrder": 3
+    }
+  ]
+}
