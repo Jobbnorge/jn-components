@@ -2,10 +2,10 @@
   <div class="pp-wrapper">
     <div v-for="step in steps" :key="step.title">
         <JnBadge :colorClass="colorTheme" hasBorder>
-        <FontAwesomeIcon v-if="flagIcon" :icon="mapFlagToIcon(step.flag)" :class="[colorTheme, 'step-icon', 'icon']"  />
+        <FontAwesomeIcon v-if="flagIcon" :icon="mapFlagToIcon(step.flag)" :class="['step-icon', 'icon']"  />
         <span>{{ step.title }}</span>
         </JnBadge>
-        <FontAwesomeIcon v-if="(showArrow && steps.indexOf(step) < steps.length-1)" :icon="faArrowCircleRight" :class="[colorTheme, 'icon']"  />
+        <FontAwesomeIcon v-if="(showArrow && steps.indexOf(step) < steps.length-1)" :icon="faArrowCircleRight" :style="{ color: computedTextColorStyle }"  />
     </div>
   </div>
 </template>
@@ -28,6 +28,12 @@ export default {
     flagIcon: Boolean,
     colorTheme: String,
     /* 'green', 'blue', 'gray', 'pink'  */
+  },
+  computed: {
+    computedTextColorStyle: function () {
+      var colors = {'green': '#1D764F', 'blue': '#127DAC', 'gray': '#44303C', 'pink': '#D41472'}
+      return colors[this.colorTheme]; 
+    }
   },
   data() {
       return {

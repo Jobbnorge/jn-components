@@ -23,6 +23,7 @@ import AssessmentExample from './components/AssessmentExample.vue'
 import InfoCardDemo from './components/InfoCardDemo'
 import JnUserMessageDemo from "./components/JnUserMessageDemo"; 
 import AvatarExample from "./components/AvatarExample"; 
+import HelpBoxExample from "./components/InfoBoxExample"; 
 
 window.$ = $;
 window.Vue = Vue;
@@ -44,7 +45,8 @@ const router = new VueRouter({
     { path: '/assessment', component: AssessmentExample },
     { path: '/info-card', component: InfoCardDemo },
     { path: '/user-message', component: JnUserMessageDemo },
-    { path: '/avatars', component: AvatarExample }
+    { path: '/avatars', component: AvatarExample },
+    { path: '/info-box', component: InfoBoxExample }
   ]
 });
 
