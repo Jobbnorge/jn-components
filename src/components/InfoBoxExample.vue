@@ -8,7 +8,11 @@
             </div>
         </template>
     </InfoBox>
-    <InfoBox colorTheme="pink" canClose></InfoBox>
+    <InfoBox colorTheme="pink" canClose>
+        <template #box-content>
+            <JnTextArea :max=400 labelText="Hjelpetekst (som vises i Jobbadmin)" style="margin-top: 1rem;" />
+        </template>
+    </InfoBox>
     <InfoBox colorTheme="gray"></InfoBox>
     <InfoBox colorTheme="green"></InfoBox>
     <InfoBox>
@@ -18,10 +22,12 @@
 
 <script>
 import InfoBox from "../ui_components/misc/InfoBox"
+import JnTextArea from "../ui_components/input/JnTextArea"
 export default {
     name: "InfoBoxExample",
     components: {
-        InfoBox
+        InfoBox,
+        JnTextArea
     }
 }
 </script>

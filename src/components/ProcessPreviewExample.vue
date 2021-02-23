@@ -22,9 +22,6 @@ export default {
         ProcessPreview,
         FontAwesomeIcon
     },
-    created() {
-        console.log(this.steps)
-    },
     data() {
         return {
             systemLanguageId: 1,
@@ -37,8 +34,7 @@ export default {
         }
     },
     methods: {
-        mapActionToIcon(action) {
-          console.log(action); 
+        mapActionToIcon(action) { 
           if(action !=null) {
             switch(action) {
                 case "Interview":

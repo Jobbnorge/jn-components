@@ -18,7 +18,7 @@ fontAwesomeConfig.autoAddCss = false;
 export default {
   name: "InfoBox",
   components: {
-    FontAwesomeIcon,
+    FontAwesomeIcon
   },
   props: {
     canClose: {
@@ -78,6 +78,7 @@ export default {
 .icon {
   padding: 0.5rem;
   float: right;
+  margin-left: 0.5rem; 
 }
 .svg-close-icon {
   width: 1rem;
