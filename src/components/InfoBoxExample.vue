@@ -10,7 +10,7 @@
     </InfoBox>
     <InfoBox colorTheme="pink" canClose>
         <template #box-content>
-            <JnTextArea :max=400 labelText="Hjelpetekst (som vises i Jobbadmin)" style="margin-top: 1rem;" />
+            <JnTextArea :max=400 labelText="Hjelpetekst (som vises i Jobbadmin)" id="helpText" style="margin-top: 1rem;" />
         </template>
     </InfoBox>
     <InfoBox colorTheme="gray"></InfoBox>

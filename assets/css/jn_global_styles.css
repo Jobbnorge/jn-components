@@ -14,7 +14,7 @@ W.I.P -> Work In Progress :)
   --lightGreen: #D3F5DF; 
 
 }
-.btn.blue, .btn.blue:hover {
+.btn.blue, .btn.blue:hover, .blue {
   background: var(--blue);
   color: #fff;  
 }
@@ -22,7 +22,7 @@ W.I.P -> Work In Progress :)
   background: var(--lightBlue);
   color: var(--gray);  
 }
-.btn.green, .btn.green:hover {
+.btn.green, .btn.green:hover, .green {
   background: var(--green);
   color: #fff;  
 }
@@ -30,7 +30,7 @@ W.I.P -> Work In Progress :)
   background: var(--lightGreen);
   color: var(--gray);  
 }
-.btn.pink, .btn.pink:hover {
+.btn.pink, .btn.pink:hover, .pink {
   background: var(--pink);
   color: #fff;  
 }
@@ -38,7 +38,7 @@ W.I.P -> Work In Progress :)
   background: var(--lightPink);
   color: var(--gray);  
 }
-.btn.gray, .btn.gray:hover {
+.btn.gray, .btn.gray:hover .pink {
   background: var(--gray);
   color: #fff;  
 }
@@ -86,3 +86,12 @@ W.I.P -> Work In Progress :)
   transform: scale(0.9);
 }
 /* Inputs */
+input {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+input[type=text] {
+  padding: 0.5rem; 
+}

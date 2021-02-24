@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex">
-      <label>{{labelText}}:</label>
+      <label :for="id">{{labelText}}:</label>
       <p v-bind:style="hasError ? 'color: red;' : 'color: #44303C'">{{count()}}</p>
     </div>
       <textarea 
@@ -9,6 +9,7 @@
         @blur="$emit('textarea-on-blur', {'hasError': hasError, 'message': message})" 
         v-bind:style="`min-height: ${minHeight}px;`"
         :placeholder="placeholder"
+        :id="id"
       >
       </textarea>
   </div>
@@ -32,6 +33,10 @@ export default {
         minHeight: {
           type: Number,
           default: 100
+        },
+        id: {
+          type: String,
+          required: true
         }
     },
     data() {

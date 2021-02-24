@@ -4,6 +4,7 @@
     labelText="Skriv ditt svar her"
     placeholder="I am a placeholder text" 
     minHeight="80"
+    id="my-text-area"
   />
 </template>
 
