@@ -1,5 +1,9 @@
 <template>
-  <div class="badge" :class="colorClass" v-bind:style="{ border: computedBorderStyle }">
+  <div
+    class="badge"
+    :class="[colorTheme, { squared: squared }, { small: small }]"
+    v-bind:style="{ border: computedBorderStyle }"
+  >
     <slot></slot>
   </div>
 </template>
@@ -7,8 +11,16 @@
 export default {
   name: "JnBadge",
   props: {
-    colorClass: String,
+    colorTheme: {
+      type: String,
+      required: true,
+      validator: function(value) {
+        return ["blue", "pink", "gray", "green"].indexOf(value) !== -1;
+      }
+    },
     hasBorder: Boolean,
+    squared: Boolean,
+    small: Boolean
   },
   computed: {
     computedBorderStyle: function () {
@@ -27,23 +39,11 @@ export default {
   font-weight: 400; /* Override default Bootstrap styling */
   line-height: 1;
 }
-.pink {
-  background: #ffeef6;
-  color: #d41472;
+.squared {
+  border-radius: 2px;
 }
-
-.grey {
-  background: #f6f5f6;
-  color: #44303c;
-}
-
-.blue {
-  background: #e8f5fa;
-  color: #127dac;
-}
-
-.green {
-  background: #d3f5df;
-  color: #1d764f;
+.small {
+  padding: 0.3rem;
+  font-size: 12px;
 }
 </style>
