@@ -1,8 +1,7 @@
 <template>
     <div class="pp-wrapper">
-        <ProcessPreview v-for="step in steps" :key="step.id" colorTheme="blue" :showArrow="steps.length-1 > steps.indexOf(step)">
+        <ProcessPreview v-for="step in steps" :key="step.id" colorTheme="blue" :showArrow="steps.length-1 > steps.indexOf(step)" :icon="mapActionToIcon(step.action)">
             <template #content>
-                <FontAwesomeIcon :icon="mapActionToIcon(step.action)" class="step-icon" />
                 {{step.name[systemLanguageId-1].text}}
             </template>
         </ProcessPreview>
@@ -12,15 +11,11 @@
 <script>
 import ProcessPreview from "../ui_components/charts/ProcessPreview"; 
 import * as data from "./../mock_data/single-applicationStatusSet.json";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { config as fontAwesomeConfig } from "@fortawesome/fontawesome-svg-core";
 import { faThumbsUp, faThumbsDown, faCommentsAlt, faMedal, faHandshakeAlt} from "@fortawesome/pro-light-svg-icons";
-fontAwesomeConfig.autoAddCss = false;
 
 export default {
     components: {
         ProcessPreview,
-        FontAwesomeIcon
     },
     data() {
         return {
