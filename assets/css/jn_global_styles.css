@@ -1,0 +1,33 @@
+/* 
+W.I.P -> Work In Progress :) 
+*/
+/* Typography */
+/* Colors */
+:root {
+  --blue: #127dac;
+  --lightBlue: #E8F5FA;
+  --pink: #D41472;
+  --lightPink: #FFEEF6;
+  --gray: #44303C;
+  --lightGray: #F6F5F6;
+  --green: #1d764f; 
+  --lightGreen: #D3F5DF; 
+
+}
+/* Buttons & styling used for buttons */
+.btn {
+  color: inherit;
+  text-transform: none;
+  box-shadow: none !important;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.animate:hover {
+  transform: scale(1.03);
+}
+.animate:active {
+  transform: scale(0.9);
+}
+/* Inputs */
