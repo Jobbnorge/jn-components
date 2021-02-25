@@ -1,5 +1,5 @@
 <template>
-  <button type="button" :class="['btn', colorTheme, {'light': light}, 'animate']">
+  <button type="button" :class="['btn', colorTheme, {'light': light}, 'animate']" @click="$emit('JnButton-clicked')">
     <slot></slot>
   </button>
 </template>
