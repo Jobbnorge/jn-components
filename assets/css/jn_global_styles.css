@@ -62,6 +62,22 @@ W.I.P -> Work In Progress :)
   background: var(--lightGray);
   color: var(--gray); 
 }
+.box.blue {
+  background: var(--lightBlue);
+  border: 1px dashed #0e6489;
+}
+.box.pink {
+  background: var(--lightPink);
+  border: 1px dashed #d41472;
+}
+.box.gray {
+  background: var(--lightGray);
+  border: 1px dashed #44303c;
+}
+.box.green {
+  background: var(--lightGreen);
+  border: 1px dashed #1d764f;
+}
 /* Buttons & styling used for buttons */
 .btn {
   color: inherit;

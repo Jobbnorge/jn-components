@@ -58,22 +58,7 @@ export default {
   padding: 0.5rem;
   border-radius: 3px;
   min-height: 100px;
-}
-.blue {
-  background: #e8f5fa;
-  border: 1px dashed #0e6489;
-}
-.pink {
-  background: #ffeef6;
-  border: 1px dashed #d41472;
-}
-.gray {
-  background: #f6f5f6;
-  border: 1px dashed #44303c;
-}
-.green {
-  background: #d3f5df;
-  border: 1px dashed #1d764f;
+  color: var(--gray); 
 }
 .icon {
   padding: 0.5rem;

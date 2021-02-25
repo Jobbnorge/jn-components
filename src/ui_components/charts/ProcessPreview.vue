@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <JnBadge :colorClass="colorTheme" hasBorder>
+    <JnBadge :colorTheme="colorTheme" hasBorder>
       <FontAwesomeIcon v-if="icon" :icon="icon" class="step-icon" />
       <slot name="content"></slot>
     </JnBadge>
