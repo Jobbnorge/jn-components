@@ -23,7 +23,7 @@ export default {
       type: String,
       default: "secondary",
       validator: function(value) {
-        return ["blue", "pink", "gray", "green"].indexOf(value) !== -1;
+        return ["blue", "pink", "gray", "green", "secondary"].indexOf(value) !== -1;
       },
     },
     light: {
