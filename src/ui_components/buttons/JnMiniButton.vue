@@ -6,17 +6,24 @@
     v-bind:class="{ 'show-bg': showBackground, animate: hasAnimation }"
     @click="$emit('mini-button-clicked')"
   >
+    <FontAwesomeIcon v-if="icon" :icon="icon" class="icon" />
     <slot></slot>
   </button>
 </template>
 
 <script>
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { config as fontAwesomeConfig } from "@fortawesome/fontawesome-svg-core";
+fontAwesomeConfig.autoAddCss = false;
 export default {
+  components: {
+    FontAwesomeIcon
+  },
   props: {
     colorTheme: {
       type: String,
       default: "gray",
-      validator: function (value) {
+      validator: function(value) {
         return ["blue", "pink", "gray", "green"].indexOf(value) !== -1;
       },
     },
@@ -28,9 +35,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    icon: Object
   },
   computed: {
-    computedTextColorStyle: function () {
+    computedTextColorStyle: function() {
       var colors = {
         green: "#1D764F",
         blue: "#127DAC",
@@ -44,11 +52,11 @@ export default {
 </script>
 
 <style scoped>
-.svg-inline--fa {
+.icon {
   width: 14px;
   height: 14px;
-  display: inline-block;
-  vertical-align: text-bottom;
+  display: inline-flex;
+  margin-right: 6px; 
 }
 button:hover,
 button:focus,

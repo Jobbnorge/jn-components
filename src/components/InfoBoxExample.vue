@@ -15,6 +15,7 @@
     </InfoBox>
     <InfoBox colorTheme="gray"></InfoBox>
     <InfoBox colorTheme="green"></InfoBox>
+    <InfoBox colorTheme="white" solid></InfoBox>
     <InfoBox>
     </InfoBox>
 </div>

@@ -1,6 +1,6 @@
 <template>
   <transition name="fade" mode="out-in">
-    <div v-if="!isClosed" :class="['box', colorTheme]">
+    <div v-if="!isClosed" :class="['box', colorTheme, {'solid': solid}]">
       <span v-if="canClose" class="icon animate" @click="closeBox()">
         <FontAwesomeIcon :icon="faTimes" class="svg-close-icon" :style="{ color: computedTextColorStyle }" />
       </span>
@@ -29,13 +29,17 @@ export default {
       type: String,
       default: "blue",
       validator: function (value) {
-        return ["blue", "pink", "gray", "green"].indexOf(value) !== -1;
+        return ["blue", "pink", "gray", "green", "white"].indexOf(value) !== -1;
       },
     },
+    solid: {
+      type: Boolean,
+      default: false
+    }
   },
   computed: {
     computedTextColorStyle: function () {
-      var colors = {'green': '#1D764F', 'blue': '#127DAC', 'gray': '#44303C', 'pink': '#D41472'}
+      var colors = {'green': '#1D764F', 'blue': '#127DAC', 'gray': '#44303C', 'pink': '#D41472', 'white': "#44303C"}
       return colors[this.colorTheme]; 
     }
   },
@@ -59,6 +63,9 @@ export default {
   border-radius: 3px;
   min-height: 100px;
   color: var(--gray); 
+}
+.solid {
+  border: 1px solid;  
 }
 .icon {
   padding: 0.5rem;
