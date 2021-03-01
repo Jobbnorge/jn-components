@@ -51,6 +51,7 @@ export default {
   },
   methods: {
     closeBox() {
+      this.$emit('info-box-closed'); 
       this.isClosed = !this.isClosed;
     },
   },
