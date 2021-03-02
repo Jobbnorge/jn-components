@@ -8,7 +8,7 @@
         aria-labelledby="modalTitle"
         aria-describedby="modalDescription"
       >
-        <header class="header">
+        <header :class="['header', colorTheme]">
           <slot name="header">
             <h5 v-if="modalTitle" id="jnDialogModalLabel">{{ this.modalTitle }}</h5>
           </slot>
@@ -22,7 +22,7 @@
             @JnButton-clicked="rejectModal"
           >{{ this.rejectButton.text }}</JnButton>
           <JnButton
-            colorTheme="blue"
+            :colorTheme="colorTheme === 'none' ? 'blue' : colorTheme"
             v-if="resolveButton.visible"
             @JnButton-clicked="resolveModal"
           >{{ this.resolveButton.text }}</JnButton>
@@ -51,11 +51,11 @@ export default {
       visible: Boolean,
       text: String
     },
-    size: {
+    colorTheme: {
       type: String,
-      default: "medium",
+      default: "none",
       validator: function(value) {
-        return ["small", "medium", "large"].indexOf(value) !== -1;
+        return ["none", "blue", "pink", "gray", "green"].indexOf(value) !== -1;
       },
     }
   },
@@ -102,6 +102,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1; 
 }
 
 .simple-modal {
@@ -112,11 +113,13 @@ export default {
   grid-template-columns: auto;
   min-width: 300px;
 }
-
 .header {
-  background-color: #127dac;
-  color: #ffffff;
+
   padding: 1rem;
+}
+.none {
+  background: #fff;
+  color: var(--gray); 
 }
 .simple-modal > .header > div {
   display: grid;
