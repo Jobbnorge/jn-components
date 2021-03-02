@@ -2,7 +2,7 @@
   <transition name="modal-fade" @after-leave="$emit('modalClosed')">
     <div class="simple-modal-backdrop" v-if="displayModal">
       <div
-        class="simple-modal"
+        :class="['simple-modal', size]"
         :id="modalId"
         role="dialog"
         aria-labelledby="modalTitle"
@@ -17,18 +17,15 @@
           <slot name="body">{{this.modalBody}}</slot>
         </section>
         <footer class="footer">
-          <button
+          <JnButton
             v-if="rejectButton.visible"
-            type="button"
-            class="btn btn-secondary"
-            @click="rejectModal"
-          >{{ this.rejectButton.text }}</button>
-          <button
+            @JnButton-clicked="rejectModal"
+          >{{ this.rejectButton.text }}</JnButton>
+          <JnButton
+            colorTheme="blue"
             v-if="resolveButton.visible"
-            type="button"
-            class="btn btn-primary"
-            @click="resolveModal"
-          >{{ this.resolveButton.text }}</button>
+            @JnButton-clicked="resolveModal"
+          >{{ this.resolveButton.text }}</JnButton>
         </footer>
       </div>
     </div>
@@ -36,6 +33,7 @@
 </template>
 
 <script>
+import JnButton from "../buttons/JnButton"
 export default {
   name: "JnDialogComponent",
   props: {
@@ -52,7 +50,17 @@ export default {
     resolveButton: {
       visible: Boolean,
       text: String
+    },
+    size: {
+      type: String,
+      default: "medium",
+      validator: function(value) {
+        return ["small", "medium", "large"].indexOf(value) !== -1;
+      },
     }
+  },
+  components: {
+    JnButton
   },
   data: function() {
     return {
@@ -70,9 +78,6 @@ export default {
     rejectModal() {
       this.displayModal = false;
       this.$emit("rejectModal");
-    },
-    setOptions(opt) {
-      Object.assign(this.$data, opt);
     }
   }
 };
@@ -122,6 +127,9 @@ export default {
 .footer {
   justify-self: end;
   padding: 1rem;
+}
+.footer > button {
+  margin-left: 0.5rem; 
 }
 
 .body {

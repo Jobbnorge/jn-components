@@ -1,10 +1,6 @@
 <template>
   <div>
-    <button class="btn btn-primary" type="button" @click="openInfoModal">Info-Modal</button>
-    <button class="btn btn-primary" type="button" @click="openRichInfoModal">Rich info Modal</button>
-    <button class="btn btn-primary" type="button" @click="openConfirmModal">Confirm-Modal</button>
-    <button class="btn btn-primary" type="button" @click="openFluffModal">Use component in body</button>
-
+    <JnButton colorTheme="blue" @JnButton-clicked="openFluffModal">Fluff data modal</JnButton>
     <JnDialogComponent
       v-bind="fluffData"
       @resolveModal="resolveModal"
@@ -15,7 +11,7 @@
         <p>I am the header</p>
       </template>
       <template #body>
-          <JnDropDownBtn :text="selected" type="event" :options='[{text: "hello"}, {text: "hello 2"}]' @itemClicked="itemClicked" />
+        <div style="width: 600px"><p>BODY BODY</p></div>
       </template>
     </JnDialogComponent>
   </div>
@@ -25,22 +21,18 @@
 import { jnDialog } from "./../ui_components/jn-dialog/jn-dialog";
 import JnDialogComponent from "./../ui_components/jn-dialog/JnDialogComponent";
 import CustomComp from "../ui_components/datetime/JnPickDateTime";
-import JnDropDownBtn from "../ui_components/buttons/JnDropDownBtn";
+import JnButton from "../ui_components/buttons/JnButton";
 
 export default {
   name: "DialogExample",
   components: {
     JnDialogComponent,
-    JnDropDownBtn
+    JnButton
   },
   data: function() {
     return {
       fluffData: {
         modalId: "fluffModal",
-        display: false,
-        modalBody: "fluff",
-        modalTitle: "",
-        size: "large",
         rejectButton: {
           visible: true,
           text: "Avbryt"
@@ -51,8 +43,6 @@ export default {
         }
       },
       isModalVisible: false,
-      selected: "Velg noe"
-
     };
   },
   methods: {
