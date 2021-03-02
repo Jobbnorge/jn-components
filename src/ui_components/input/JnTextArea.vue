@@ -6,7 +6,7 @@
     </div>
       <textarea 
         v-model="message" 
-        @blur="$emit('textarea-on-blur', {'hasError': hasError, 'message': message})" 
+        @blur="$emit('textarea-on-blur', {'id': id, 'hasError': hasError, 'message': message})" 
         v-bind:style="`min-height: ${minHeight}px;`"
         :placeholder="placeholder"
         :id="id"
