@@ -40,6 +40,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    toggle: {
+      type: Boolean,
+      default: false 
+    },
     setToActive: {
       type: Boolean,
       default: false,
@@ -59,13 +63,13 @@ export default {
   },
   computed: {
     computedBorderStyle: function() {
-      if (this.clickable && this.hasBorder) {
+      if (this.toggle && this.hasBorder) {
         return this.isActive ? "border-color" : "border-trans";
       }
       return this.hasBorder ? "border-color" : "border-trans";
     },
     computedColorThemeStyle: function() {
-      if (this.clickable) {
+      if (this.toggle) {
         return this.isActive ? this.colorTheme : "gray";
       }
       return this.colorTheme;
@@ -73,8 +77,11 @@ export default {
   },
   methods: {
     handleClick() {
-      if (this.clickable) {
-        this.isActive = !this.isActive;
+      if (this.clickable && !this.toggle) {
+        this.$emit("JnBadge-clicked", { id: this.id });
+      }
+      else if(this.clickable && this.toggle) {
+        this.isActive = !this.isActive
         this.$emit("JnBadge-clicked", { isActive: this.isActive, id: this.id });
       }
     },

@@ -6,8 +6,8 @@
       >Jeg er firkantet og liten</JnBadge
     >
     <JnBadge colorTheme="gray" small>og jeg er rund og liten</JnBadge>
-    <JnBadge colorTheme="green" small squared clickable>Du kan slå meg på</JnBadge>
-    <JnBadge colorTheme="green" small squared clickable setToActive hasBorder>Du kan slå meg av</JnBadge>
+    <JnBadge colorTheme="green" small squared clickable id="my-badge">Jeg har event</JnBadge>
+    <JnBadge colorTheme="green" small squared clickable setToActive hasBorder toggle>Du kan slå meg av</JnBadge>
   </div>
 </template>
 <script>
