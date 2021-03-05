@@ -9,6 +9,7 @@
         @blur="$emit('textarea-on-blur', {'id': id, 'hasError': hasError, 'message': message})" 
         v-bind:style="`min-height: ${minHeight}px;`"
         :placeholder="placeholder"
+        :text="text"
         :id="id"
       >
       </textarea>
@@ -26,6 +27,10 @@ export default {
             type: String,
             required: true
         },
+        text: {
+          type: String,
+          default: ''
+        },
         placeholder: {
           type: String,
           default: ''
@@ -41,9 +46,12 @@ export default {
     },
     data() {
         return {
-            message: '',
+            message: null,
             hasError: false 
         }
+    },
+    created() {
+      this.message = this.text; 
     },
     methods: {
         count: function() {
