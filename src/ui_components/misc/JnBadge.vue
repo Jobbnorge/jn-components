@@ -1,8 +1,14 @@
 <template>
   <div
     class="badge"
-    :class="[colorTheme, { squared: squared }, { small: small }]"
-    v-bind:style="{ border: computedBorderStyle }"
+    :class="[
+      computedColorThemeStyle,
+      computedBorderStyle,
+      { squared: squared },
+      { small: small },
+      { clickable: clickable },
+    ]"
+    @click="handleClick()"
   >
     <slot></slot>
   </div>
@@ -16,16 +22,62 @@ export default {
       required: true,
       validator: function(value) {
         return ["blue", "pink", "gray", "green"].indexOf(value) !== -1;
-      }
+      },
     },
-    hasBorder: Boolean,
-    squared: Boolean,
-    small: Boolean
+    hasBorder: {
+      type: Boolean,
+      default: false,
+    },
+    squared: {
+      type: Boolean,
+      default: false,
+    },
+    small: {
+      type: Boolean,
+      default: false,
+    },
+    clickable: {
+      type: Boolean,
+      default: false,
+    },
+    setToActive: {
+      type: Boolean,
+      default: false,
+    },
+    id: {
+      type: String,
+      default: "",
+    },
+  },
+  data() {
+    return {
+      isActive: null,
+    };
+  },
+  created() {
+    this.isActive = this.setToActive;
   },
   computed: {
-    computedBorderStyle: function () {
-      return this.hasBorder ? '1px solid' : '1px solid transparant;'
-    }
+    computedBorderStyle: function() {
+      if (this.clickable && this.hasBorder) {
+        return this.isActive ? "border-color" : "border-trans";
+      }
+      return this.hasBorder ? "border-color" : "border-trans";
+    },
+    computedColorThemeStyle: function() {
+      if (this.clickable) {
+        return this.isActive ? this.colorTheme : "gray";
+      }
+      return this.colorTheme;
+    },
+  },
+  methods: {
+    handleClick() {
+      if (this.clickable) {
+        this.isActive = !this.isActive;
+        this.$emit("JnBadge-clicked", { isActive: this.isActive, id: this.id });
+      }
+    },
   },
 };
 </script>
@@ -45,5 +97,14 @@ export default {
 .small {
   padding: 0.3rem;
   font-size: 12px;
+}
+.clickable {
+  cursor: pointer;
+}
+.border-color {
+  border: 1px solid;
+}
+.border-trans {
+  border: 1px solid transparent;
 }
 </style>
