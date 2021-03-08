@@ -40,8 +40,7 @@ export default {
           default: 100
         },
         id: {
-          type: String,
-          required: true
+          type: Number
         }
     },
     data() {
