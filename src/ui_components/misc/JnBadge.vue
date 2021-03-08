@@ -42,16 +42,13 @@ export default {
     },
     toggle: {
       type: Boolean,
-      default: false 
+      default: false,
     },
     setToActive: {
       type: Boolean,
       default: false,
     },
-    id: {
-      type: String,
-      default: "",
-    },
+    id: Number,
   },
   data() {
     return {
@@ -79,9 +76,8 @@ export default {
     handleClick() {
       if (this.clickable && !this.toggle) {
         this.$emit("JnBadge-clicked", { id: this.id });
-      }
-      else if(this.clickable && this.toggle) {
-        this.isActive = !this.isActive
+      } else if (this.clickable && this.toggle) {
+        this.isActive = !this.isActive;
         this.$emit("JnBadge-clicked", { isActive: this.isActive, id: this.id });
       }
     },
