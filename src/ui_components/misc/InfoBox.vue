@@ -1,8 +1,16 @@
 <template>
   <transition name="fade" mode="out-in">
-    <div v-if="!isClosed" :class="['box', colorTheme, {'solid': solid}]">
-      <span v-if="canClose" class="icon animate" @click="closeBox()">
-        <FontAwesomeIcon :icon="faTimes" class="svg-close-icon" :style="{ color: computedTextColorStyle }" />
+    <div v-show="!isClosed" :class="['box', colorTheme, { solid: solid }]">
+      <span
+        v-if="canClose"
+        class="icon animate"
+        @click="$emit('info-box-closed', $event)"
+      >
+        <FontAwesomeIcon
+          :icon="faTimes"
+          class="svg-close-icon"
+          :style="{ color: computedTextColorStyle }"
+        />
       </span>
       <slot name="box-content"></slot>
     </div>
@@ -18,7 +26,7 @@ fontAwesomeConfig.autoAddCss = false;
 export default {
   name: "InfoBox",
   components: {
-    FontAwesomeIcon
+    FontAwesomeIcon,
   },
   props: {
     canClose: {
@@ -28,32 +36,35 @@ export default {
     colorTheme: {
       type: String,
       default: "blue",
-      validator: function (value) {
+      validator: function(value) {
         return ["blue", "pink", "gray", "green", "white"].indexOf(value) !== -1;
       },
     },
     solid: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
+    isClosed: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
-    computedTextColorStyle: function () {
-      var colors = {'green': '#1D764F', 'blue': '#127DAC', 'gray': '#44303C', 'pink': '#D41472', 'white': "#44303C"}
-      return colors[this.colorTheme]; 
-    }
+    computedTextColorStyle: function() {
+      var colors = {
+        green: "#1D764F",
+        blue: "#127DAC",
+        gray: "#44303C",
+        pink: "#D41472",
+        white: "#44303C",
+      };
+      return colors[this.colorTheme];
+    },
   },
   data() {
     return {
       faTimes,
-      isClosed: false,
     };
-  },
-  methods: {
-    closeBox() {
-      this.$emit('info-box-closed'); 
-      this.isClosed = !this.isClosed;
-    },
   },
 };
 </script>
@@ -63,15 +74,15 @@ export default {
   padding: 0.5rem;
   border-radius: 3px;
   min-height: 100px;
-  color: var(--gray); 
+  color: var(--gray);
 }
 .solid {
-  border: 1px solid;  
+  border: 1px solid;
 }
 .icon {
   padding: 0.5rem;
   float: right;
-  margin-left: 0.5rem; 
+  margin-left: 0.5rem;
 }
 .svg-close-icon {
   width: 1rem;
@@ -82,7 +93,7 @@ export default {
 }
 .icon:hover {
   background-color: #fff;
-  border-radius: 3px; 
+  border-radius: 3px;
   cursor: pointer;
 }
 .animate {
