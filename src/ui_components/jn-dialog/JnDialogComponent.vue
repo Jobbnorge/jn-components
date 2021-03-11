@@ -2,7 +2,7 @@
   <transition name="modal-fade" @after-leave="$emit('modalClosed')">
     <div class="simple-modal-backdrop" v-if="displayModal">
       <div
-        :class="['simple-modal', size]"
+        :class="['simple-modal']"
         :id="modalId"
         role="dialog"
         aria-labelledby="modalTitle"
