@@ -10,22 +10,24 @@
       >
         <header :class="['header', colorTheme]">
           <slot name="header">
-            <h5 v-if="modalTitle" id="jnDialogModalLabel">{{ this.modalTitle }}</h5>
+            <h5 v-if="modalTitle" id="jnDialogModalLabel">{{ modalTitle }}</h5>
           </slot>
         </header>
         <section class="body">
-          <slot name="body">{{this.modalBody}}</slot>
+          <slot name="body">{{ modalBody }}</slot>
         </section>
         <footer class="footer">
           <JnButton
             v-if="rejectButton.visible"
             @JnButton-clicked="rejectModal"
-          >{{ this.rejectButton.text }}</JnButton>
+            >{{ rejectButton.text }}</JnButton
+          >
           <JnButton
             :colorTheme="colorTheme === 'none' ? 'blue' : colorTheme"
             v-if="resolveButton.visible"
             @JnButton-clicked="resolveModal"
-          >{{ this.resolveButton.text }}</JnButton>
+            >{{ resolveButton.text }}</JnButton
+          >
         </footer>
       </div>
     </div>
@@ -33,23 +35,23 @@
 </template>
 
 <script>
-import JnButton from "../buttons/JnButton"
+import JnButton from "../buttons/JnButton";
 export default {
   name: "JnDialogComponent",
   props: {
     modalId: {
       type: String,
-      default: "jnDialogModal"
+      default: "jnDialogModal",
     },
     modalTitle: String,
     modalBody: String,
     rejectButton: {
       visible: Boolean,
-      text: String
+      text: String,
     },
     resolveButton: {
       visible: Boolean,
-      text: String
+      text: String,
     },
     colorTheme: {
       type: String,
@@ -57,14 +59,14 @@ export default {
       validator: function(value) {
         return ["none", "blue", "pink", "gray", "green"].indexOf(value) !== -1;
       },
-    }
+    },
   },
   components: {
-    JnButton
+    JnButton,
   },
   data: function() {
     return {
-      displayModal: false
+      displayModal: false,
     };
   },
   mounted() {
@@ -78,8 +80,8 @@ export default {
     rejectModal() {
       this.displayModal = false;
       this.$emit("rejectModal");
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
@@ -102,7 +104,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1; 
+  z-index: 1;
 }
 
 .simple-modal {
@@ -114,12 +116,11 @@ export default {
   min-width: 300px;
 }
 .header {
-
   padding: 1rem;
 }
 .none {
   background: #fff;
-  color: var(--gray); 
+  color: var(--gray);
 }
 .simple-modal > .header > div {
   display: grid;
@@ -132,7 +133,7 @@ export default {
   padding: 1rem;
 }
 .footer > button {
-  margin-left: 0.5rem; 
+  margin-left: 0.5rem;
 }
 
 .body {
