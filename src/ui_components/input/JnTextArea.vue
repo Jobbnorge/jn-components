@@ -15,6 +15,7 @@
           message: message,
         })
       "
+      @focus="$emit('textarea-on-focus')"
       v-bind:style="`min-height: ${minHeight}px;`"
       :placeholder="placeholder"
       :text="text"
