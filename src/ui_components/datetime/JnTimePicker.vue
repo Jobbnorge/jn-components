@@ -2,7 +2,7 @@
   <div class="time-grid">
     <label :for="id">{{ label }}</label>
     <input
-      :id="id" 
+      :id="id"
       type="text"
       style="max-width: 80px;"
       @click="dropDown"
@@ -53,7 +53,7 @@ export default {
   props: {
     id: {
       type: String,
-      default: "jn-time-picker"
+      default: "jn-time-picker",
     },
     label: {
       type: String,
@@ -68,7 +68,7 @@ export default {
       required: true,
     },
     hours: {
-      type: Number,
+      type: Array,
       default: () => [
         "00",
         "01",
@@ -117,6 +117,7 @@ export default {
   methods: {
     dropDown: function() {
       this.showPicker = !this.showPicker;
+      this.updateTime();
     },
     selectHour: function(selectedHour) {
       this.hour = selectedHour;
@@ -125,10 +126,14 @@ export default {
       this.minute = selectedMinute;
     },
     close: function() {
-      if(this.showPicker === true) {
-        this.showPicker = false; 
+      if (this.showPicker === true) {
+        this.showPicker = false;
+        this.updateTime();
       }
-    }
+    },
+    updateTime: function() {
+      this.$emit("time-updated", this.getTime);
+    },
   },
 };
 </script>
@@ -136,11 +141,12 @@ export default {
 .close {
   padding: 0.5rem;
   justify-self: end;
-
 }
-.close:hover, .close:focus, .close:active {
-  background: #ff6a6a; 
-  color: var(--gray); 
+.close:hover,
+.close:focus,
+.close:active {
+  background: #ff6a6a;
+  color: var(--gray);
 }
 svg {
   width: 1rem;
@@ -164,7 +170,7 @@ ul {
 .picker {
   display: grid;
   grid-template-columns: 100px 100px;
-  align-items: baseline; 
+  align-items: baseline;
 }
 .list {
   height: 100px;
