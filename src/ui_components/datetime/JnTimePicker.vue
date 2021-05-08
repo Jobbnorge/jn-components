@@ -10,9 +10,7 @@
       v-model="getTime"
     />
     <div v-if="showPicker" class="dropdown-grid">
-      <div class="close" @click="close">
-        <FontAwesomeIcon :icon="faTimes" />
-      </div>
+      <div class="close" @click="close"><span>&#x2716;</span></div>
       <div class="picker">
         <div>
           <label for="hour-picker" style="margin: 0.5rem;">{{
@@ -39,17 +37,8 @@
   </div>
 </template>
 <script>
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { config as fontAwesomeConfig } from "@fortawesome/fontawesome-svg-core";
-import { faTimes } from "@fortawesome/pro-light-svg-icons";
-
-fontAwesomeConfig.autoAddCss = false;
-
 export default {
   name: "JnTimePicker",
-  components: {
-    FontAwesomeIcon,
-  },
   props: {
     id: {
       type: String,
@@ -105,8 +94,7 @@ export default {
     return {
       showPicker: false,
       hour: "00",
-      minute: "00",
-      faTimes,
+      minute: "00"
     };
   },
   computed: {
@@ -139,18 +127,21 @@ export default {
 </script>
 <style scoped>
 .close {
-  padding: 0.5rem;
   justify-self: end;
 }
-.close:hover,
-.close:focus,
-.close:active {
-  background: #ff6a6a;
-  color: var(--gray);
-}
-svg {
+.close > span {
+  cursor: pointer; 
+  font-family: sans-serif;
+  font-size: 1rem;
   width: 1rem;
   height: 1rem;
+  padding: 0.5rem;
+}
+.close > span:hover,
+.close > span:focus,
+.close > span:active {
+  background: #ff6a6a;
+  color: var(--gray);
 }
 ul {
   list-style: none;
