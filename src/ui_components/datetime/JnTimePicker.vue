@@ -10,7 +10,7 @@
       v-model="getTime"
     />
     <div v-if="showPicker" class="dropdown-grid">
-      <div class="close" @click="close"><span>&#x2716;</span></div>
+      <div class="close-x" @click="close"><span>&#x2716;</span></div>
       <div class="picker">
         <div>
           <label for="hour-picker" style="margin: 0.5rem;">{{
@@ -126,20 +126,19 @@ export default {
 };
 </script>
 <style scoped>
-.close {
+.close-x {
   justify-self: end;
+  padding: 0.5rem; 
+  line-height: 1;
 }
-.close > span {
+.close-x > span {
   cursor: pointer; 
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif; 
   font-size: 1rem;
-  width: 1rem;
-  height: 1rem;
-  padding: 0.5rem;
 }
-.close > span:hover,
-.close > span:focus,
-.close > span:active {
+.close-x:hover,
+.close-x:focus,
+.close-x:active {
   background: #ff6a6a;
   color: var(--gray);
 }
