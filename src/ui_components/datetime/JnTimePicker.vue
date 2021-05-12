@@ -105,18 +105,18 @@ export default {
   methods: {
     dropDown: function() {
       this.showPicker = !this.showPicker;
-      this.updateTime();
     },
     selectHour: function(selectedHour) {
       this.hour = selectedHour;
+      this.updateTime();
     },
     selectMinute: function(selectedMinute) {
       this.minute = selectedMinute;
+      this.updateTime();
     },
     close: function() {
       if (this.showPicker === true) {
         this.showPicker = false;
-        this.updateTime();
       }
     },
     updateTime: function() {
