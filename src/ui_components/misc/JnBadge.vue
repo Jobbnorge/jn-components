@@ -1,5 +1,15 @@
 <template>
-  <div class="badge" :class="colorClass" v-bind:style="{ border: computedBorderStyle }">
+  <div
+    class="badge"
+    :class="[
+      computedColorThemeStyle,
+      computedBorderStyle,
+      { squared: squared },
+      { small: small },
+      { clickable: clickable },
+    ]"
+    @click="handleClick()"
+  >
     <slot></slot>
   </div>
 </template>
@@ -7,13 +17,70 @@
 export default {
   name: "JnBadge",
   props: {
-    colorClass: String,
-    hasBorder: Boolean,
+    colorTheme: {
+      type: String,
+      required: true,
+      validator: function(value) {
+        return ["blue", "pink", "gray", "green"].indexOf(value) !== -1;
+      },
+    },
+    hasBorder: {
+      type: Boolean,
+      default: false,
+    },
+    squared: {
+      type: Boolean,
+      default: false,
+    },
+    small: {
+      type: Boolean,
+      default: false,
+    },
+    clickable: {
+      type: Boolean,
+      default: false,
+    },
+    toggle: {
+      type: Boolean,
+      default: false,
+    },
+    setToActive: {
+      type: Boolean,
+      default: false,
+    },
+    id: Number,
+  },
+  data() {
+    return {
+      isActive: null,
+    };
+  },
+  created() {
+    this.isActive = this.setToActive;
   },
   computed: {
-    computedBorderStyle: function () {
-      return this.hasBorder ? '1px solid' : '1px solid transparant;'
-    }
+    computedBorderStyle: function() {
+      if (this.toggle && this.hasBorder) {
+        return this.isActive ? "border-color" : "border-trans";
+      }
+      return this.hasBorder ? "border-color" : "border-trans";
+    },
+    computedColorThemeStyle: function() {
+      if (this.toggle) {
+        return this.isActive ? this.colorTheme : "gray";
+      }
+      return this.colorTheme;
+    },
+  },
+  methods: {
+    handleClick() {
+      if (this.clickable && !this.toggle) {
+        this.$emit("JnBadge-clicked", { id: this.id });
+      } else if (this.clickable && this.toggle) {
+        this.isActive = !this.isActive;
+        this.$emit("JnBadge-clicked", { isActive: this.isActive, id: this.id });
+      }
+    },
   },
 };
 </script>
@@ -27,23 +94,20 @@ export default {
   font-weight: 400; /* Override default Bootstrap styling */
   line-height: 1;
 }
-.pink {
-  background: #ffeef6;
-  color: #d41472;
+.squared {
+  border-radius: 2px;
 }
-
-.grey {
-  background: #f6f5f6;
-  color: #44303c;
+.small {
+  padding: 0.3rem;
+  font-size: 12px;
 }
-
-.blue {
-  background: #e8f5fa;
-  color: #127dac;
+.clickable {
+  cursor: pointer;
 }
-
-.green {
-  background: #d3f5df;
-  color: #1d764f;
+.border-color {
+  border: 1px solid;
+}
+.border-trans {
+  border: 1px solid transparent;
 }
 </style>

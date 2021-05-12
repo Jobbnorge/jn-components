@@ -1,19 +1,25 @@
 <template>
-    <div>
-        <p>4x size and hasAnimation: </p>
-        <JnIconButton icon="download" size="4x" hasAnimation />
-        <p>Default JnIconButton: </p>
-        <JnIconButton icon="chevron-right" />
-    </div>
-    
-
+  <div>
+    <p>4x size and hasAnimation:</p>
+    <JnIconButton :icon="faDownload" size="4x" hasAnimation />
+    <p>Default JnIconButton:</p>
+    <JnIconButton :icon="faChevronRight" />
+  </div>
 </template>
 <script>
-import JnIconButton from "./../ui_components/buttons/JnIconButton"
+import { faChevronRight, faDownload } from "@fortawesome/pro-light-svg-icons";
+import JnIconButton from "./../ui_components/buttons/JnIconButton";
+
 export default {
-    name:"JnIconButtonDemo",
-    components: {
-        JnIconButton
-    }
-}
+  name: "JnIconButtonDemo",
+  components: {
+    JnIconButton,
+  },
+  data() {
+    return {
+      faDownload,
+      faChevronRight,
+    };
+  },
+};
 </script>

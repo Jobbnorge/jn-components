@@ -9,7 +9,7 @@
         <h1 class="info-header">{{title}}</h1>
       </header>
       <section>
-        <p>{{body}}</p>
+        <slot name="body"><p>{{body}}</p></slot>
         <a v-if="hyperlink" :href="hyperlink.url">{{hyperlink.friendlyName}}</a>
       </section>
     </div>
@@ -30,7 +30,7 @@ export default {
   },
   props: {
     title: String,
-    body: String,
+    body: String, 
     /** Vises som lenkeknapp nederst i info kortet
      * @values Hyperlink {friendlyName: String, url:String}
      */

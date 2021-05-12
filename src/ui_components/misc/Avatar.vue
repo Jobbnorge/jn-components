@@ -67,7 +67,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .initials {
   height: 3em;
   width: 3em;

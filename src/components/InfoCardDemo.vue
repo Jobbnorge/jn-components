@@ -1,16 +1,23 @@
 <template>
   <div>
-    <JnInfoCard
-      title="Vi oppdaterer Jobbadmin"
-      body="Oppdateringen vil foregå fra 07:00 - 08:00 den 26.6. Systemet vil derfor kunne oppleves som treigt innimellom"
-      :hyperlink="myHyperlink"
-    />
-    <JnInfoCard
-      title="Nye funksjoner"
-      :icon="faComments"
-      body="Nå kan du endelig gjøre masse greier du har ventet lenge på å få gjøre i Jobbadmin. Vi gleder oss, håper du også gjør det!"
-      removable
-    />
+    <JnInfoCard title="Vi oppdaterer Jobbadmin" :hyperlink="myHyperlink">
+      <template #body
+        ><p>
+          Her kommer en oppdatering om noe som skjer i jobbadmin! Og jeg er passet inn via en slot
+        </p></template
+      >
+    </JnInfoCard>
+
+    <JnInfoCard title="Nye funksjoner" :icon="faComments" removable>
+      <template #body
+        ><p>
+          Nå kan du endelig gjøre masse greier du har ventet lenge på å få gjøre
+          i Jobbadmin. Vi gleder oss, håper du også gjør det
+        </p></template
+      >
+    </JnInfoCard>
+    <JnInfoCard title="Nye funksjoner" :icon="faComments" removable body="Dette er en bodytekst som ikke er en slot">
+    </JnInfoCard>
   </div>
 </template>
 <script>
@@ -22,7 +29,7 @@ export default {
   components: {
     JnInfoCard,
   },
-  data: function () {
+  data: function() {
     return {
       myHyperlink: new Hyperlink(),
       faComments,

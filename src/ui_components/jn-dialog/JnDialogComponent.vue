@@ -2,33 +2,32 @@
   <transition name="modal-fade" @after-leave="$emit('modalClosed')">
     <div class="simple-modal-backdrop" v-if="displayModal">
       <div
-        class="simple-modal"
+        :class="['simple-modal']"
         :id="modalId"
         role="dialog"
         aria-labelledby="modalTitle"
         aria-describedby="modalDescription"
       >
-        <header class="header">
+        <header :class="['header', colorTheme]">
           <slot name="header">
-            <h5 v-if="modalTitle" id="jnDialogModalLabel">{{ this.modalTitle }}</h5>
+            <h5 v-if="modalTitle" id="jnDialogModalLabel">{{ modalTitle }}</h5>
           </slot>
         </header>
         <section class="body">
-          <slot name="body">{{this.modalBody}}</slot>
+          <slot name="body">{{ modalBody }}</slot>
         </section>
         <footer class="footer">
-          <button
+          <JnButton
             v-if="rejectButton.visible"
-            type="button"
-            class="btn btn-secondary"
-            @click="rejectModal"
-          >{{ this.rejectButton.text }}</button>
-          <button
+            @JnButton-clicked="rejectModal"
+            >{{ rejectButton.text }}</JnButton
+          >
+          <JnButton
+            :colorTheme="colorTheme === 'none' ? 'blue' : colorTheme"
             v-if="resolveButton.visible"
-            type="button"
-            class="btn btn-primary"
-            @click="resolveModal"
-          >{{ this.resolveButton.text }}</button>
+            @JnButton-clicked="resolveModal"
+            >{{ resolveButton.text }}</JnButton
+          >
         </footer>
       </div>
     </div>
@@ -36,27 +35,38 @@
 </template>
 
 <script>
+import JnButton from "../buttons/JnButton";
 export default {
   name: "JnDialogComponent",
   props: {
     modalId: {
       type: String,
-      default: "jnDialogModal"
+      default: "jnDialogModal",
     },
     modalTitle: String,
     modalBody: String,
     rejectButton: {
       visible: Boolean,
-      text: String
+      text: String,
     },
     resolveButton: {
       visible: Boolean,
-      text: String
-    }
+      text: String,
+    },
+    colorTheme: {
+      type: String,
+      default: "none",
+      validator: function(value) {
+        return ["none", "blue", "pink", "gray", "green"].indexOf(value) !== -1;
+      },
+    },
+  },
+  components: {
+    JnButton,
   },
   data: function() {
     return {
-      displayModal: false
+      displayModal: false,
     };
   },
   mounted() {
@@ -71,10 +81,7 @@ export default {
       this.displayModal = false;
       this.$emit("rejectModal");
     },
-    setOptions(opt) {
-      Object.assign(this.$data, opt);
-    }
-  }
+  },
 };
 </script>
 <style scoped>
@@ -97,6 +104,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .simple-modal {
@@ -107,11 +115,12 @@ export default {
   grid-template-columns: auto;
   min-width: 300px;
 }
-
 .header {
-  background-color: #127dac;
-  color: #ffffff;
   padding: 1rem;
+}
+.none {
+  background: #fff;
+  color: var(--gray);
 }
 .simple-modal > .header > div {
   display: grid;
@@ -122,6 +131,9 @@ export default {
 .footer {
   justify-self: end;
   padding: 1rem;
+}
+.footer > button {
+  margin-left: 0.5rem;
 }
 
 .body {

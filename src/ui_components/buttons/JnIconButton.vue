@@ -45,18 +45,17 @@ export default {
   background-color: rgba(68, 48, 60, 0.2);
   border-radius: 3px;
 }
-.animate {
-  transition: all 0.2s ease-in;
-}
-.animate:hover {
-  transform: scale(1.03);
-}
-.animate:active {
-  transform: scale(0.9);
-}
 .svg-inline--fa {
   width: 18px;
   height: 18px;
   display: inline-block;
+}
+.btn {
+    color: inherit;
+    text-transform: none;
+    box-shadow: none !important;
+    font-size: 0.8125rem;
+    cursor: pointer;
+    text-decoration: none;
 }
 </style>
