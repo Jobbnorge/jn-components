@@ -41,10 +41,11 @@
                 show: 300,
                 hide: 200,
             },
-        }"
-        
-        
-        />
+        }"/>
+    </div>
+    <div>
+        <h4>Anonymized Avatar</h4>
+        <Avatar firstName="John" lastName="Doe" color="blue" anonymized />
     </div>
 </div>
 </template>

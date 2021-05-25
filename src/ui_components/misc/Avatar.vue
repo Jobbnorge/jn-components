@@ -1,12 +1,22 @@
 <template>
-  <div class="initials" :class="colorClass" @click="$emit('avatarClicked')">{{initials}}</div>
+  <div class="initials" :class="colorClass" @click="$emit('avatarClicked')" >
+    <FontAwesomeIcon v-if="anonymized" :icon="faUserSecret"/>
+    <span v-else >{{initials}}</span>
+  </div>
 </template>
 
 <script>
 import _ from "lodash";
 
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { config as fontAwesomeConfig } from "@fortawesome/fontawesome-svg-core";
+import { faUserSecret } from "@fortawesome/pro-solid-svg-icons";
+
+fontAwesomeConfig.autoAddCss = false;
+
 export default {
   name: "JnAvatar",
+  components: { FontAwesomeIcon },
   props: {
     firstName: String,
     lastName: String,
@@ -22,9 +32,14 @@ export default {
       type: Boolean,
       default: false,
     },
+    anonymized: {
+      type: Boolean,
+      default: false
+    }
   },
   data: function () {
     return {
+      faUserSecret,
       colors: ["pink", "green", "blue", "grey"],
     };
   },
@@ -35,7 +50,9 @@ export default {
   },
   computed: {
     initials: (vm) => {
-      if (vm.fullName) {
+      if (vm.anonymized) {
+        return <FontAwesomeIcon icon="faMoonCloud"/>
+      } else if (vm.fullName) {
         const names = vm.fullName.split(" ");
         return `${names[0].charAt(0)}${names[names.length - 1].charAt(0)}`;
       } else if (vm.rawText) {
@@ -69,9 +86,11 @@ export default {
 
 <style scoped>
 .initials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 3em;
   width: 3em;
-  line-height: 3em;
   margin: auto;
   border-radius: 50%;
   text-align: center;
@@ -118,5 +137,9 @@ export default {
 }
 .hoverable {
   cursor: pointer;
+}
+.svg-inline--fa {
+  width: 1.5em;
+  height: 1.5em;
 }
 </style>
