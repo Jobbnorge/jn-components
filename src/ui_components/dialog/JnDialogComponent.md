@@ -1,0 +1,2 @@
+```[import](./../../examples/DialogExample.vue)
+```

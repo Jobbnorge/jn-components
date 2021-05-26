@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import JnDialogComponent from "./../ui_components/jn-dialog/JnDialogComponent";
+import JnDialogComponent from "./../ui_components/dialog/JnDialogComponent";
 import JnButton from "../ui_components/buttons/JnButton";
 
 export default {

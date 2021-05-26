@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import InfoBox from "../ui_components/misc/InfoBox";
+import InfoBox from "../ui_components/containers/InfoBox";
 import JnTextArea from "../ui_components/input/JnTextArea";
 export default {
   name: "InfoBoxExample",

@@ -1,6 +1,6 @@
 <template>
   <div class="grid-hor-cards">
-    <JnCardHorizontal v-for="card in cards" :key="card.title" v-bind="card"></JnCardHorizontal>
+    <JnCardHorizontal v-for="card in cards" :key="card.mainFrameTitle" v-bind="card"></JnCardHorizontal>
   </div>
 </template>
 
@@ -29,7 +29,7 @@ export default {
         },
         {
           mainFrameTitle: "92",
-          colorTheme: "red",
+          colorTheme: "pink",
           secondFrameTitle: "Nye søkere",
           secondFrameTopText: "200 søkere totalt",
         },

@@ -33,10 +33,10 @@ export default {
     },
     colorTheme: {
       type: String,
-      default: "secondary",
+      default: "blue",
       validator: function(value) {
         return (
-          ["blue", "pink", "gray", "green", "secondary"].indexOf(value) !== -1
+          ["blue", "pink", "gray", "green"].indexOf(value) !== -1
         );
       },
     },
@@ -53,7 +53,7 @@ export default {
   methods: {
     GetBackground: function (color, mainFrame) {
       switch (color) {
-        case "red":
+        case "pink":
           return mainFrame ? "bg-red" : "bg-red-secondary";
         case "blue":
           return mainFrame ? "bg-blue" : "bg-blue-secondary";
