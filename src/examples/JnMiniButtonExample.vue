@@ -1,9 +1,11 @@
 <template>
   <div>
-    <JnMiniButton :icon="faTimesCircle" colorTheme="pink">
+    <JnMiniButton colorTheme="pink">
+      <span :class="['fas', 'fa-times-circle']"></span>
       Slett
     </JnMiniButton>
-    <JnMiniButton :icon="faTimesCircle" showBackground hasAnimation>
+    <JnMiniButton showBackground hasAnimation>
+      <span :class="['fas', 'fa-times-circle']"></span>
       Slett
     </JnMiniButton>
   </div>
@@ -11,17 +13,11 @@
 
 <script>
 import JnMiniButton from "../ui_components/buttons/JnMiniButton";
-import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons";
 
 export default {
   name: "ButtonExamples",
   components: {
-    JnMiniButton
-  },
-  data() {
-    return {
-      faTimesCircle,
-    };
+    JnMiniButton,
   },
 };
 </script>

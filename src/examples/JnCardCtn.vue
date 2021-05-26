@@ -24,7 +24,7 @@
         <EmptyStateSVG />
       </template>
         <template #button>
-         <JnTextButton>Gå til stillinger</JnTextButton>
+         <JnButton>Gå til stillinger<span class="fal fa-chevron-right" style="margin-left: 8px"></span></JnButton>
         </template>
       </JnCard>
     </div>
@@ -40,7 +40,7 @@
         <p>Her er noe innhold</p>
       </template>
         <template #button>
-         <JnTextButton>Bare se her</JnTextButton>
+         <JnButton>Bare se her<span class="fal fa-chevron-right" style="margin-left: 8px"></span></JnButton>
         </template>
       </JnCard>
       <JnCard
@@ -59,7 +59,7 @@
           </div>
         </template>
         <template #button>
-          <JnTextButton>Handling</JnTextButton>
+          <JnButton>Handling<span class="fal fa-chevron-right" style="margin-left: 8px"></span></JnButton>
         </template>
       </JnCard>
     </div>
@@ -68,15 +68,14 @@
 
 <script>
 import JnCard from "./../ui_components/cards/JnCard"
-import ContentPlaceholder from "./../ui_components/models/ContentPlaceholder"
-import JnTextButton from "./../ui_components/buttons/JnTextButton"
+import JnButton from "./../ui_components/buttons/JnButton"
 import EmptyStateSVG from "./../mock_data/EmptyStateSVG"
 
 export default {
   name: "JnCardCtn",
   components: {
     JnCard,
-    JnTextButton,
+    JnButton,
     EmptyStateSVG
 
   },
@@ -85,11 +84,7 @@ export default {
       cardOpt: {
         title: "Lorem ipsum dolor",
         subtitle:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ex?",
-        contentPlaceholder: new ContentPlaceholder(
-          "hamperokken.jpg",
-          "hamperokken alt text"
-        )
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ex?"
       }
     };
   },

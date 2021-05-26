@@ -12,7 +12,7 @@
             hasAnimation
             @mini-button-clicked="handleDelete()"
           >
-            <FontAwesomeIcon :icon="faTimesCircle" />
+            <span :class="['fas', 'fa-times-circle']" style="margin-right: 8px"></span>
             Slett
           </JnMiniButton>
         </div>
@@ -23,17 +23,15 @@
 
 <script>
 import NumberedCard from "../ui_components/cards/NumberedCard";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons";
+import JnMiniButton from "../ui_components/buttons/JnMiniButton";
 
 export default {
   components: {
     NumberedCard,
-    FontAwesomeIcon,
+    JnMiniButton,
   },
   data() {
     return {
-      faTimesCircle,
       show: true,
     };
   },
@@ -53,12 +51,5 @@ export default {
 }
 .right {
   justify-self: end;
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
 }
 </style>

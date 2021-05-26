@@ -1,0 +1,2 @@
+```[import](./../../examples/HorizontalCards.vue)
+```

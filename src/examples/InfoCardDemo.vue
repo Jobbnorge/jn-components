@@ -8,7 +8,7 @@
       >
     </JnInfoCard>
 
-    <JnInfoCard title="Nye funksjoner" :icon="faComments" removable>
+    <JnInfoCard title="Nye funksjoner" faClass="fa-comments" removable>
       <template #body
         ><p>
           Nå kan du endelig gjøre masse greier du har ventet lenge på å få gjøre
@@ -16,13 +16,12 @@
         </p></template
       >
     </JnInfoCard>
-    <JnInfoCard title="Nye funksjoner" :icon="faComments" removable body="Dette er en bodytekst som ikke er en slot">
+    <JnInfoCard title="Nye funksjoner" faClass="fa-comments" removable body="Dette er en bodytekst som ikke er en slot">
     </JnInfoCard>
   </div>
 </template>
 <script>
 import Hyperlink from "../domain/Hyperlink";
-import { faComments } from "@fortawesome/pro-light-svg-icons";
 import JnInfoCard from "../ui_components/cards/JnInfoCard";
 export default {
   name: "InfoCardDemo",
@@ -32,7 +31,6 @@ export default {
   data: function() {
     return {
       myHyperlink: new Hyperlink(),
-      faComments,
     };
   },
   created() {

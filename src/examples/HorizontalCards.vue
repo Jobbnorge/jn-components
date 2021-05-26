@@ -6,7 +6,6 @@
 
 <script>
 import JnCardHorizontal from "./../ui_components/cards/JnCardHorizontal";
-import { faComments } from "@fortawesome/pro-light-svg-icons";
 
 export default {
   name: "HorizontalCards",
@@ -24,7 +23,7 @@ export default {
         },
         {
           mainFrameTitle: "22%",
-          colorTheme: "black",
+          colorTheme: "gray",
           secondFrameTitle: "Kvalifiserte",
           secondFrameTopText: "",
         },
@@ -35,7 +34,7 @@ export default {
           secondFrameTopText: "200 søkere totalt",
         },
         {
-          icon: faComments,
+          faClass: "fa-comments",
           iconPadding: 34,
           colorTheme: "green",
           secondFrameTitle: "Forespørsler",
