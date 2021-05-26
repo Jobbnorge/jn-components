@@ -4,14 +4,14 @@
       :max="400"
       labelText="Skriv ditt svar her"
       placeholder="I am a placeholder text"
-      minHeight="80"
+      :minHeight="80"
       id="my-text-area"
     />
     <JnTextArea
       :max="50"
       labelText="Hvor lang er sola?"
       text="Vet ikke??"
-      minHeight="80"
+      :minHeight="80"
       id="my-text-area"
     />
   </div>

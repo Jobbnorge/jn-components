@@ -11,7 +11,7 @@
   </div>
 </template>
 <script>
-import JnBadge from "../ui_components/misc/JnBadge";
+import JnBadge from "../ui_components/containers/JnBadge";
 export default {
   name: "BadgeExample",
   components: {

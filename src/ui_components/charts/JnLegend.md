@@ -1,0 +1,2 @@
+```[import](./../../examples/PieChartExample.vue)
+```

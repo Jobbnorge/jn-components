@@ -1,6 +1,6 @@
 <template>
     <div class="pp-wrapper">
-        <ProcessPreview v-for="step in steps" :key="step.id" colorTheme="blue" :showArrow="steps.length-1 > steps.indexOf(step)" :icon="mapActionToIcon(step.action)">
+        <ProcessPreview v-for="step in steps" :key="step.id" colorTheme="blue" :showArrow="steps.length-1 > steps.indexOf(step)" :faClass="mapActionToIcon(step.action)">
             <template #content>
                 {{step.name[systemLanguageId-1].text}}
             </template>
@@ -11,7 +11,6 @@
 <script>
 import ProcessPreview from "../ui_components/charts/ProcessPreview"; 
 import * as data from "./../mock_data/single-applicationStatusSet.json";
-import { faThumbsUp, faThumbsDown, faCommentsAlt, faMedal, faHandshakeAlt} from "@fortawesome/pro-light-svg-icons";
 
 export default {
     components: {
@@ -21,11 +20,6 @@ export default {
         return {
             systemLanguageId: 1,
             steps: data.applicationStatus,
-            faThumbsUp,
-            faThumbsDown,
-            faCommentsAlt,
-            faMedal,
-            faHandshakeAlt
         }
     },
     methods: {
@@ -33,15 +27,15 @@ export default {
           if(action !=null) {
             switch(action) {
                 case "Interview":
-                    return faCommentsAlt;
+                    return "fa-user-friends";
                 case "Hire":
-                    return faHandshakeAlt;
+                    return "fa-handshake-alt";
                 case "Qualified":
-                    return faThumbsUp;
+                    return "fa-thumbs-up";
                 case "NotQualified":
-                    return faThumbsDown; 
+                    return "fa-thumbs-down"; 
                 case "Nominate":
-                    return faMedal; 
+                    return "fa-list-ol"; 
             }
           }
       }

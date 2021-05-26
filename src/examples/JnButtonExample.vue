@@ -22,9 +22,9 @@
     <JnButton colorTheme="pink" light>Lys rosa</JnButton>
   </div>
   <div>
-    <h2>Med ikon<h2>
-      <JnButton>Les mer<span class="fas fa-chevron-right"></span></JnButton>
-      <JnButton colorTheme="blue">Kjør disco<span class="fal fa-gift"></span></JnButton>
+    <h2>Med ikon</h2>
+      <JnButton>Les mer<span class="fas fa-chevron-right" style="margin-left: 8px"></span></JnButton>
+      <JnButton colorTheme="blue"><span class="fal fa-gift" style="margin-right: 8px"></span>Kjør disco</JnButton>
   </div>
 </div>
 </template>
