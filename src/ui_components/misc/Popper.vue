@@ -1,13 +1,12 @@
 <template>
   <div>
     <div>
-      <div aria-describedby="tooltip" data-trigger>
+      <div v-bind:id="triggerId">
         <slot name="trigger"></slot>
       </div>
     </div>
-    <div role="tooltip" data-popper>
+    <div role="tooltip" v-bind:id="popperId" :class="{ 'jn-tooltip': tooltip }">
       <slot name="popper"></slot>
-      <div id="arrow" data-popper-arrow></div>
     </div>
   </div>
 </template>
@@ -23,6 +22,18 @@ export default {
         placement: "top",
       }),
     },
+    triggerId: {
+      type: String,
+      required: true,
+    },
+    popperId: {
+      type: String,
+      required: true,
+    },
+    tooltip: {
+      type: Boolean,
+      default: true,
+    },
   },
   data() {
     return {
@@ -32,59 +43,39 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.triggerEl = document.querySelector("[data-trigger]");
-      this.popperEl = document.querySelector("[data-popper]");
+      this.triggerEl = document.querySelector(`#${this.triggerId}`);
+      this.popperEl = document.querySelector(`#${this.popperId}`);
       this.setupPopper();
+      this.onClickOutside();
     });
   },
   methods: {
     setupPopper() {
       createPopper(this.triggerEl, this.popperEl, this.config);
     },
+    onClickOutside() {
+      const listener = (e) => {
+        if (e.target === this.$el || this.$el.contains(e.target)) {
+          return;
+        }
+
+        this.$emit('outside-click')
+      };
+
+      document.addEventListener("click", listener);
+      this.$once("hook:beforeDestroy", () => {
+        document.removeEventListener("click", listener);
+      });
+    },
   },
 };
 </script>
 <style scoped>
-#tooltip {
+.jn-tooltip {
   display: inline-block;
-  background: var(--lightBlue);
-  color: var(--gray);
-  font-weight: bold;
-  padding: 5px 10px;
-  font-size: 13px;
-  border-radius: 4px;
-}
-#arrow,
-#arrow::before {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: inherit;
-}
-
-#arrow {
-  visibility: hidden;
-}
-
-#arrow::before {
-  visibility: visible;
-  content: "";
-  transform: rotate(45deg);
-}
-
-#tooltip[data-popper-placement^="top"] > #arrow {
-  bottom: -4px;
-}
-
-#tooltip[data-popper-placement^="bottom"] > #arrow {
-  top: -4px;
-}
-
-#tooltip[data-popper-placement^="left"] > #arrow {
-  right: -4px;
-}
-
-#tooltip[data-popper-placement^="right"] > #arrow {
-  left: -4px;
+  background: #ffffff;
+  border: 1px solid #f6f5f6;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
 }
 </style>
