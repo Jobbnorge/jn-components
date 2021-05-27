@@ -1,2 +1,2 @@
-```[import](./../../examples/Rating.vue)
+```[import](./../../examples/RatingExample.vue)
 ```

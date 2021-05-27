@@ -7,7 +7,7 @@
     <JnButton colorTheme="blue">Mørk blå</JnButton>
     <JnButton colorTheme="blue" light>Lys blå</JnButton>
     <JnButton colorTheme="blue" light hasBorder>lys blå-border</JnButton>
-    <JnButton colorTheme="blue" hasBorder>Mørk blå-border</JnButton>
+    <JnButton colorTheme="blue" hasBorder caps>Mørk blå-border har caps</JnButton>
   </div>
   <div>
     <JnButton colorTheme="gray">Mørk grå (aubergine)</JnButton>

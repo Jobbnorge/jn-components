@@ -6,7 +6,7 @@
           <JnListElement
             v-for="item in list1"
             :key="item.id"
-            :icon="faFileAlt"
+            faClass="fa-file-alt"
             :title="item.title"
             :secondaryText="item.secondaryText"
             :isExternal="item.isExternal"
@@ -15,13 +15,17 @@
             :navigable="item.navigable"
           >
             <template #left-side>
-              <Avatar :firstName="item.user.firstName" :lastName="item.user.lastName" :id="item.id"></Avatar>
+              <Avatar
+                :firstName="item.user.firstName"
+                :lastName="item.user.lastName"
+                :id="item.id"
+              ></Avatar>
             </template>
           </JnListElement>
         </ul>
       </template>
       <template #button>
-        <JnTextButton>Gå til annonser</JnTextButton>
+        <JnButton>Gå til annonser</JnButton>
       </template>
     </JnCard>
     <JnCard title="Dokumenter">
@@ -30,7 +34,7 @@
           <JnListElement
             v-for="item in list2"
             :key="item.id"
-            :icon="faUserSecret"
+            faClass="fa-user-secret"
             :title="item.title"
             :secondaryText="item.secondaryText"
             :isExternal="item.isExternal"
@@ -39,13 +43,13 @@
             :navigable="item.navigable"
           >
             <template #right-side>
-              <JnIconButton :icon="faDownload" size="lg" hasAnimation />
+              <JnButton><span class="fas fa-download"></span></JnButton>
             </template>
           </JnListElement>
         </ul>
       </template>
       <template #button>
-        <JnTextButton>Gå til dokumenter</JnTextButton>
+        <JnButton>Gå til dokumenter</JnButton>
       </template>
     </JnCard>
     <JnIconList :listItems="listItems" />
@@ -55,28 +59,18 @@
 <script>
 import JnListElement from "./../ui_components/lists/JnListElement";
 import JnCard from "./../ui_components/cards/JnCard";
-import JnTextButton from "./../ui_components/buttons/JnTextButton";
+import JnButton from "./../ui_components/buttons/JnButton";
 import JnIconList from "./../ui_components/lists/JnIconList";
-import JnIconButton from "./../ui_components/buttons/JnIconButton";
 import Avatar from "./../ui_components/misc/Avatar";
-import {
-  faBriefcase,
-  faUserLock,
-  faInfoCircle,
-  faFileAlt,
-  faUserSecret,
-  faDownload
-} from "@fortawesome/pro-light-svg-icons";
 
 export default {
   name: "demoList",
   components: {
     JnListElement,
     JnCard,
-    JnTextButton,
+    JnButton,
     JnIconList,
     Avatar,
-    JnIconButton,
   },
   data() {
     return {
@@ -148,17 +142,14 @@ export default {
         },
       ],
       listItems: {},
-      faFileAlt,
-      faUserSecret,
-      faDownload
     };
   },
   created() {
     var vm = this;
-    setTimeout(function () {
-      vm.$set(vm.listItems, "hello", faInfoCircle);
-      vm.$set(vm.listItems, "fluff puff hei", faBriefcase);
-      vm.$set(vm.listItems, "some information", faUserLock);
+    setTimeout(function() {
+      vm.$set(vm.listItems, "hello", "fal fa-plane");
+      vm.$set(vm.listItems, "fluff puff hei", "fal fa-circle");
+      vm.$set(vm.listItems, "some information", "fal fa-square");
     }, 1000);
   },
 };

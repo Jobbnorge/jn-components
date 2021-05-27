@@ -1,7 +1,7 @@
 <template>
   <button
     type="button"
-    :class="['btn', colorTheme, { light: light }, 'animate', {'jn-border': hasBorder}]"
+    :class="['btn', colorTheme, { light: light }, 'animate', {'jn-border': hasBorder}, {caps: caps}]"
     @click="$emit('JnButton-clicked')"
   >
     <slot></slot>
@@ -28,6 +28,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    caps: {
+      type: Boolean,
+      default: false
+    }
   },
 };
 </script>
@@ -50,5 +54,8 @@ button {
   height: 1rem;
   display: inline-flex;
   margin-right: 0.5rem;
+}
+.caps {
+  text-transform: uppercase;
 }
 </style>

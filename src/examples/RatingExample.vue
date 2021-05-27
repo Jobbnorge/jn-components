@@ -16,7 +16,7 @@
 import JnStars from "./../ui_components/assessment/JnStars"
 export default {
     name:"Rating",
-    components: "JnStars",
+    components: JnStars,
     data() {
         return {
             ratingAsText: ""
