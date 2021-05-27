@@ -17,6 +17,7 @@
 </template>
 <script>
 import Avatar from "../ui_components/misc/Avatar";
+
 export default {
   name: "AvatarExample",
   components: {
