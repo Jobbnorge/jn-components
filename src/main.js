@@ -4,10 +4,8 @@ import $ from "jquery"
 import './../assets/css/bootstrap_limitless.css'
 import './../assets/css/bootstrap.min.css'
 import './../assets/css/Jobbadmin_responsive.css'
-import './../assets/css/tooltip.css'
 import '@fortawesome/fontawesome-pro/css/all.min.css'
 import VueI18n from 'vue-i18n'
-import VTooltip from 'v-tooltip'
 
 window.$ = $;
 window.Vue = Vue;
@@ -16,19 +14,6 @@ Vue.use(VueI18n)
 
 const i18n = new VueI18n({
   locale: 'ja'
-})
-
-Vue.use(VTooltip, {
-  disposeTimeout: 5000,
-  popover: {
-    defaultPopperOptions: {
-      modifiers: {
-        preventOverflow: {
-          padding: 12,
-        },
-      },
-    },
-  },
 })
 
 new Vue({
