@@ -12,7 +12,7 @@
     </div>
 </template>
 <script>
-import JnUserMessage from "../ui_components/misc/JnUserMessage";
+import JnUserMessage from "../ui_components/containers/JnUserMessage";
 export default {
     name: "JnUserMessageDemo",
     components: {

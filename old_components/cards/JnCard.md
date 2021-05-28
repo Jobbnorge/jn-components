@@ -1,2 +1,0 @@
-```[import](./../../components/JnCardCtn.vue)
-```

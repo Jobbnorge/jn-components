@@ -13,6 +13,7 @@
           </div>
         </template>
       </JnCardMini>
+    </div>
   </div>
 </template>
 
@@ -25,7 +26,7 @@ export default {
   components: {
     JnCardMini,
     JnPieChart,
-    JnLegend
+    JnLegend,
   },
   data: function() {
     return {
@@ -36,13 +37,13 @@ export default {
         "Min status": 1,
         Oppdatert: 1,
         Tilbud: 3,
-        Ubehandlet: 31
+        Ubehandlet: 31,
       },
       pieData2: {
         Aktuell: 1,
-        Ansatt: 5
+        Ansatt: 5,
       },
-      fluff: {}
+      fluff: {},
     };
   },
   mounted() {
@@ -56,10 +57,10 @@ export default {
       this.fluff = {
         hei: 3,
         hoo: 2,
-        boo: 1
+        boo: 1,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 

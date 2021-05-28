@@ -2,7 +2,7 @@
   <div class="message-grid">
     <section class="message-details" v-bind:class="{end: isLoggedInUser}">
       <span>{{details}}</span>
-      <JnBadge v-if="showBadge" colorClass="pink">Ny</JnBadge>
+      <JnBadge v-if="showBadge" colorTheme="pink">Ny</JnBadge>
     </section>
     <div class="message-container" v-bind:class="{right: isLoggedInUser}">
       <Avatar v-if="!isLoggedInUser" :fullName="author" :id="authorId"></Avatar>
@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import Avatar from "./Avatar";
-import JnBadge from "./JnBadge";
+import Avatar from "../misc/Avatar"
+import JnBadge from "../containers/JnBadge";
 export default {
   name: "JnUserMessage",
   components: {

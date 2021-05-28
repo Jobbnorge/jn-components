@@ -4,6 +4,9 @@
 
 <script>
 import * as d3 from "d3";
+import $ from "jquery";
+
+window.$ = $;
 
 export default {
   name: "JnPieChart",
@@ -74,10 +77,8 @@ export default {
           .attr("viewBox", `0 0 ${width} ${height}`)
           .append("g")
           .attr("transform", `translate(${width / 2},${height / 2})`);
-        console.log("before the data");
         // docs: https://github.com/d3/d3-shape/blob/v1.3.7/README.md#pies
         var data = d3.pie().value((d) => d.value)(d3.entries(this.figures));
-        console.log("THE DATA", data);
 
         var arc = d3
           .arc()

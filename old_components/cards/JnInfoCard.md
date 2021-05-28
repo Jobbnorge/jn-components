@@ -1,2 +1,0 @@
-```[import](./../../components/InfoCardDemo.vue)
-```

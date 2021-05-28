@@ -4,7 +4,7 @@
       <span class="fas fa-star"></span>
       Vis min rangering
     </JnToggleButton>
-    <JnToggleButton colorTheme="gray" id="t2" @jnToggleButton-active="toggle">
+    <JnToggleButton colorTheme="pink" id="t2" @jnToggleButton-active="toggle">
       <span class="fas fa-star-half"></span>
       Vis andres rangering
     </JnToggleButton>
