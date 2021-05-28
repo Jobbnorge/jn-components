@@ -1,20 +1,27 @@
 <template>
-<div>
+  <div class="container">
     <JnDropDownBtn
-    text="Velg et element"
-    isPrimary
-    :options="[{ id: '1', text: 'Item1' }, { id: '2', text: 'hello 2' }]"
-    @itemClicked="itemClicked"
-  />
+      text="Velg et element"
+      isPrimary
+      :options="[
+        { id: '1', text: 'Item1' },
+        { id: '2', text: 'hello 2' },
+      ]"
+      @itemClicked="itemClicked"
+      id="mydrop"
+    />
     <JnDropDownBtn
-    text="Velg"
-    isPrimary
-    dropUp
-    :options="[{ id: '5', text: 'ANOTHER' }, { id: '3', text: 'hello 2' }]"
-    @itemClicked="itemClicked"
-  />
-</div>
-
+      text="Velg et annet element"
+      dropUp
+      isPrimary
+      :options="[
+        { id: '1', text: 'Item1' },
+        { id: '2', text: 'hello 2' },
+      ]"
+      @itemClicked="itemClicked"
+      id="myotherdrop"
+    />
+  </div>
 </template>
 <script>
 import JnDropDownBtn from "./../ui_components/buttons/JnDropDownBtn";
@@ -25,7 +32,7 @@ export default {
   data() {
     return {
       item: {},
-    }
+    };
   },
   methods: {
     itemClicked(event) {
@@ -34,3 +41,9 @@ export default {
   },
 };
 </script>
+<style scoped>
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+</style>

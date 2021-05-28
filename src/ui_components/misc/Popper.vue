@@ -34,6 +34,10 @@ export default {
       type: Boolean,
       default: true,
     },
+    dropDown: {
+      type: Boolean,
+      default: false 
+    }
   },
   data() {
     return {
@@ -46,7 +50,10 @@ export default {
       this.triggerEl = document.querySelector(`#${this.triggerId}`);
       this.popperEl = document.querySelector(`#${this.popperId}`);
       this.setupPopper();
-      this.onClickOutside();
+      
+      if(!this.dropDown) {
+        this.onClickOutside(); 
+      }
     });
   },
   methods: {

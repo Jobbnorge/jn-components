@@ -1,50 +1,42 @@
 <template>
-  <div>
-    <div class="drop-container">
+  <Popper :config="{placement: dropUp ? 'top':'bottom'}" :triggerId="`trigger-${id}`" :popperId="`popper-${id}`" dropDown>
+    <template #trigger>
       <button
         class="btn icon-button"
         v-bind:class="{ bg: isPrimary, 'border-blue': showOptions }"
         @click="showOptions = !showOptions"
       >
         {{ text }}
-        <FontAwesomeIcon
-          :icon="dropUp ? faChevronUp : faChevronDown"
-          v-bind:class="{'fa-rotate-180': showOptions}"
-        />
+        <span
+          v-bind:class="[
+            dropUp ? 'fal fa-chevron-up' : 'fal fa-chevron-down',
+            { 'fa-rotate-180': showOptions },
+          ]"
+        ></span>
       </button>
-    </div>
-    <div class="drop-items" ref="drop" v-if="showOptions" v-bind:style="calculatePosition">
-      <ul>
-        <li
-          v-for="option in options"
-          :key="option.id"
-          @click="$emit.event('item-clicked', option)"
-        >
-          {{ option.text }}
-        </li>
-      </ul>
-    </div>
-  </div>
+    </template>
+    <template #popper v-if="showOptions">
+      <div class="drop-items">
+        <ul>
+          <li
+            v-for="option in options"
+            :key="option.id"
+            @click="$emit.event('item-clicked', option)"
+          >
+            {{ option.text }}
+          </li>
+        </ul>
+      </div>
+    </template>
+  </Popper>
 </template>
 
 <script>
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faChevronDown, faChevronUp } from "@fortawesome/pro-light-svg-icons";
-import { config as fontAwesomeConfig } from "@fortawesome/fontawesome-svg-core";
-
-fontAwesomeConfig.autoAddCss = false;
-
 export default {
   name: "JnDropDownBtn",
-  components: {
-    FontAwesomeIcon,
-  },
   data() {
     return {
-      faChevronDown,
-      faChevronUp,
       showOptions: false,
-      offsetHeight: 0
     };
   },
   props: {
@@ -55,19 +47,8 @@ export default {
       default: false,
     },
     options: Array,
-  },
-  mounted() {
-    this.offsetHeight = this.document.getElementByClassName("drop-items").offsetHeight
-  }, 
-  computed: {
-    calculatePosition() {
-      console.log(this.offsetHeight); 
-      return {
-        position: "relative",
-        bottom: `px` 
-      }
-    }
-  },
+    id: String
+  }
 };
 </script>
 
@@ -100,8 +81,6 @@ export default {
 }
 .drop-items {
   background: #ffffff;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 3px;
   width: 200px;
 }
 li {
@@ -114,13 +93,7 @@ li:hover {
 ul {
   list-style: none;
   padding: 0;
-}
-.svg-inline--fa {
-  width: 18px;
-  height: 18px;
-  display: inline-block;
-  margin: 4px;
-  vertical-align: middle;
+  margin: 0; 
 }
 .fa-rotate-180 {
   transform: rotateX(180deg);
