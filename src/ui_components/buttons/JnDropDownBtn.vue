@@ -21,7 +21,7 @@
           <li
             v-for="option in options"
             :key="option.id"
-            @click="$emit.event('item-clicked', option)"
+            @click="$emit('item-clicked', option)"
           >
             {{ option.text }}
           </li>
