@@ -1,4 +1,4 @@
 Examples:
 
-```[import](./../../components/TimePickerExample.vue)
+```[import](./../../examples/TimePickerExample.vue)
 ```

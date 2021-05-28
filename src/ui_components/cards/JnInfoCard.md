@@ -1,2 +1,2 @@
-```[import](./../../components/InfoCardDemo.vue)
+```[import](./../../examples/InfoCardDemo.vue)
 ```

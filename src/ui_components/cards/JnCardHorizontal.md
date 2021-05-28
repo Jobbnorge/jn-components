@@ -1,2 +1,2 @@
-```[import](./../../components/HorizontalCards.vue)
+```[import](./../../examples/HorizontalCards.vue)
 ```

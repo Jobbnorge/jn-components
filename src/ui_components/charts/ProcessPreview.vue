@@ -1,27 +1,22 @@
 <template>
   <div class="wrapper">
     <JnBadge :colorTheme="colorTheme" hasBorder>
-      <FontAwesomeIcon v-if="icon" :icon="icon" class="step-icon" />
+      <span v-if="faClass" :class="['step-icon', 'fal', faClass]" />
       <slot name="content"></slot>
     </JnBadge>
-    <FontAwesomeIcon
+    <span
       v-if="showArrow"
-      :icon="faArrowCircleRight"
+      :class="['fas fa-arrow-circle-right', 'arrow']"
       :style="{ color: computedTextColorStyle }"
     />
   </div>
 </template>
 <script>
-import JnBadge from "../misc/JnBadge.vue";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { config as fontAwesomeConfig } from "@fortawesome/fontawesome-svg-core";
-import { faArrowCircleRight } from "@fortawesome/pro-regular-svg-icons";
-fontAwesomeConfig.autoAddCss = false;
+import JnBadge from "../containers/JnBadge.vue";
 
 export default {
   components: {
     JnBadge,
-    FontAwesomeIcon,
   },
   props: {
     showArrow: Boolean,
@@ -32,7 +27,9 @@ export default {
         return ["blue", "pink", "gray", "green"].indexOf(value) !== -1;
       },
     },
-    icon: Object,
+    faClass: {
+      type: String,
+    },
   },
   computed: {
     computedTextColorStyle: function() {
@@ -45,21 +42,16 @@ export default {
       return colors[this.colorTheme];
     },
   },
-  data() {
-    return {
-      faArrowCircleRight,
-    };
-  },
 };
 </script>
 <style scoped>
-.svg-inline--fa {
-  width: 1.7rem;
-  height: 1.7rem;
+.arrow {
+  font-size: 1.5rem;
   display: inline-flex;
   margin-left: 0.5rem;
   background-color: transparent;
   border: none;
+  vertical-align: middle;
 }
 
 .step-icon {

@@ -10,7 +10,7 @@
       v-model="getTime"
     />
     <div v-if="showPicker" class="dropdown-grid">
-      <div class="close-x" @click="close"><span>&#x2716;</span></div>
+      <div class="close-x" @click="close"><span class="fal fa-times"></span></div>
       <div class="picker">
         <div>
           <label for="hour-picker" style="margin: 0.5rem;">{{
@@ -129,18 +129,16 @@ export default {
 .close-x {
   justify-self: end;
   padding: 0.5rem; 
-  line-height: 1;
+  line-height: 0.5;
+  cursor: pointer; 
 }
 .close-x > span {
-  cursor: pointer; 
-  font-family: 'Roboto', sans-serif; 
   font-size: 1rem;
 }
 .close-x:hover,
 .close-x:focus,
 .close-x:active {
   background: #ff6a6a;
-  color: var(--gray);
 }
 ul {
   list-style: none;

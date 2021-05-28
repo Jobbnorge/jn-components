@@ -1,4 +1,4 @@
 Avatar example:
 
-```[import](./../../components/AvatarExample.vue)
+```[import](./../../examples/AvatarExample.vue)
 ```

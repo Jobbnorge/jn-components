@@ -10,6 +10,7 @@ module.exports = {
         path.join(__dirname, 'assets/css/bootstrap.min.css'),
         path.join(__dirname, 'assets/css/bootstrap_limitless.css'),
         path.join(__dirname, 'assets/css/Jobbadmin_responsive.css'),
+        path.join(__dirname, 'node_modules/@fortawesome/fontawesome-pro/css/all.min.css'),
         path.join(__dirname, 'assets/css/tooltip.css'),
     ],
     styleguideDir: "dist/docs",

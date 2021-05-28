@@ -1,22 +1,14 @@
 <template>
-  <div class="initials" :class="colorClass" @click="$emit('avatarClicked')" >
-    <FontAwesomeIcon v-if="anonymized" :icon="faUserSecret"/>
-    <span v-else >{{initials}}</span>
+  <div class="initials" :class="colorClass" @click="$emit('avatarClicked')">
+    <span v-if="anonymized" class="fal fa-user-secret" />
+    <span v-else>{{ initials }}</span>
   </div>
 </template>
 
 <script>
-import _ from "lodash";
-
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { config as fontAwesomeConfig } from "@fortawesome/fontawesome-svg-core";
-import { faUserSecret } from "@fortawesome/pro-solid-svg-icons";
-
-fontAwesomeConfig.autoAddCss = false;
 
 export default {
   name: "JnAvatar",
-  components: { FontAwesomeIcon },
   props: {
     firstName: String,
     lastName: String,
@@ -34,36 +26,31 @@ export default {
     },
     anonymized: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
-  data: function () {
+  data: function() {
     return {
-      faUserSecret,
       colors: ["pink", "green", "blue", "grey"],
     };
   },
   methods: {
-    colorfromindex: function () {
+    colorfromindex: function() {
       return this.colors[this.id % this.colors.length];
     },
   },
   computed: {
     initials: (vm) => {
-      if (vm.anonymized) {
-        return <FontAwesomeIcon icon="faMoonCloud"/>
-      } else if (vm.fullName) {
+      if (vm.fullName) {
         const names = vm.fullName.split(" ");
         return `${names[0].charAt(0)}${names[names.length - 1].charAt(0)}`;
       } else if (vm.rawText) {
         return vm.rawText;
       } else {
-        var firstNameInitials = _.first(vm.firstName.split(" "))
-          .split("-")
+        var firstNameInitials = vm.firstName.split(/[\s-]/)
           .map((n) => n.charAt(0))
           .join("");
-        var lastNamesInitials = _.last(vm.lastName.split(" "))
-          .split("-")
+        var lastNamesInitials = vm.lastName.split(/[\s-]/)
           .map((n) => n.charAt(0))
           .join("");
 

@@ -5,21 +5,15 @@
     @click="navigable ? navigate() : null "
   >
     <slot name="left-side">
-      <i class="icon" v-if="icon">
-        <FontAwesomeIcon :icon="icon" />
-      </i>
+      <span v-if="faClass" :class="['fal', faClass]"></span>
     </slot>
     <div>
       <p v-if="secondaryText" class="secondary-text">{{secondaryText}}</p>
       <p class="title">{{title}}</p>
     </div>
     <div v-if="navigable">
-      <i v-if="isExternal" class="center">
-        <FontAwesomeIcon :icon="faExternalLink" class="icon" />
-      </i>
-      <i v-else class="center">
-        <FontAwesomeIcon :icon="faChevronRight" class="icon" />
-      </i>
+        <span v-if="isExternal" class="center icon fas fa-external-link"></span>
+        <span v-else class="center icon fas fa-chevron-right" ></span>
     </div>
     <div v-if="!navigable">
       <slot name="right-side"></slot>
@@ -28,29 +22,13 @@
 </template>
 
 <script>
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { config as fontAwesomeConfig } from "@fortawesome/fontawesome-svg-core";
-import {
-  faExternalLink,
-  faChevronRight,
-} from "@fortawesome/pro-light-svg-icons";
-
-fontAwesomeConfig.autoAddCss = false;
 
 export default {
   name: "JnList",
-  components: {
-    FontAwesomeIcon,
-  },
-  data: function () {
-    return {
-      faExternalLink,
-      faChevronRight,
-    };
-  },
   props: {
-    icon: {
-      type: Object,
+    faClass: {
+      type: String,
+      default: ""
     },
     title: String,
     secondaryText: String,

@@ -1,32 +1,32 @@
 <template>
-<JnCard title="">
-      <template #content>
-        <div>
-        <span :class="['round', colorTheme]">{{number}}</span>
+  <JnCard title="">
+    <template #content>
+      <div>
+        <span :class="['round', colorTheme]">{{ number }}</span>
         <slot></slot>
-        </div>
-      </template>
-      </JnCard>
+      </div>
+    </template>
+  </JnCard>
 </template>
 
 <script>
-import JnCard from "./JnCard"
+import JnCard from "./JnCard";
 export default {
   components: {
-    JnCard
+    JnCard,
   },
   props: {
     number: Number,
-    colorTheme: String
-  }
-}
+    colorTheme: String,
+  },
+};
 </script>
 
 <style scoped>
 div {
-  display: grid; 
+  display: grid;
   grid-template-columns: 1fr 9fr;
-  align-items: center; 
+  align-items: center;
 }
 .round {
   width: 1.5em;

@@ -6,12 +6,6 @@
     </div>
     <div class="wrapper jn-card-body">
       <slot name="content">
-        <img
-          v-if="contentPlaceholder"
-          :src="contentPlaceholder.imgPath"
-          class="card-img mt-2 mb-2"
-          :alt="contentPlaceholder.imgAlt"
-        />
       </slot>
       <slot name="description"></slot>
     </div>
@@ -22,7 +16,6 @@
 </template>
 
 <script>
-import ContentPlaceholder from "./../models/ContentPlaceholder";
 
 export default {
   name: "JnCard",
@@ -30,7 +23,6 @@ export default {
     title: String,
     subtitle: String,
     flat: Boolean,
-    contentPlaceholder: ContentPlaceholder,
   },
 };
 </script>
@@ -64,6 +56,11 @@ export default {
   padding: 1.25rem;
   height: 100%;
   display:grid;
+}
+.jn-cardfooter {
+  align-items: end; 
+  justify-items: end;
+  margin-top: 0.5rem; 
 }
 div > svg {
   margin: 0 auto;

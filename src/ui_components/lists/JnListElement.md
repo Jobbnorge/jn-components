@@ -4,5 +4,5 @@ Komponenten lar deg velge ikon, om elementene skal være navigerbare samt hvorvi
 Komponenten har også to slots: left-side og right-side. Disse kan benyttes for å sende inn egne komponenter som f.eks. Avatar.vue eller JnIconButton som vist 
 i eksempelet. <strong>Slot'en på høyre side kan KUN benyttes der som 'navigable' er false </slot>
 
-```[import](./../../components/ListElementDemo.vue)
+```[import](./../../examples/ListElementDemo.vue)
 ```

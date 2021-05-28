@@ -1,12 +1,12 @@
 <template>
   <div class="jn-card-hor">
     <div class="main-frame" v-bind:class="GetBackground(this.colorTheme, true)">
-      <div v-if="icon==null" :class="{'has-subtitle': mainFrameSubtitle != undefined}">
+      <div v-if="faClass==''" :class="{'has-subtitle': mainFrameSubtitle != undefined}">
         <span>{{mainFrameTitle}}</span>
         <span v-if="mainFrameSubtitle">{{mainFrameSubtitle}}</span>
       </div>
       <div v-else :style="{padding: `${iconPadding}px`}">
-        <FontAwesomeIcon :icon="icon" />
+        <span :class="['fal', faClass]"></span>
       </div>
     </div>
     <div class="frame second-frame" v-bind:class="GetBackground(this.colorTheme, false)">
@@ -19,16 +19,9 @@
   </div>
 </template>
 <script>
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { config as fontAwesomeConfig } from "@fortawesome/fontawesome-svg-core";
-
-fontAwesomeConfig.autoAddCss = false;
 
 export default {
   name: "JnCardHorizontal",
-  components: {
-    FontAwesomeIcon
-  },
   props: {
     mainFrameTitle: String,
     mainFrameSubtitle: String,
@@ -38,8 +31,19 @@ export default {
       type: String,
       default: "medium",
     },
-    colorTheme: String,
-    icon: Object,
+    colorTheme: {
+      type: String,
+      default: "blue",
+      validator: function(value) {
+        return (
+          ["blue", "pink", "gray", "green"].indexOf(value) !== -1
+        );
+      },
+    },
+    faClass: {
+      type: String,
+      default: ""
+    },
     /** Used to set the size of the icon. The larger the padding the smaller the icon.*/
     iconPadding: {
       type: Number,
@@ -49,13 +53,13 @@ export default {
   methods: {
     GetBackground: function (color, mainFrame) {
       switch (color) {
-        case "red":
+        case "pink":
           return mainFrame ? "bg-red" : "bg-red-secondary";
         case "blue":
           return mainFrame ? "bg-blue" : "bg-blue-secondary";
         case "green":
           return mainFrame ? "bg-green" : "bg-green-secondary";
-        case "black":
+        case "gray":
           return mainFrame ? "bg-black" : "bg-black-secondary";
       }
     },
@@ -67,7 +71,7 @@ export default {
           return "txt-blue";
         case "green":
           return "txt-green";
-        case "black":
+        case "gray":
           return "txt-black";
       }
     },

@@ -1,10 +1,10 @@
 <template>
   <article class="info-wrapper" v-if="showInfoCard">
     <button class="btn end muted" type="button" v-if="removable" @click="hideInfoCard">
-      <FontAwesomeIcon :icon="faTimes" />
+      <span :class="['fal', 'fa-times']"></span>
     </button>
     <div>
-      <FontAwesomeIcon :icon="icon" color="#127dac" />
+      <span :class="['fal', faClass]" style="color: var(--blue)"></span>
       <header>
         <h1 class="info-header">{{title}}</h1>
       </header>
@@ -17,17 +17,9 @@
 </template>
 <script>
 import Hyperlink from "../../domain/Hyperlink";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { config as fontAwesomeConfig } from "@fortawesome/fontawesome-svg-core";
-import { faInfoCircle, faTimes } from "@fortawesome/pro-light-svg-icons";
-
-fontAwesomeConfig.autoAddCss = false;
 
 export default {
   name: "JnInfoCard",
-  components: {
-    FontAwesomeIcon,
-  },
   props: {
     title: String,
     body: String, 
@@ -37,9 +29,9 @@ export default {
     hyperlink: {
       type: Hyperlink,
     },
-    icon: {
-      type: Object,
-      default: () => faInfoCircle,
+    faClass: {
+      type: String,
+      default: "fa-info-circle"
     },
     removable: {
       type: Boolean,
@@ -48,8 +40,7 @@ export default {
   },
   data() {
     return {
-      showInfoCard: true,
-      faTimes,
+      showInfoCard: true
     };
   },
   methods: {
@@ -86,10 +77,9 @@ section {
 .end {
   justify-self: end;
 }
-.svg-inline--fa {
-  width: 2em;
-  height: 2em;
-  display: inline-block;
+.fal {
+  font-size: 1.75em; 
+  justify-self: center; 
 }
 header {
   display: grid;

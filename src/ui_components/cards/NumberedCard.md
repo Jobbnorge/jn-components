@@ -1,4 +1,4 @@
 Et nytt kort gitt
 
-```[import](./../../components/NumberedCardExample.vue)
+```[import](./../../examples/NumberedCardExample.vue)
 ```

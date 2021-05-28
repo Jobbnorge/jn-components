@@ -5,6 +5,7 @@ W.I.P -> Work In Progress :)
 /* Colors */
 :root {
   --blue: #127dac;
+  --darkBlue: #0E6489;
   --lightBlue: #E8F5FA;
   --pink: #D41472;
   --lightPink: #FFEEF6;
@@ -17,6 +18,9 @@ W.I.P -> Work In Progress :)
 .btn.blue, .btn.blue:hover, .blue {
   background: var(--blue);
   color: #fff;  
+}
+.btn.blue.jn-border {
+  border: 1px solid var(--darkBlue); 
 }
 .btn.blue.light {
   background: var(--lightBlue);
@@ -38,7 +42,7 @@ W.I.P -> Work In Progress :)
   background: var(--lightPink);
   color: var(--gray);  
 }
-.btn.gray, .btn.gray:hover .pink {
+.btn.gray, .btn.gray:hover {
   background: var(--gray);
   color: #fff;  
 }
