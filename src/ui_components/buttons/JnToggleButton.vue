@@ -34,7 +34,10 @@ export default {
     handleClick() {
       this.isActive = !this.isActive;
       if (this.isActive === true) {
-        this.$emit("jnToggleButton-active", this.id)
+        this.$emit("jnToggleButton-on", this.id)
+      }
+      else {
+        this.$emit("jnToggleButton-off", this.id)
       }
     },
   },
