@@ -1,7 +1,7 @@
 <template>
   <div style="display: flex; font-size: 1em">
     <h1>Flagg</h1>
-    <ApplicationFlag flagName="isQualified" />
+    <ApplicationFlag flagName="isQualified" isClickable />
     <ApplicationFlag flagName="isNotQualified" />
     <ApplicationFlag flagName="isCalledForInterview" />
     <ApplicationFlag flagName="setPriority" />

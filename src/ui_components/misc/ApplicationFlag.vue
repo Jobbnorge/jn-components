@@ -1,5 +1,5 @@
 <template>
-  <div :class="['circle', 'badge', getFlagColor(flagName)]">
+  <div :class="['circle', 'badge', getFlagColor(flagName), {clickable: isClickable}, {animate: isClickable}]">
     <span :class="[getFlagIcon(flagName)]"></span>
   </div>
 </template>
@@ -17,6 +17,7 @@ export default {
             "isCalledForInterview",
             "priority",
             "hasReferenceCheck",
+            "hasCheckedReference",
             "isHired",
             "isRejected",
             "setInterview",
@@ -27,6 +28,10 @@ export default {
         );
       },
     },
+    isClickable: {
+      type: Boolean,
+      default: false
+    }
   },
   methods: {
     getFlagIcon(name) {
@@ -43,6 +48,7 @@ export default {
           return "fal fa-list-ol";
         case "hasReferenceCheck":
         case "setReferenceCheck":
+        case "hasCheckedReference":
           return "fal fa-check-double";
         case "isHired":
         case "setHired":
@@ -65,6 +71,7 @@ export default {
           return "pink";
         case "hasReferenceCheck":
         case "setReferenceCheck":
+        case "hasCheckedReference":
           return "blue";
         case "isHired":
         case "setHired":
@@ -87,5 +94,9 @@ export default {
   border-radius: 50%;
   text-align: center;
   box-sizing: border-box;
+}
+.clickable:hover, .clickable:active, .clickable:focus {
+  border: 1px solid;
+  cursor: pointer; 
 }
 </style>
