@@ -60,7 +60,7 @@ export default {
     getFlagColor: function(name) {
       switch (name) {
         case "isQualified":
-          return "blue";
+          return "green";
         case "isNotQualified":
           return "gray";
         case "isCalledForInterview":
@@ -90,7 +90,6 @@ export default {
   align-items: center;
   height: 3em;
   width: 3em;
-  margin: auto;
   border-radius: 50%;
   text-align: center;
   box-sizing: border-box;

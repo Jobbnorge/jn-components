@@ -82,6 +82,10 @@ W.I.P -> Work In Progress :)
   background: var(--lightGreen);
   border: 1px dashed #1d764f;
 }
+.box.white {
+  background: #ffffff;
+  border: 1px dashed var(--gray);
+}
 /* Buttons & styling used for buttons */
 .btn {
   color: inherit;
