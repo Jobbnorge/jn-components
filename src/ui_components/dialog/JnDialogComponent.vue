@@ -110,7 +110,6 @@ export default {
 .simple-modal {
   background: #ffffff;
   box-shadow: 2px 2px 20px 1px;
-  overflow-x: auto;
   display: grid;
   grid-template-columns: auto;
   min-width: 300px;
