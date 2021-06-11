@@ -3,11 +3,11 @@
     <UserQuote
       :note="text1"
       :author="author1"
-      showLess="Vis mindre"
-      showMore="Vis mer"
+      toggleShowLessText="Vis mindre"
+      toggleShowMoreText="Vis mer"
       :maxLength="200"
     />
-    <UserQuote :note="text2" showLess="Vis mindre" showMore="Vis mer" :maxLength="200" />
+    <UserQuote :note="text2" toggleShowLessText="Vis mindre" toggleShowMoreText="Vis mer" :maxLength="200" />
   </div>
 </template>
 <script>

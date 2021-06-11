@@ -20,7 +20,7 @@
               style="width: fit-content;"
               colorTheme="blue"
             >
-              {{ showAll ? showLess : showMore }}
+              {{ showAll ? toggleShowLessText : toggleShowMoreText }}
             </JnMiniButton>
           </div>
           <small v-if="author">{{ author }}</small>
@@ -30,9 +30,9 @@
   </div>
 </template>
 <script>
-import JnMiniButton from "../buttons/JnMiniButton";
+import JnMiniButton from "../buttons/JnMiniButton.vue";
 export default {
-  component: {
+  components: {
     JnMiniButton,
   },
   props: {
@@ -42,8 +42,8 @@ export default {
       type: Number,
       default: 200,
     },
-    showMore: String,
-    showLess: String,
+    toggleShowMoreText: String,
+    toggleShowLessText: String,
   },
   data() {
     return {
@@ -67,7 +67,7 @@ export default {
 }
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 0.2s ease;
 }
 .fade-enter,
 .fade-leave-to {
