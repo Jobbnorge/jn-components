@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-pro": "^5.15.3",
+    "@ivanv/vue-collapse-transition": "^1.0.2",
     "@popperjs/core": "^2.9.2",
     "caniuse-lite": "^1.0.30001235",
     "core-js": "^3.14.0",

@@ -1,31 +1,24 @@
 <template>
-  <div>
-    <div v-if="note">
-      <div class="note-container">
-        <div>
-          <span
-            class="fas fa-quote-right"
-            style="color: var(--darkBlue)"
-          ></span>
-          <p v-if="note.length < maxLength" style="margin-left: 0.5rem;">
-            {{ note }}
-          </p>
-          <div v-else style="display: grid; justify-items: end;">
-            <transition name="fade" mode="out-in">
-              <p v-if="!showAll">{{ getTrimmedText() }}</p>
-              <p v-else>{{ note }}</p>
-            </transition>
-            <JnMiniButton
-              @mini-button-clicked="showAll = !showAll"
-              style="width: fit-content;"
-              colorTheme="blue"
-            >
-              {{ showAll ? toggleShowLessText : toggleShowMoreText }}
-            </JnMiniButton>
-          </div>
-          <small v-if="author">{{ author }}</small>
-        </div>
+  <div v-if="note" class="note-container">
+    <div>
+      <span class="fas fa-quote-right" style="color: var(--darkBlue)"></span>
+      <p v-if="note.length < maxLength" style="margin-left: 0.5rem;">
+        {{ note }}
+      </p>
+      <div v-else style="display: grid; justify-items: end;">
+        <transition name="fade" mode="out-in">
+          <p v-if="!showAll">{{ getTrimmedText() }}</p>
+          <p v-else>{{ note }}</p>
+        </transition>
+        <JnMiniButton
+          @mini-button-clicked="showAll = !showAll"
+          style="width: fit-content;"
+          colorTheme="blue"
+        >
+          {{ showAll ? toggleShowLessText : toggleShowMoreText }}
+        </JnMiniButton>
       </div>
+      <small v-if="author">{{ author }}</small>
     </div>
   </div>
 </template>
@@ -55,15 +48,13 @@ export default {
       if (this.showAll == false) {
         return this.note.slice(0, this.maxLength) + "(...)";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
 .note-container {
   padding: 0.5rem;
-  margin-bottom: 1rem;
-  display: grid;
 }
 .fade-enter-active,
 .fade-leave-active {
