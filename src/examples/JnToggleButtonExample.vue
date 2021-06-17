@@ -33,16 +33,14 @@ export default {
   },
   data() {
     return {
-      isActive: false
+      isActive: true
     }
   },
   methods: {
     toggle: function(id) {
-      this.isActive = !this.isActive
       alert(`toggle on for: ${id}`);
     },
     off: function(id) {
-      this.isActive = !this.isActive
       alert(`toggle off for: ${id}`);
     }
   },

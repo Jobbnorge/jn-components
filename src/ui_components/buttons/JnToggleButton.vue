@@ -32,6 +32,14 @@ export default {
       type: Boolean,
     },
   },
+  created() {
+    this.isActive = this.toggleIsActive;
+  },
+  watch: {
+    toggleIsActive: function(newVal) {
+      this.isActive = newVal;
+    },
+  },
   data() {
     return {
       isActive: false,
@@ -39,11 +47,7 @@ export default {
   },
   methods: {
     handleClick() {
-      if (this.isControlledByParent) {
-        this.isActive = !this.toggleIsActive;
-      } else {
-        this.isActive = !this.isActive;
-      }
+      this.isActive = !this.isActive
       this.isActive
         ? this.$emit("jnToggleButton-on", this.id)
         : this.$emit("jnToggleButton-off", this.id);
