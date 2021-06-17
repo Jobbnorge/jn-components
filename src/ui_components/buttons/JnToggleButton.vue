@@ -24,6 +24,13 @@ export default {
     id: {
       type: String,
     },
+    isControlledByParent: {
+      type: Boolean,
+      default: false,
+    },
+    toggleIsActive: {
+      type: Boolean,
+    },
   },
   data() {
     return {
@@ -32,13 +39,14 @@ export default {
   },
   methods: {
     handleClick() {
-      this.isActive = !this.isActive;
-      if (this.isActive === true) {
-        this.$emit("jnToggleButton-on", this.id)
+      if (this.isControlledByParent) {
+        this.isActive = !this.toggleIsActive;
+      } else {
+        this.isActive = !this.isActive;
       }
-      else {
-        this.$emit("jnToggleButton-off", this.id)
-      }
+      this.isActive
+        ? this.$emit("jnToggleButton-on", this.id)
+        : this.$emit("jnToggleButton-off", this.id);
     },
   },
 };

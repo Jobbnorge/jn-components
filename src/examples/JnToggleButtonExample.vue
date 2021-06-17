@@ -12,6 +12,8 @@
     <JnToggleButton
       colorTheme="pink"
       id="t2"
+      isControlledByParent
+      :toggleIsActive="isActive"
       @jnToggleButton-on="toggle"
       @jnToggleButton-off="off"
     >
@@ -29,11 +31,18 @@ export default {
   components: {
     JnToggleButton,
   },
+  data() {
+    return {
+      isActive: false
+    }
+  },
   methods: {
     toggle: function(id) {
+      this.isActive = !this.isActive
       alert(`toggle on for: ${id}`);
     },
     off: function(id) {
+      this.isActive = !this.isActive
       alert(`toggle off for: ${id}`);
     }
   },
