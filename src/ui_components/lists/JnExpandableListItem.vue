@@ -17,6 +17,7 @@
 		</CollapseTransition>
 	</li>
 </template>
+
 <script>
 import CollapseTransition from "@ivanv/vue-collapse-transition/src/CollapseTransition.vue";
 export default {
